@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MasterDataUsahaPariwisataController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return File::get(public_path() . '/documentation.html');
-})->middleware('auth');
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', [DashboardController::class, 'index']);
+
+    Route::group(['prefix' => 'master'], function () {
+        Route::resource('dup', MasterDataUsahaPariwisataController::class);
+    });
+});
