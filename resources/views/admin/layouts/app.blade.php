@@ -6,6 +6,7 @@
     @stack('before-style')
     @include('admin.includes.style')
     @stack('after-style')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>

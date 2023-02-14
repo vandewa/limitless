@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MasterDataUsahaPariwisataController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DataEkrafController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'master'], function () {
         Route::resource('dup', MasterDataUsahaPariwisataController::class);
+        Route::resource('ekraf', DataEkrafController::class);
     });
 });

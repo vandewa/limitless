@@ -77,8 +77,9 @@
                     <table class="table datatable-basic tabelku">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Jenis Usaha Pariwisata</th>
+                                <th>No</th>
+                                <th>Nama Usaha</th>
+                                <th>Pemilik</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>

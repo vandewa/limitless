@@ -54,24 +54,24 @@
                                                 class="icon-menu" title="Main"></i>
                                 </li>
                                 <li class="nav-item">
-                                        <a href="index.html" class="nav-link active">
+                                        <a href="index.html" class="nav-link">
                                                 <i class="icon-home4"></i>
                                                 <span>
                                                         Dashboard
                                                 </span>
                                         </a>
                                 </li>
-                                <li class="nav-item nav-item-submenu">
+                                <li class="nav-item nav-item-submenu {{ Request::segment(2) == 'ekraf' ? 'nav-item-expanded nav-item-open' : '' }} {{ Request::segment(2) == 'dup' ? 'nav-item-expanded nav-item-open' : '' }} ">
                                         <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
                                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                                <li class="nav-item"><a href="{{ url('master/dup') }}"
-                                                                class="nav-link active">Data Usaha
+                                                <li class="nav-item"><a href="{{ route('ekraf.index') }}"
+                                                                class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">Data Ekraf</a>
+                                                </li>
+                                                <li class="nav-item"><a href="{{ route('dup.index') }}"
+                                                                class="nav-link {{ Request::segment(2) == 'dup' ? 'active' : '' }}">Data Usaha
                                                                 Pariwisata</a>
                                                 </li>
-                                        </ul>
-
-                                        <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                                                 <li class="nav-item"><a href="index.html" class="nav-link active">Data
                                                                 Pengguna</a>
                                                 </li>
