@@ -16,6 +16,9 @@ class MasterDataUsahaPariwisataController extends Controller
      */
     public function index(Request $request)
     {
+        $menu = "Master";
+        $submenu = "Data Usaha Pariwisata";
+
         if ($request->ajax()) {
             $data = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'ASC')->get();
             return DataTables::of($data)
@@ -34,7 +37,7 @@ class MasterDataUsahaPariwisataController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.jenis_usaha.index');
+        return view('admin.dup.index', compact('menu', 'submenu'));
     }
 
     /**

@@ -70,17 +70,16 @@
 
         <!-- Content area -->
         <div class="content">
-            <div class="text-right mb-3">
-                <a href="{{ url('master/jenis_usaha/create') }}" class="btn btn-primary">Tambah Data</a>
-            </div>
+
             <!-- Page length options -->
             <div class="card">`
                 <div class="card-body">
                     <table class="table datatable-basic tabelku">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Jenis Usaha Pariwisata</th>
+                                <th>No</th>
+                                <th>Nama Usaha</th>
+                                <th>Pemilik</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
