@@ -61,15 +61,18 @@
                                                 </span>
                                         </a>
                                 </li>
-                                <li class="nav-item nav-item-submenu {{ Request::segment(2) == 'ekraf' ? 'nav-item-expanded nav-item-open' : '' }} {{ Request::segment(2) == 'dup' ? 'nav-item-expanded nav-item-open' : '' }} ">
+                                <li
+                                        class="nav-item nav-item-submenu {{ Request::segment(2) == 'ekraf' ? 'nav-item-expanded nav-item-open' : '' }} {{ Request::segment(2) == 'jenis_usaha' ? 'nav-item-expanded nav-item-open' : '' }} ">
                                         <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
                                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                                                 <li class="nav-item"><a href="{{ route('ekraf.index') }}"
-                                                                class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">Data Ekraf</a>
+                                                                class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">Data
+                                                                Ekraf</a>
                                                 </li>
-                                                <li class="nav-item"><a href="{{ route('dup.index') }}"
-                                                                class="nav-link {{ Request::segment(2) == 'dup' ? 'active' : '' }}">Data Usaha
+                                                <li class="nav-item"><a href="{{ route('jenis_usaha.index') }}"
+                                                                class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">Data
+                                                                Usaha
                                                                 Pariwisata</a>
                                                 </li>
                                                 <li class="nav-item"><a href="index.html" class="nav-link active">Data

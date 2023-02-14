@@ -33,7 +33,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb">
                         <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                        <a href="{{ route('dup.index') }}" class="breadcrumb-item">{{ $menu }}</a>
+                        <a href="{{ route('jenis_usaha.index') }}" class="breadcrumb-item">{{ $menu }}</a>
                         <span class="breadcrumb-item active">{{ $submenu }}</span>
                     </div>
 
@@ -86,7 +86,7 @@
                         </thead>
                     </table>
                 </div>
-               
+
             </div>
             <!-- /page length options -->
 
@@ -106,7 +106,7 @@
         serverSide: true,
         responsive: true,
         columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex' , orderable: false, searchable: false, className: "text-left"},
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'jenis_usaha', name: 'jenis_usaha', className: "text-center" },
             { data: 'action', className: "text-center" },
         ]

@@ -37,7 +37,7 @@ class MasterDataUsahaPariwisataController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.dup.index', compact('menu', 'submenu'));
+        return view('admin.jenis_usaha.index', compact('menu', 'submenu'));
     }
 
     /**
