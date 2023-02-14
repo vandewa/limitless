@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MasterDataUsahaPariwisata;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MasterDataUsahaPariwisataController extends Controller
 {
@@ -24,8 +25,8 @@ class MasterDataUsahaPariwisataController extends Controller
                     function ($data) {
                         $actionBtn = '
                     <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('dup.edit', $data->id) . ' " class="btn btn-simple btn-warning btn-icon"><i class="material-icons">dvr</i> Edit</a>
-                        <a href="' . route('dup.destroy', $data->id) . ' " class="btn btn-simple btn-danger btn-icon delete-data-table"><i class="material-icons">close</i> Delete</a>
+                        <a href="' . route('jenis_usaha.edit', $data->id) . ' " class="btn btn-sm bg-success"><i class="icon-pencil3"></i></a>
+                        <a href="' . route('jenis_usaha.destroy', $data->id) . ' " class="btn btn-sm bg-danger delete-data-table"><i class="icon-trash"></i></a>
                     </div>';
                         return $actionBtn;
                     }
@@ -33,7 +34,7 @@ class MasterDataUsahaPariwisataController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.dup.index');
+        return view('admin.jenis_usaha.index');
     }
 
     /**
@@ -43,7 +44,7 @@ class MasterDataUsahaPariwisataController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.jenis_usaha.create');
     }
 
     /**
@@ -54,7 +55,13 @@ class MasterDataUsahaPariwisataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'jenis_usaha' => 'required',
+        ]);
+
+        MasterDataUsahaPariwisata::create($validated);
+        Alert::success('Sukses', 'Data Berhasil di Simpan');
+        return redirect(route('jenis_usaha.index'));
     }
 
     /**
@@ -74,9 +81,10 @@ class MasterDataUsahaPariwisataController extends Controller
      * @param  \App\Models\MasterDataUsahaPariwisata  $masterDataUsahaPariwisata
      * @return \Illuminate\Http\Response
      */
-    public function edit(MasterDataUsahaPariwisata $masterDataUsahaPariwisata)
+    public function edit($id)
     {
-        dd('asdas');
+        $data = MasterDataUsahaPariwisata::find($id);
+        return view('admin.jenis_usaha.edit', compact('data'));
     }
 
     /**
@@ -86,9 +94,16 @@ class MasterDataUsahaPariwisataController extends Controller
      * @param  \App\Models\MasterDataUsahaPariwisata  $masterDataUsahaPariwisata
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MasterDataUsahaPariwisata $masterDataUsahaPariwisata)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'jenis_usaha' => 'required',
+        ]);
+
+        $data = MasterDataUsahaPariwisata::find($id);
+        $data->update($validated);
+        Alert::success('Sukses', 'Data Telah di Perbaharui');
+        return redirect(route('jenis_usaha.index'));
     }
 
     /**

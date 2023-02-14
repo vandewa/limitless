@@ -32,9 +32,11 @@
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                        <a href="datatable_advanced.html" class="breadcrumb-item">Datatables</a>
-                        <span class="breadcrumb-item active">Advanced</span>
+                        <a href="{{ url('dashboard') }}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>
+                            Dashboard</a>
+                        <a href="#" class="breadcrumb-item">Master</a>
+                        <a href="#" class="breadcrumb-item">Jenis Usaha</a>
+                        <span class="breadcrumb-item active">Tambah Data</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -70,21 +72,31 @@
 
         <!-- Content area -->
         <div class="content">
+            <div class="row">
+                <div class="col-md-4">
 
-            <!-- Page length options -->
-            <div class="card">
-                <table id="tabelku" class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Jenis Usaha Pariwisata</th>
-                            <th class="text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                </table>
+                    <!-- Left and right buttons -->
+                    <div class="card">
+                        <div class="card-body">
+                            {{ Form::model($data, ['route' => ['jenis_usaha.update', $data->id], 'method' => 'PUT']) }}
+                            <div class="form-group">
+                                <label>Jenis Usaha:</label>
+                                {{ Form::text('jenis_usaha', null, ['class' => 'form-control',
+                                'placeholder' => 'Masukkan Jenis Usaha']) }}
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a class="btn btn-light" href="{{ url('master/jenis_usaha') }}">Kembali</a>
+                                <button type="submit" class="btn bg-blue">Simpan <i
+                                        class="icon-paperplane ml-2"></i></button>
+                            </div>
+                            {{ Form::close() }}
+                        </div>
+                    </div>
+                    <!-- /left and right buttons -->
+
+                </div>
             </div>
-            <!-- /page length options -->
-
         </div>
         <!-- /main content -->
 
@@ -95,26 +107,4 @@
 </div>
 @endsection
 @push('after-script')
-<script type="text/javascript">
-    $('#tabelku').DataTable({
-        "pagingType": "full_numbers",
-        "lengthMenu": [
-            [10, 25, 50, -1],
-            [10, 25, 50, "All"]
-        ],
-        responsive: true,
-        processing: true,
-        serverSide: true,
-        lengthChange: true,
-        language: {
-            search: "_INPUT_",
-            searchPlaceholder: "Search records",
-        },
-        columns: [
-            { data: 'DT_RowIndex' },
-            { data: 'jenis_usaha', name: 'jenis_usaha', className: "text-center" },
-            { data: 'action', className: "text-center" },
-        ]
-    });
-</script>
 @endpush

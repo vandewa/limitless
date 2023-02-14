@@ -54,20 +54,21 @@
                                                 class="icon-menu" title="Main"></i>
                                 </li>
                                 <li class="nav-item">
-                                        <a href="index.html" class="nav-link active">
+                                        <a href="{{ url('dashboard') }}"
+                                                class="nav-link {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
                                                 <i class="icon-home4"></i>
                                                 <span>
                                                         Dashboard
                                                 </span>
                                         </a>
                                 </li>
-                                <li class="nav-item nav-item-submenu">
+                                <li
+                                        class="nav-item nav-item-submenu {{ Request::segment(2) == 'jenis_usaha' ? 'nav-item-open' : '' }}">
                                         <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
                                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                                <li class="nav-item"><a href="{{ url('master/dup') }}"
-                                                                class="nav-link active">Data Usaha
-                                                                Pariwisata</a>
+                                                <li class="nav-item"><a href="{{ url('master/jenis_usaha') }}"
+                                                                class="nav-link active">Jenis Usaha</a>
                                                 </li>
                                         </ul>
 

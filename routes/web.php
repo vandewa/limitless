@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('dashboard', [DashboardController::class, 'index']);
 
     Route::group(['prefix' => 'master'], function () {
-        Route::resource('dup', MasterDataUsahaPariwisataController::class);
+        Route::resource('jenis_usaha', MasterDataUsahaPariwisataController::class);
     });
 });
