@@ -67,27 +67,52 @@
         </div>
         <!-- /page header -->
 
-
         <!-- Content area -->
         <div class="content">
 
-            <!-- Page length options -->
-            <div class="card">`
-                <div class="card-body">
-                    <table class="table datatable-basic tabelku">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Usaha</th>
-                                <th>Pemilik</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            <!-- Form inputs -->
+				<div class="card">
+					<div class="card-header header-elements-inline">
+						<h5 class="card-title">Basic form inputs</h5>
+						<div class="header-elements">
+							<div class="list-icons">
+		                		<a class="list-icons-item" data-action="collapse"></a>
+		                		<a class="list-icons-item" data-action="reload"></a>
+		                		<a class="list-icons-item" data-action="remove"></a>
+		                	</div>
+	                	</div>
+					</div>
 
-            </div>
-            <!-- /page length options -->
+					<div class="card-body">
+						<p class="mb-4">Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input></code>, <code>&lt;textarea></code>, and <code>&lt;select></code> elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.col-form-label</code> class.</p>
+
+						<form action="#">
+							<fieldset class="mb-3">
+								<legend class="text-uppercase font-size-sm font-weight-bold">Basic inputs</legend>
+
+								<div class="form-group row">
+									<label class="col-form-label col-lg-2">Default text input</label>
+									<div class="col-lg-10">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-form-label col-lg-2">Password</label>
+									<div class="col-lg-10">
+										<input type="password" class="form-control">
+									</div>
+								</div>
+							</fieldset>
+
+							<div class="text-right">
+								<button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /form inputs -->
+
 
         </div>
         <!-- /main content -->
@@ -97,19 +122,3 @@
     </div>
     <!-- /page content -->
 </div>
-@endsection
-@push('after-script')
-<script type="text/javascript">
-    var table = $('.tabelku').DataTable({
-        processing: true,
-        serverSide: true,
-        responsive: true,
-        columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama_pemilik', name: 'nama_pemilik',  },
-            { data: 'nama_usaha', name: 'jenis_usaha',  },
-            { data: 'action', className: "text-center" },
-        ]
-    });
-</script>
-@endpush

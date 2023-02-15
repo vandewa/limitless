@@ -62,7 +62,7 @@
                                         </a>
                                 </li>
                                 <li
-                                        class="nav-item nav-item-submenu {{ Request::segment(2) == 'ekraf' ? 'nav-item-expanded nav-item-open' : '' }} {{ Request::segment(2) == 'jenis_usaha' ? 'nav-item-expanded nav-item-open' : '' }} ">
+                                        class="nav-item nav-item-submenu {{ Request::segment(2) == 'ekraf' ? 'nav-item-expanded nav-item-open' : '' }} {{ Request::segment(2) == 'jenis_usaha' ? 'nav-item-expanded nav-item-open' : '' }}{{ Request::segment(2) == 'subsektor' ? 'nav-item-expanded nav-item-open' : '' }} ">
                                         <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
                                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
@@ -74,6 +74,10 @@
                                                                 class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">Data
                                                                 Usaha
                                                                 Pariwisata</a>
+                                                </li>
+                                                <li class="nav-item"><a href="{{ route('subsektor.index') }}"
+                                                                class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">Data
+                                                                Subsektor</a>
                                                 </li>
                                                 <li class="nav-item"><a href="index.html" class="nav-link active">Data
                                                                 Pengguna</a>

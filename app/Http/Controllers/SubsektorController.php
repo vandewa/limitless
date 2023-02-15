@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use App\Models\Ekraf;
-
-class DataEkrafController extends Controller
+use App\Models\Subsektor;
+class SubsektorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,10 @@ class DataEkrafController extends Controller
     public function index(Request $request)
     {
         $menu = "Master";
-        $submenu = "Data Ekraf";
+        $submenu = "Data Subsektor";
 
         if ($request->ajax()) {
-            $data = Ekraf::orderBy('nama_usaha', 'ASC');
+            $data = Subsektor::orderBy('nama_subsektor', 'ASC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -36,7 +35,8 @@ class DataEkrafController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.ekraf.index', compact('menu', 'submenu'));
+        return view('admin.subsektor.index', compact('menu', 'submenu'));
+
     }
 
     /**
@@ -46,7 +46,11 @@ class DataEkrafController extends Controller
      */
     public function create()
     {
-        //
+        $menu = "Master";
+        $submenu = "Data Subsektor";
+
+        return view('admin.subsektor.create', compact('menu', 'submenu'));
+
     }
 
     /**
@@ -79,10 +83,7 @@ class DataEkrafController extends Controller
      */
     public function edit($id)
     {
-        $menu = "Master";
-        $submenu = "Data Ekraf"; 
-
-        return view('admin.ekraf.edit', compact('menu', 'submenu'));
+        //
     }
 
     /**
@@ -105,6 +106,6 @@ class DataEkrafController extends Controller
      */
     public function destroy($id)
     {
-        Ekraf::destroy($id);
+        //
     }
 }

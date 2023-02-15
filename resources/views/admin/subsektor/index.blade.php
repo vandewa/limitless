@@ -67,9 +67,12 @@
         </div>
         <!-- /page header -->
 
-
         <!-- Content area -->
         <div class="content">
+            
+            <div class="col-12 mb-3">
+                <a href="{{ route('subsektor.create') }}"><button class="btn btn-info rounded-round"><i class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
+            </div>
 
             <!-- Page length options -->
             <div class="card">`
@@ -78,8 +81,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Usaha</th>
-                                <th>Pemilik</th>
+                                <th>Nama Subsektor</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -106,8 +108,7 @@
         responsive: true,
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama_pemilik', name: 'nama_pemilik',  },
-            { data: 'nama_usaha', name: 'jenis_usaha',  },
+            { data: 'nama_subsektor', name: 'nama_subsektor',  },
             { data: 'action', className: "text-center" },
         ]
     });
