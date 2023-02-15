@@ -20,7 +20,7 @@ use App\Http\Controllers\DataEkrafController;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index']);
 
     Route::group(['prefix' => 'master'], function () {
         Route::resource('jenis_usaha', MasterDataUsahaPariwisataController::class);
