@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Ekraf;
 use App\Models\Subsektor;
-
+use App\Models\SubsektorEkraf;
 
 class DataEkrafController extends Controller
 {
@@ -84,7 +84,7 @@ class DataEkrafController extends Controller
      */
     public function store(Request $request)
     {
-       Ekraf::create([
+       $ekraf = Ekraf::create([
         'nama_pemilik' => $request->nama_pemilik,
         'nik' => $request->nik,
         'jenis_kelamin' => $request->jenis_kelamin,
@@ -103,6 +103,17 @@ class DataEkrafController extends Controller
         'nomor_hp' => $request->nomor_hp,
         'jml_tenaga' => $request->jml_tenaga
        ]);
+
+       $subsektors = $request->subsektor_id;
+
+       foreach($subsektors as $subsektor) {
+        $ekraf->subsektorEkraf()->create([
+                'ekraf_id' => $ekraf->id,
+                'subsektor_id' => $subsektor,
+        ]);
+    }
+
+       return redirect(route('ekraf.index'))->with('tambah', 'oke');
     }
 
     /**
@@ -124,10 +135,23 @@ class DataEkrafController extends Controller
      */
     public function edit($id)
     {
+        $data = Ekraf::find($id);
+        // $subsektornya = $data->subsektorEkraf()->with(['subsektornya' => function ($query) {
+        //     $query->select('nama_subsektor', 'id');
+        // }])
+        // ->get()
+        $subsektornya = SubsektorEkraf::with('subsektornya')->where('ekraf_id', $id)->get()->pluck('subsektornya.id');
+     
+
+        // return $subsektornya;
+
         $menu = "Master";
         $submenu = "Data Ekraf"; 
+        $title = "Edit Data Ekraf";
+        $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
+        // $kabupaten = 
 
-        return view('admin.ekraf.edit', compact('menu', 'submenu'));
+        return view('admin.ekraf.edit', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
     }
 
     /**
@@ -139,7 +163,7 @@ class DataEkrafController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

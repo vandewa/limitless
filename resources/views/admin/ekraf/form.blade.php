@@ -62,7 +62,7 @@
                 @if(Request::segment(3) == 'create' )
                     {{Form::select('kabupaten', get_kab(), null, ['class' => 'form-control select-search','id' => 'kabupaten'])}}   
                 @else
-                        {{-- {{Form::select('region_kab', get_kab($data->region_prop), $kabupaten, ['class' => 'form-control select2', 'placeholder' => 'Pilih Kabupaten','id' => 'kabupaten'])}}    --}}
+                    {{Form::select('kabupaten', get_kab(), $data->kabupaten, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kabupaten','id' => 'kabupaten'])}}   
                 @endif
             </div>
         </div>
@@ -74,7 +74,7 @@
                 @if(Request::segment(3) == 'create' )
                     {{Form::select('kecamatan', get_kec(), null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kecamatan', 'id' => 'kecamatan'])}}
                 @else
-                        {{-- {{Form::select('region_kec', get_kec($data->region_kab), $kecamatan, ['class' => 'form-control select2', 'placeholder' => 'Pilih Kecamatan','id' => 'kecamatan'])}}    --}}
+                    {{Form::select('kecamatan', get_kec(), $data->kecamatan, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kecamatan','id' => 'kecamatan'])}}   
                 @endif
             </div>
         </div>
@@ -84,7 +84,7 @@
                 @if(Request::segment(3) == 'create' )
                     {{Form::select('kelurahan',[], null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
                 @else
-                    {{-- {{Form::select('region_kel', get_kel($data->region_kec), $kelurahan, ['class' => 'form-control select2', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}} --}}
+                    {{Form::select('kelurahan', get_kel($data->kelurahan), $data->kelurahan, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
                 @endif
             </div>
         </div>
@@ -93,8 +93,7 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">SUBSEKTOR EKRAF</label>
             <div class="col-lg-10">
-                {{-- <select multiple="multiple" class="form-control select-fixed-multiple" data-fouc> --}}
-                {!! Form::select('subsektor_id[]', $subsektor, null, ['class' => 'form-control select-fixed-multiple','multiple' => 'multiple']) !!}
+                {!! Form::select('subsektor_id[]', $subsektor, $subsektornya, ['class' => 'form-control select-fixed-multiple','multiple' => 'multiple']) !!}
             </div>
         </div>
         <div class="col-6">
@@ -122,13 +121,13 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">NOMOR HP</label>
             <div class="col-lg-10">
-                {!! Form::text('nomor_hp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nomor hp']) !!}
+                {!! Form::number('nomor_hp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nomor hp']) !!}
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA</label>
             <div class="col-lg-10">
-                {!! Form::text('jml_tenaga', null, ['class' => 'form-control', 'placeholder' => 'Masukkan tenaga kerja']) !!}
+                {!! Form::number('jml_tenaga', null, ['class' => 'form-control', 'placeholder' => 'Masukkan tenaga kerja']) !!}
             </div>
         </div>
     </div>      

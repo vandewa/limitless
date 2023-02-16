@@ -70,8 +70,25 @@
 
         <!-- Content area -->
         <div class="content">
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title">{{ $title }}</h5>
+                    <div class="header-elements">
+                        <div class="list-icons">
+                            <a class="list-icons-item" data-action="collapse"></a>
+                            <a class="list-icons-item" data-action="reload"></a>
+                            <a class="list-icons-item" data-action="remove"></a>
+                        </div>
+                    </div>
+                </div>
 
-
+                <div class="card-body">
+                    {{Form::open(['route' => 'ekraf.store','method' => 'post', 'id' => 'my-form'])}} 
+                    @include('admin.ekraf.form')	
+                    {{Form::close()}}
+                </div>
+            </div>
+				<!-- /form inputs -->
         </div>
         <!-- /main content -->
 
@@ -81,18 +98,3 @@
     <!-- /page content -->
 </div>
 @endsection
-@push('after-script')
-<script type="text/javascript">
-    var table = $('.tabelku').DataTable({
-        processing: true,
-        serverSide: true,
-        responsive: true,
-        columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama_pemilik', name: 'nama_pemilik',  },
-            { data: 'nama_usaha', name: 'jenis_usaha',  },
-            { data: 'action', className: "text-center" },
-        ]
-    });
-</script>
-@endpush

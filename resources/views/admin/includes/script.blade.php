@@ -15,14 +15,12 @@
 <script src="{{ asset ('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset ('limitless/global_assets/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
 
-
-
 <script src="{{ asset('limitless/layout_1/LTR/default/full/assets/js/app.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/demo_pages/components_buttons.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script>
-{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script> --}}
-<script src="{{ asset('limitless/global_assets/js/demo_pages/form_select2.js')}}"></script>
+{{-- <script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script> --}}
+{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<script src="{{ asset('limitless/global_assets/js/demo_pages/form_select2.js')}}"></script> --}}
 
 
 <!-- /theme JS files -->
