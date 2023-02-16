@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Ekraf;
+use App\Models\Subsektor;
+
 
 class DataEkrafController extends Controller
 {
@@ -44,9 +46,34 @@ class DataEkrafController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $menu = "Master";
+        $submenu = "Data Ekraf";
+        $subsubmenu = "Tambah Ekraf";
+        $title = "Tambah Data Ekraf";
+        $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
+
+        if ($request->ajax()) {
+            $data = Ekraf::orderBy('nama_usaha', 'ASC');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($data) {
+                        $actionBtn = '
+                        <div>
+                            <a href="' . route('ekraf.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
+                            <a href="' . route('ekraf.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        </div>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('admin.ekraf.create', compact('menu', 'submenu', 'subsubmenu', 'title', 'subsektor'));
     }
 
     /**
@@ -57,7 +84,25 @@ class DataEkrafController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       Ekraf::create([
+        'nama_pemilik' => $request->nama_pemilik,
+        'nik' => $request->nik,
+        'jenis_kelamin' => $request->jenis_kelamin,
+        'tempat_lahir' => $request->tempat_lahir,
+        'tanggal_lahir' => $request->tanggal_lahir,
+        'alamat' => $request->alamat,
+        'rt' => $request->rt,
+        'rw' => $request->rw,
+        'kelurahan' => $request->kelurahan,
+        'kecamatan' => $request->kecamatan,
+        'kabupaten' => $request->kabupaten,
+        'jenis_barang_jasa' => $request->jenis_barang_jasa,
+        'nama_usaha' => $request->nama_usaha,
+        'nama_merek' => $request->nama_merek,
+        'hki_status' => $request->hki_status,
+        'nomor_hp' => $request->nomor_hp,
+        'jml_tenaga' => $request->jml_tenaga
+       ]);
     }
 
     /**

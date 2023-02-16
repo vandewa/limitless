@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Subsektor;
+use App\Http\Requests\SubsektorStoreValidation;
+
 class SubsektorController extends Controller
 {
     /**
@@ -26,8 +28,8 @@ class SubsektorController extends Controller
                     function ($data) {
                         $actionBtn = '
                         <div>
-                            <a href="' . route('ekraf.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
-                            <a href="' . route('ekraf.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                            <a href="' . route('subsektor.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
+                            <a href="' . route('subsektor.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
                         </div>';
                         return $actionBtn;
                     }
@@ -48,8 +50,10 @@ class SubsektorController extends Controller
     {
         $menu = "Master";
         $submenu = "Data Subsektor";
+        $subsubmenu = "Tambah Subsektor";
+        $title = "Tambah Data Subsektor";
 
-        return view('admin.subsektor.create', compact('menu', 'submenu'));
+        return view('admin.subsektor.create', compact('menu', 'submenu', 'subsubmenu', 'title'));
 
     }
 
@@ -59,9 +63,13 @@ class SubsektorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubsektorStoreValidation $request)
     {
-        //
+        Subsektor::create([
+            'nama_subsektor' => $request->nama_subsektor
+        ]);
+
+        return redirect(route('subsektor.index'))->with('tambah', 'oke');
     }
 
     /**
@@ -83,7 +91,13 @@ class SubsektorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $menu = "Master";
+        $submenu = "Data Subsektor";
+        $subsubmenu = "Edit Subsektor";
+        $title = "Edit Data Subsektor";
+        $data = Subsektor::find($id);
+
+        return view('admin.subsektor.edit', compact('data','menu', 'submenu', 'subsubmenu', 'title'));
     }
 
     /**
@@ -95,7 +109,11 @@ class SubsektorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Subsektor::find($id)->update([
+            'nama_subsektor' => $request->nama_subsektor
+        ]);
+
+        return redirect(route('subsektor.index'))->with('edit', 'oke');
     }
 
     /**
@@ -106,6 +124,6 @@ class SubsektorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Subsektor::destroy($id);
     }
 }

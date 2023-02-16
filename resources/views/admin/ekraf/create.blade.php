@@ -34,7 +34,8 @@
                     <div class="breadcrumb">
                         <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                         <a href="{{ route('jenis_usaha.index') }}" class="breadcrumb-item">{{ $menu }}</a>
-                        <span class="breadcrumb-item active">{{ $submenu }}</span>
+                        <span class="breadcrumb-item">{{ $submenu }}</span>
+                        <span class="breadcrumb-item active">{{ $title }}</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -67,29 +68,30 @@
         </div>
         <!-- /page header -->
 
+
         <!-- Content area -->
         <div class="content">
-            
-            <div class="col-12 mb-3">
-                <a href="{{ route('subsektor.create') }}"><button class="btn btn-primary rounded-round"><i class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
-            </div>
 
-            <!-- Page length options -->
-            <div class="card">`
-                <div class="card-body">
-                    <table class="table datatable-basic tabelku">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Subsektor</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+            <!-- Form inputs -->
+				<div class="card">
+					<div class="card-header header-elements-inline">
+						<h5 class="card-title">{{ $title }}</h5>
+						<div class="header-elements">
+							<div class="list-icons">
+		                		<a class="list-icons-item" data-action="collapse"></a>
+		                		<a class="list-icons-item" data-action="reload"></a>
+		                		<a class="list-icons-item" data-action="remove"></a>
+		                	</div>
+	                	</div>
+					</div>
 
-            </div>
-            <!-- /page length options -->
+					<div class="card-body">
+                        {{Form::open(['route' => 'ekraf.store','method' => 'post', 'id' => 'my-form'])}} 
+						@include('admin.ekraf.form')	
+						{{Form::close()}}
+					</div>
+				</div>
+				<!-- /form inputs -->
 
         </div>
         <!-- /main content -->
@@ -101,16 +103,11 @@
 </div>
 @endsection
 @push('after-script')
-<script type="text/javascript">
-    var table = $('.tabelku').DataTable({
-        processing: true,
-        serverSide: true,
-        responsive: true,
-        columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama_subsektor', name: 'nama_subsektor',  },
-            { data: 'action', className: "text-center" },
-        ]
-    });
-</script>
+<!-- Javascript Requirements -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{{-- {!! JsValidator::formRequest('App\Http\Requests\SubsektorStoreValidation','#my-form') !!} --}}
 @endpush

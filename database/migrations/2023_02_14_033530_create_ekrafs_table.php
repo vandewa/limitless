@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('ekrafs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_pemilik')->nullable();
             $table->string('nik')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->string('tempat_lahir')->nullable();
@@ -25,7 +26,6 @@ return new class extends Migration
             $table->string('kelurahan')->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('kabupaten')->nullable();
-            $table->integer('subsektor_id')->nullable();
             $table->string('jenis_barang_jasa')->nullable();
             $table->string('nama_usaha')->nullable();
             $table->string('nama_merek')->nullable();
