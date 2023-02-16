@@ -93,7 +93,11 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">SUBSEKTOR EKRAF</label>
             <div class="col-lg-10">
-                {!! Form::select('subsektor_id[]', $subsektor, $subsektornya, ['class' => 'form-control select-fixed-multiple','multiple' => 'multiple']) !!}
+                @if(Request::segment(3) == 'create' )
+                    {!! Form::select('subsektor_id[]', $subsektor, null, ['class' => 'form-control select-fixed-multiple','multiple' => 'multiple']) !!}
+                @else
+                    {!! Form::select('subsektor_id[]', $subsektor, $subsektornya, ['class' => 'form-control select-fixed-multiple','multiple' => 'multiple']) !!}
+                @endif
             </div>
         </div>
         <div class="col-6">
