@@ -78,7 +78,8 @@
                                                                 class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">
                                                                 Subsektor</a>
                                                 </li>
-                                                <li class="nav-item"><a href="index.html" class="nav-link active">Data
+                                                <li class="nav-item"><a href="{{ route('pengguna.index') }}"
+                                                                class="nav-link active">Data
                                                                 Pengguna</a>
                                                 </li>
                                         </ul>

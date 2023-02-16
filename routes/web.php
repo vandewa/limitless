@@ -5,6 +5,7 @@ use App\Http\Controllers\MasterDataUsahaPariwisataController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataEkrafController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\SubsektorController;
 use App\Http\Controllers\RegionController;
 
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('jenis_usaha', MasterDataUsahaPariwisataController::class);
         Route::resource('ekraf', DataEkrafController::class);
         Route::resource('subsektor', SubsektorController::class);
+        Route::resource('pengguna', PenggunaController::class);
     });
     Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');
 });

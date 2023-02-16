@@ -12,8 +12,8 @@
         <div class="page-header page-header-light">
             <div class="page-header-content header-elements-md-inline">
                 <div class="page-title d-flex">
-                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Datatables</span> -
-                        Advanced</h4>
+                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">{{ $menu }}</span> -
+                        {{ $submenu }}</h4>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
@@ -32,11 +32,9 @@
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="{{ url('dashboard') }}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>
-                            Dashboard</a>
-                        <a href="#" class="breadcrumb-item">Master</a>
-                        <a href="#" class="breadcrumb-item">Jenis Usaha</a>
-                        <span class="breadcrumb-item active">Tambah Data</span>
+                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                        <a href="{{ route('jenis_usaha.index') }}" class="breadcrumb-item">{{ $menu }}</a>
+                        <span class="breadcrumb-item active">{{ $submenu }}</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -72,31 +70,28 @@
 
         <!-- Content area -->
         <div class="content">
-            <div class="row">
-                <div class="col">
-
-                    <!-- Left and right buttons -->
-                    <div class="card">
-                        <div class="card-body">
-                            {{ Form::open(['route' => 'jenis_usaha.store', 'method' => 'POST']) }}
-                            <div class="form-group">
-                                <label>Jenis Usaha:</label>
-                                {{ Form::text('jenis_usaha', null, ['class' => 'form-control',
-                                'placeholder' => 'Masukkan Jenis Usaha']) }}
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a class="btn btn-light" href="{{ url('master/jenis_usaha') }}">Kembali</a>
-                                <button type="submit" class="btn bg-blue">Simpan <i
-                                        class="icon-paperplane ml-2"></i></button>
-                            </div>
-                            {{ Form::close() }}
-                        </div>
-                    </div>
-                    <!-- /left and right buttons -->
-
-                </div>
+            <div class="col-12 mb-3">
+                <a href="{{ route('pengguna.create') }}"><button class="btn btn-primary rounded-round"><i
+                            class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
             </div>
+            <!-- Page length options -->
+            <div class="card">`
+                <div class="card-body">
+                    <table class="table datatable-basic tabelku">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama User</th>
+                                <th>Email User</th>
+                                <th class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /page length options -->
+
         </div>
         <!-- /main content -->
 
@@ -107,4 +102,17 @@
 </div>
 @endsection
 @push('after-script')
+<script type="text/javascript">
+    var table = $('.tabelku').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
+            { data: 'name', name: 'name', className: "text-center" },
+            { data: 'email', name: 'email', className: "text-center" },
+            { data: 'action', className: "text-center" },
+        ]
+    });
+</script>
 @endpush

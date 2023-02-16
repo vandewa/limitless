@@ -70,9 +70,11 @@
 
         <!-- Content area -->
         <div class="content">
-            <div class="text-right mb-3">
-                <a href="{{ url('master/jenis_usaha/create') }}" class="btn btn-primary">Tambah Data</a>
+            <div class="col-12 mb-3">
+                <a href="{{ route('jenis_usaha.create') }}"><button class="btn btn-primary rounded-round"><i
+                            class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
             </div>
+
             <!-- Page length options -->
             <div class="card">`
                 <div class="card-body">
