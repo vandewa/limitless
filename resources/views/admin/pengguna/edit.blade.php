@@ -12,8 +12,8 @@
         <div class="page-header page-header-light">
             <div class="page-header-content header-elements-md-inline">
                 <div class="page-title d-flex">
-                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Datatables</span> -
-                        Advanced</h4>
+                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">{{ $menu }}</span> -
+                        {{ $submenu }}</h4>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
@@ -32,11 +32,10 @@
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="{{ url('dashboard') }}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>
-                            Dashboard</a>
-                        <a href="#" class="breadcrumb-item">Master</a>
-                        <a href="#" class="breadcrumb-item">Jenis Usaha</a>
-                        <span class="breadcrumb-item active">Tambah Data</span>
+                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                        <a href="{{ route('jenis_usaha.index') }}" class="breadcrumb-item">{{ $menu }}</a>
+                        <span class="breadcrumb-item">{{ $submenu }}</span>
+                        <span class="breadcrumb-item active">{{ $title }}</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -72,31 +71,38 @@
 
         <!-- Content area -->
         <div class="content">
-            <div class="row">
-                <div class="col">
 
-                    <!-- Left and right buttons -->
-                    <div class="card">
-                        <div class="card-body">
-                            {{ Form::open(['route' => 'jenis_usaha.store', 'method' => 'POST']) }}
-                            <div class="form-group">
-                                <label>Jenis Usaha:</label>
-                                {{ Form::text('jenis_usaha', null, ['class' => 'form-control',
-                                'placeholder' => 'Masukkan Jenis Usaha']) }}
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a class="btn btn-light" href="{{ url('master/jenis_usaha') }}">Kembali</a>
-                                <button type="submit" class="btn bg-blue">Simpan <i
-                                        class="icon-paperplane ml-2"></i></button>
-                            </div>
-                            {{ Form::close() }}
+            <!-- Form inputs -->
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title">{{ $title }}</h5>
+                    <div class="header-elements">
+                        <div class="list-icons">
+                            <a class="list-icons-item" data-action="collapse"></a>
+                            <a class="list-icons-item" data-action="reload"></a>
+                            <a class="list-icons-item" data-action="remove"></a>
                         </div>
                     </div>
-                    <!-- /left and right buttons -->
+                </div>
 
+                <div class="card-body">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col">
+
+                                {{ Form::model($data, ['route' => ['pengguna.update', $data->id], 'method' => 'PUT'])
+                                }}
+                                @include('admin.pengguna.form')
+
+                                {{ Form::close() }}
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- /form inputs -->
+
         </div>
         <!-- /main content -->
 
@@ -107,4 +113,11 @@
 </div>
 @endsection
 @push('after-script')
+<!-- Javascript Requirements -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{{-- {!! JsValidator::formRequest('App\Http\Requests\SubsektorStoreValidation','#my-form') !!} --}}
 @endpush

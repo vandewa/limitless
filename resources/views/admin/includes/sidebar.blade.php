@@ -53,7 +53,7 @@
                                                 class="icon-menu" title="Main"></i>
                                 </li>
                                 <li class="nav-item">
-                                        <a href="index.html" class="nav-link">
+                                        <a href="{{ url('/') }}" class="nav-link">
                                                 <i class="icon-home4"></i>
                                                 <span>
                                                         Dashboard
@@ -78,7 +78,8 @@
                                                                 class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">
                                                                 Subsektor</a>
                                                 </li>
-                                                <li class="nav-item"><a href="index.html" class="nav-link active">Data
+                                                <li class="nav-item"><a href="{{ route('pengguna.index') }}"
+                                                                class="nav-link active">Data
                                                                 Pengguna</a>
                                                 </li>
                                         </ul>

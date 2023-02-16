@@ -27,10 +27,10 @@ class MasterDataUsahaPariwisataController extends Controller
                     'action',
                     function ($data) {
                         $actionBtn = '
-                    <div class="list-icons d-flex justify-content-center text-center">
-                        <a href="' . route('jenis_usaha.edit', $data->id) . ' " class="btn btn-sm bg-success"><i class="icon-pencil3"></i></a>
-                        <a href="' . route('jenis_usaha.destroy', $data->id) . ' " class="btn btn-sm bg-danger delete-data-table"><i class="icon-trash"></i></a>
-                    </div>';
+                        <div>
+                            <a href="' . route('jenis_usaha.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
+                            <a href="' . route('jenis_usaha.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        </div>';
                         return $actionBtn;
                     }
                 )
@@ -117,7 +117,6 @@ class MasterDataUsahaPariwisataController extends Controller
      */
     public function destroy($id)
     {
-        $data = MasterDataUsahaPariwisata::find($id);
-        return $data->delete();
+        MasterDataUsahaPariwisata::destroy($id);
     }
 }
