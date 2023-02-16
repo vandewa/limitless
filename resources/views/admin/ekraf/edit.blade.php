@@ -71,30 +71,6 @@
         <!-- Content area -->
         <div class="content">
 
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile
-                  </a>
-                  <a class="nav-item nav-link" id="nav-biaya-tab" data-toggle="tab" href="#nav-biaya" role="tab" aria-controls="nav-biaya" aria-selected="false">Biaya Produksi
-                  </a>
-                  <a class="nav-item nav-link" id="nav-omzet-tab" data-toggle="tab" href="#nav-omzet" role="tab" aria-controls="nav-omzet" aria-selected="false">Omzet
-                  </a>
-                  <a class="nav-item nav-link" id="nav-pajak-tab" data-toggle="tab" href="#nav-pajak" role="tab" aria-controls="nav-pajak" aria-selected="false">Pajak
-                  </a>
-                </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">usdhsudjsgbdhsbdhsbdh</div>
-                <div class="tab-pane fade" id="nav-biaya" role="tabpanel" aria-labelledby="nav-biaya-tab">
-                    usdhsudjsgbdhsbdhsbdh
-                </div>
-                <div class="tab-pane fade" id="nav-omzet" role="tabpanel" aria-labelledby="nav-omzet-tab">
-                    usdhsudjsgbdhsbdhsbdh
-                </div>
-                <div class="tab-pane fade" id="nav-pajak" role="tabpanel" aria-labelledby="nav-pajak-tab">
-                    usdhsudjsgbdhsbdhsbdh
-                </div>
-            </div>
 
         </div>
         <!-- /main content -->

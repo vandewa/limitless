@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataEkrafController;
 use App\Http\Controllers\SubsektorController;
+use App\Http\Controllers\RegionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('ekraf', DataEkrafController::class);
         Route::resource('subsektor', SubsektorController::class);
     });
+    Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');
 });

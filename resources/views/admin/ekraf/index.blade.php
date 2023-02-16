@@ -71,6 +71,10 @@
         <!-- Content area -->
         <div class="content">
 
+            <div class="col-12 mb-3">
+                <a href="{{ route('ekraf.create') }}"><button class="btn btn-primary rounded-round"><i class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
+            </div>
+
             <!-- Page length options -->
             <div class="card">`
                 <div class="card-body">
@@ -85,7 +89,6 @@
                         </thead>
                     </table>
                 </div>
-
             </div>
             <!-- /page length options -->
 

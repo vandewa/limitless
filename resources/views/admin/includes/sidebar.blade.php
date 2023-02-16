@@ -1,6 +1,5 @@
 <!-- Main sidebar -->
 <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
-
         <!-- Sidebar mobile toggler -->
         <div class="sidebar-mobile-toggler text-center">
                 <a href="#" class="sidebar-mobile-main-toggle">
@@ -67,7 +66,7 @@
 
                                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                                                 <li class="nav-item"><a href="{{ route('ekraf.index') }}"
-                                                                class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">Data
+                                                                class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">
                                                                 Ekraf</a>
                                                 </li>
                                                 <li class="nav-item"><a href="{{ route('jenis_usaha.index') }}"
@@ -76,7 +75,7 @@
                                                                 Pariwisata</a>
                                                 </li>
                                                 <li class="nav-item"><a href="{{ route('subsektor.index') }}"
-                                                                class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">Data
+                                                                class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">
                                                                 Subsektor</a>
                                                 </li>
                                                 <li class="nav-item"><a href="index.html" class="nav-link active">Data

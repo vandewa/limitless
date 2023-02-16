@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -11,7 +14,8 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
-        "laravelcollective/html": "^6.3",
+        "laravelcollective/html": "^6.4",
+        "proengsoft/laravel-jsvalidation": "^4.7",
         "realrashid/sweet-alert": "^5.1",
         "yajra/laravel-datatables": "9.0"
     },
@@ -34,7 +38,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/Helpers/Devan.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [

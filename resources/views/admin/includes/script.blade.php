@@ -5,32 +5,30 @@
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
+<script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/buttons/spin.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/buttons/ladda.min.js')}}"></script>
-{{-- <script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/visualization/d3/d3.min.js') }}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/visualization/d3/d3_tooltip.js') }}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/forms/styling/switchery.min.js') }}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/ui/moment/moment.min.js') }}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/pickers/daterangepicker.js') }}"></script> --}}
-{{-- <script src="{{ asset('limitless/global_assets/js/demo_pages/dashboard.js') }}"></script> --}}
+<script src="{{ asset('limitless/global_assets/js/plugins/ui/moment/moment.min.js')}}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/pickers/daterangepicker.js')}}"></script>
+<script src="{{ asset ('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
+<script src="{{ asset ('limitless/global_assets/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
+
+
+
 <script src="{{ asset('limitless/layout_1/LTR/default/full/assets/js/app.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/demo_pages/components_buttons.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
+<script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script>
+{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script> --}}
+<script src="{{ asset('limitless/global_assets/js/demo_pages/form_select2.js')}}"></script>
 
 
-{{-- <script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script> --}}
 <!-- /theme JS files -->
 
 <!-- Theme JS files -->
 
-<!-- /theme JS files -->
-{{-- 
-<script src="{{ asset('limitless/global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
-<script src="{{ asset('limitless/global_assets/js/demo_pages/extra_sweetalert.js') }}"></script> --}}
-{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(document).on('click', '.delete-data-table', function (a) {
@@ -70,5 +68,47 @@
                 })
             }
         })
+    });
+</script>
+<script type="text/javascript">
+    function sweetAlert() 
+    {  
+        Swal.fire(
+        'Good job!',
+        'Berhasil menambahkan data.',
+        'success'
+        )
+    }
+    @if(session('tambah'))
+    sweetAlert();
+    @endif
+</script>
+<script type="text/javascript">
+    function sweetAlert2() 
+    {  
+        Swal.fire(
+        'Good job!',
+        'Berhasil mengedit data.',
+        'success'
+        )
+    }
+    @if(session('edit'))
+    sweetAlert2();
+    @endif
+</script>
+<script>
+     $('.daterange-single').daterangepicker({ 
+            singleDatePicker: true
+        });
+</script>
+<script>
+    // Select with search
+    $('.select-search').select2();
+</script>
+<script>
+    // Fixed width. Multiple selects
+    $('.select-fixed-multiple').select2({
+        minimumResultsForSearch: Infinity,
+
     });
 </script>
