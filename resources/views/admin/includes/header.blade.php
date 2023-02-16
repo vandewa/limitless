@@ -332,8 +332,8 @@
 
             <li class="nav-item dropdown dropdown-user">
                 <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ asset('limitless/global_assets/images/placeholders/placeholder.jpg') }}"
-                        class="rounded-circle" alt="">
+                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}" class="rounded-circle"
+                        alt="">
                     <span>{{ Auth()->user()->name }}</span>
                 </a>
 
