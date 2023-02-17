@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
+use App\Models\BiayaProduksi;
+use Carbon\Carbon;
 use App\Models\Ekraf;
 use App\Models\Subsektor;
+use Illuminate\Http\Request;
 use App\Models\SubsektorEkraf;
+use Yajra\DataTables\Facades\DataTables;
 
 class DataEkrafController extends Controller
 {
@@ -29,6 +31,7 @@ class DataEkrafController extends Controller
                     function ($data) {
                         $actionBtn = '
                         <div>
+                            <a href="' . route('ekraf.show', $data->id) . ' "  class="btn btn-outline-success rounded-round"><i class="mr-2 icon-eye"></i>Detail</a>
                             <a href="' . route('ekraf.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
                             <a href="' . route('ekraf.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
                         </div>';
@@ -107,11 +110,11 @@ class DataEkrafController extends Controller
        $subsektors = $request->subsektor_id;
 
        foreach($subsektors as $subsektor) {
-        $ekraf->subsektorEkraf()->create([
-                'ekraf_id' => $ekraf->id,
-                'subsektor_id' => $subsektor,
-        ]);
-    }
+            $ekraf->subsektorEkraf()->create([
+                    'ekraf_id' => $ekraf->id,
+                    'subsektor_id' => $subsektor,
+            ]);
+        }
 
        return redirect(route('ekraf.index'))->with('tambah', 'oke');
     }
@@ -122,11 +125,38 @@ class DataEkrafController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
-    }
+        $data = Ekraf::find($id);
+        $subsektornya = SubsektorEkraf::with('subsektornya')->where('ekraf_id', $id)->get()->pluck('subsektornya.id');
+        $menu = "Master";
+        $submenu = "Data Ekraf"; 
+        $title = "Detail Data Ekraf";
+        $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 
+        if ($request->ajax()) {
+            $data = Ekraf::orderBy('nama_usaha', 'ASC');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($data) {
+                        $actionBtn = '
+                        <div>
+                            <a href="' . route('ekraf.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
+                            <a href="' . route('ekraf.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        </div>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+                }
+
+
+        return view('admin.ekraf.show', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -136,20 +166,11 @@ class DataEkrafController extends Controller
     public function edit($id)
     {
         $data = Ekraf::find($id);
-        // $subsektornya = $data->subsektorEkraf()->with(['subsektornya' => function ($query) {
-        //     $query->select('nama_subsektor', 'id');
-        // }])
-        // ->get()
         $subsektornya = SubsektorEkraf::with('subsektornya')->where('ekraf_id', $id)->get()->pluck('subsektornya.id');
-     
-
-        // return $subsektornya;
-
         $menu = "Master";
         $submenu = "Data Ekraf"; 
         $title = "Edit Data Ekraf";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
-        // $kabupaten = 
 
         return view('admin.ekraf.edit', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
     }

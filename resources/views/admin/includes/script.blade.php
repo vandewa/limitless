@@ -6,6 +6,7 @@
 
 <!-- Theme JS files -->
 <script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/touch.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/buttons/spin.min.js')}}"></script>

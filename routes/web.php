@@ -8,6 +8,9 @@ use App\Http\Controllers\DataEkrafController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\SubsektorController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\BiayaProduksiController;
+use App\Http\Controllers\OmzetController;
+use App\Http\Controllers\PajakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +33,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('ekraf', DataEkrafController::class);
         Route::resource('subsektor', SubsektorController::class);
         Route::resource('pengguna', PenggunaController::class);
+        Route::resource('biaya-produksi', BiayaProduksiController::class);
+        Route::resource('omzet', OmzetController::class);
+        Route::resource('pajak', PajakController::class);
     });
     Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');
+    Route::get('/biaya/list', [BiayaProduksiController::class, 'biaya'])->name('biaya.list');
+    Route::get('/omzet/list', [OmzetController::class, 'omzet'])->name('omzet.list');
+    Route::get('/pajak/list', [PajakController::class, 'pajak'])->name('pajak.list');
 });
