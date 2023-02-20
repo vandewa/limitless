@@ -4,6 +4,16 @@
             <i class="mr-2 icon-file-plus2"></i>Tambah Biaya Produksi
         </button>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <h1>Biaya Produksi</h1>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Page length options -->
     <div class="card">
