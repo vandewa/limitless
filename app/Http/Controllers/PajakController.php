@@ -36,7 +36,17 @@ class PajakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tahun' => 'required|unique:pajaks,tahun',
+        ]);
+
+        Pajak::create([
+            'ekraf_id' => $request->ekraf_id,
+            'tahun' => $request->tahun,
+            'pajak' => $request->pajak
+        ]);
+
+        return redirect()->back()->with('pajak', 'oke');
     }
 
     /**
@@ -81,7 +91,7 @@ class PajakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pajak::destroy($id);
     }
 
     public function pajak()
@@ -94,7 +104,7 @@ class PajakController extends Controller
                 function ($data) {
                     $actionBtn = '
                     <div>
-                        <a href="' . route('pajak.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        <a href="' . route('pajak.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table-pajak"><i class="mr-2 icon-trash"></i>Delete</a>
                     </div>';
                     return $actionBtn;
                 }

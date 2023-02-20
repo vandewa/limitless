@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Omzet;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\OmzetStoreValidation;
 
 class OmzetController extends Controller
 {
@@ -36,7 +37,17 @@ class OmzetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tahun' => 'required|unique:omzets,tahun',
+        ]);
+
+        Omzet::create([
+            'ekraf_id' => $request->ekraf_id,
+            'tahun' => $request->tahun,
+            'omzet' => $request->omzet
+        ]);
+
+        return redirect()->back()->with('omzet', 'oke');
     }
 
     /**
@@ -81,7 +92,7 @@ class OmzetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Omzet::destroy($id);
     }
 
     public function omzet()
@@ -94,7 +105,7 @@ class OmzetController extends Controller
                 function ($data) {
                     $actionBtn = '
                     <div>
-                        <a href="' . route('omzet.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        <a href="' . route('omzet.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table-omzet"><i class="mr-2 icon-trash"></i>Delete</a>
                     </div>';
                     return $actionBtn;
                 }

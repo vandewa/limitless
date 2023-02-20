@@ -32,13 +32,17 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            {{Form::open(['route' => 'omzet.store','method' => 'post', 'id' => 'my-form2'])}} 
+            <input type="hidden" name="ekraf_id" value="{{ $devan }}">
             <div class="modal-body">
-                {{Form::open(['route' => 'ekraf.store','method' => 'post', 'id' => 'my-form'])}} 
                 <div class="form-group">
                     <label>Tahun</label>
                     {{Form::selectRange('tahun',2021,(int) date('Y')+1, null, ['class' => 'form-control','placeholder' => 'Pilih Tahun', "style" =>
                     'width:150px', 'required'])}}
                 </div>
+                @if($errors->any())
+                    {{ implode('', $errors->all('<div>:message</div>')) }}
+                @endif
 
                 <div class="form-group">
                     <label>Omzet</label>
@@ -47,15 +51,16 @@
                 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Tambah</button>
+                  <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>
-                {{Form::close()}}
+                
             </div>
-            {{-- <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Tambah</button>
-            </div> --}}
+            {{Form::close()}}
           </div>
         </div>
       </div>
 </div>
+
+@push('after-script')
+{!! JsValidator::formRequest('App\Http\Requests\OmzetStoreValidation') !!}
+@endpush

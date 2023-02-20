@@ -15,7 +15,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "laravelcollective/html": "^6.4",
-        "proengsoft/laravel-jsvalidation": "^4.7",
+        "proengsoft/laravel-jsvalidation": "^4.8",
         "realrashid/sweet-alert": "^5.1",
         "yajra/laravel-datatables": "9.0"
     },

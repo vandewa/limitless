@@ -103,21 +103,21 @@
 									<ul class="nav nav-sidebar mb-2">
 										<li class="nav-item-header">Navigation</li>
 										<li class="nav-item">
-											<a href="#profile" class="nav-link active" data-toggle="tab">
+											<a href="#profile" class="nav-link @if(session('biaya')) active @endif" data-toggle="tab">
 												<i class="icon-coins"></i>
 												Biaya Produksi
                                                 <span class="badge bg-success badge-pill ml-auto">16</span>
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="#schedule" class="nav-link" data-toggle="tab">
+											<a href="#schedule" class="nav-link @if(session('omzet')) active @endif" data-toggle="tab">
 												<i class="icon-cash3"></i>
 												Omzet
 												<span class="badge bg-success badge-pill ml-auto">16</span>
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="#inbox" class="nav-link" data-toggle="tab">
+											<a href="#inbox" class="nav-link @if(session('pajak')) active @endif" data-toggle="tab">
 												<i class="icon-coin-dollar"></i>
 												Pajak
 												<span class="badge bg-danger badge-pill ml-auto">29</span>
@@ -136,21 +136,21 @@
 
 					<!-- Right content -->
 					<div class="tab-content w-100 overflow-auto">
-						<div class="tab-pane fade active show" id="profile">
+						<div class="tab-pane @if(session('biaya')) active show @endif" id="profile">
 
-                            <x-biaya-produksi :id="$data->id"/>
+                            <x-biaya-produksi :produksi="$data->id"/>
 
 					    </div>
 
-					    <div class="tab-pane fade" id="schedule">
+					    <div class="tab-pane fade @if(session('omzet')) active show @endif" id="schedule">
 
-                            <x-omzet :id="$data->id"/>
+                            <x-omzet :omzet="$data->id"/>
 
 				    	</div>
 
-					    <div class="tab-pane fade" id="inbox">
+					    <div class="tab-pane fade  @if(session('pajak')) active show @endif" id="inbox">
 
-                            <x-pajak :id="$data->id"/>
+                            <x-pajak :pajak="$data->id"/>
 
 							
 				    	</div>

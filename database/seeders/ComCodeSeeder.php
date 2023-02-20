@@ -22,6 +22,8 @@ class ComCodeSeeder extends Seeder
             ['code_cd' => 'JENIS_KELAMIN_ST_02', 'code_nm' => 'Perempuan', 'code_group' => 'JENIS_KELAMIN_ST', 'code_value' => ''],
             ['code_cd' => 'HKI_ST_01', 'code_nm' => 'Sudah', 'code_group' => 'HKI_ST', 'code_value' => ''],
             ['code_cd' => 'HKI_ST_02', 'code_nm' => 'Belum', 'code_group' => 'HKI_ST', 'code_value' => ''],
+            ['code_cd' => 'BARANG_ST_01', 'code_nm' => 'Barang', 'code_group' => 'BARANG_ST', 'code_value' => ''],
+            ['code_cd' => 'BARANG_ST_02', 'code_nm' => 'Jasa', 'code_group' => 'BARANG_ST', 'code_value' => ''],
 
         ];
 

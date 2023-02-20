@@ -12,10 +12,9 @@ class BiayaProduksi extends Component
      * @return void
      */
     public $devan;
-    public function __construct($id="adasdas")
+    public function __construct($produksi)
     {
-       
-        $this->devan = $id;
+        $this->devan = $produksi;
     }
 
     /**

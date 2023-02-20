@@ -11,9 +11,10 @@ class Omzet extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $devan;
+    public function __construct($omzet)
     {
-        //
+        $this->devan = $omzet;
     }
 
     /**

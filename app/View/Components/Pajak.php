@@ -11,9 +11,10 @@ class Pajak extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $devan;
+    public function __construct($pajak)
     {
-        //
+        $this->devan = $pajak;
     }
 
     /**

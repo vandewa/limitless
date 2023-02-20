@@ -18,22 +18,22 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-        $faker = Faker::create('id_ID');
+        // $faker = Faker::create('id_ID');
  
-    	for($i = 1; $i <= 50; $i++){
+    	// for($i = 1; $i <= 50; $i++){
  
-    	      // insert data ke table pegawai menggunakan Faker
-    		DB::table('ekrafs')->insert([
-    			'nama_pemilik' => $faker->name,
-    			'nama_usaha' => $faker->address
-    		]);
+    	//       // insert data ke table pegawai menggunakan Faker
+    	// 	DB::table('ekrafs')->insert([
+    	// 		'nama_pemilik' => $faker->name,
+    	// 		'nama_usaha' => $faker->address
+    	// 	]);
  
-    	}
+    	// }
         $this->call(SubsektorSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(RegionSeeder::class);

@@ -30,6 +30,126 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
+    $(document).on('click', '.delete-data-table-pajak', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                        $('.pajak').DataTable().ajax.reload();
+                        // if (typeof table2) {
+                        //     table2.ajax.reload();
+                        // }
+                    }
+                })
+            }
+        })
+    });
+</script>
+<script>
+    $(document).on('click', '.delete-data-table-omzet', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                        $('.omzet').DataTable().ajax.reload();
+                        // if (typeof table2) {
+                        //     table2.ajax.reload();
+                        // }
+                    }
+                })
+            }
+        })
+    });
+</script>
+<script>
+    $(document).on('click', '.delete-data-table-produksi', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                        $('.produksi').DataTable().ajax.reload();
+                        // if (typeof table2) {
+                        //     table2.ajax.reload();
+                        // }
+                    }
+                })
+            }
+        })
+    });
+</script>
+<script>
     $(document).on('click', '.delete-data-table', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -95,6 +215,45 @@
     sweetAlert2();
     @endif
 </script>
+<script type="text/javascript">
+    function sweetAlert3() 
+    {  
+        Swal.fire(
+        'Good job!',
+        'Berhasil menambahkan data biaya produksi.',
+        'success'
+        )
+    }
+    @if(session('biaya'))
+    sweetAlert3();
+    @endif
+</script>
+<script type="text/javascript">
+    function sweetAlert4() 
+    {  
+        Swal.fire(
+        'Good job!',
+        'Berhasil menambahkan data omzet.',
+        'success'
+        )
+    }
+    @if(session('omzet'))
+    sweetAlert4();
+    @endif
+</script>
+<script type="text/javascript">
+    function sweetAlert5() 
+    {  
+        Swal.fire(
+        'Good job!',
+        'Berhasil menambahkan data pajak.',
+        'success'
+        )
+    }
+    @if(session('pajak'))
+    sweetAlert4();
+    @endif
+</script>
 <script>
      $('.daterange-single').daterangepicker({ 
             singleDatePicker: true
@@ -111,3 +270,7 @@
 
     });
 </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>

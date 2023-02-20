@@ -103,7 +103,7 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">JENIS BARANG/JASA</label>
             <div class="col-lg-10">
-                {!! Form::text('jenis_barang_jasa', null, ['class' => 'form-control', 'placeholder' => 'Masukkan jenis barang jasa']) !!}
+                {!! Form::select('jenis_barang_jasa', get_code_group('BARANG_ST'),null, ['class' => 'form-control']) !!}
             </div>
         </div>
     </div>   

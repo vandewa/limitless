@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\BiayaProduksi;
 use Laravel\Ui\Presets\React;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\BiayaProduksiStoreValidation;
 
 class BiayaProduksiController extends Controller
 {
@@ -37,13 +38,17 @@ class BiayaProduksiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'tahun' => 'required|unique:biaya_produksis,tahun',
+        ]);
+
         BiayaProduksi::create([
             "ekraf_id" => $request->ekraf_id,
             'tahun' => $request->tahun,
             'biaya_produksi' => $request->biaya_produksi,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('biaya', 'oke');
     }
 
     /**
@@ -88,7 +93,7 @@ class BiayaProduksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        BiayaProduksi::destroy($id);
     }
 
     public function biaya(Request $request)
@@ -101,7 +106,7 @@ class BiayaProduksiController extends Controller
                 function ($data) {
                     $actionBtn = '
                     <div>
-                        <a href="' . route('biaya-produksi.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        <a href="' . route('biaya-produksi.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table-produksi"><i class="mr-2 icon-trash"></i>Delete</a>
                     </div>';
                     return $actionBtn;
                 }

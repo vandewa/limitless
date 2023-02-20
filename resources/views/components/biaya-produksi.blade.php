@@ -37,9 +37,12 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Tahun</label>
-                    {{Form::selectRange('tahun',2021,(int) date('Y')+1, null, ['class' => 'form-control','placeholder' => 'Pilih Tahun', "style" =>
+                    {{Form::selectRange('tahun',2021,(int) date('Y')+1, null, ['class' => 'form-control'.($errors->has('tahun') ?' border-danger' :''),'placeholder' => 'Pilih Tahun', "style" =>
                     'width:150px', 'required'])}}
                 </div>
+                @if($errors->any())
+                    {{ implode('', $errors->all('<div>:message</div>')) }}
+                @endif
 
                 <div class="form-group">
                     <label>Biaya Produksi</label>
@@ -57,3 +60,7 @@
         </div>
       </div>
   </div>
+
+  @push('after-script')
+  {!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiStoreValidation') !!}
+  @endpush
