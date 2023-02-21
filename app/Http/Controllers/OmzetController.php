@@ -110,8 +110,18 @@ class OmzetController extends Controller
                     return $actionBtn;
                 }
             )
+            ->editColumn('omzet', function($data){
+                return $this->rupiah($data->omzet);
+            })
             ->rawColumns(['action'])
             ->make(true);
 
+    }
+
+    function rupiah($angka){
+	
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
+     
     }
 }

@@ -180,7 +180,7 @@
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
-            { data: 'biaya_produksi', name: 'biaya_produksi',  },
+            { data: 'biaya_produksi', name: 'biaya_produksi', orderable: false, searchable: false },
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });
@@ -194,7 +194,7 @@
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
-            { data: 'omzet', name: 'omzet',  },
+            { data: 'omzet', name: 'omzet', orderable: false, searchable: false },
             { data: 'action', className: "text-center",orderable: false, searchable: false},
         ]
     });
@@ -208,7 +208,7 @@
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
-            { data: 'pajak', name: 'pajak',  },
+            { data: 'pajak', name: 'pajak',  orderable: false, searchable: false},
             { data: 'action', className: "text-center",orderable: false, searchable: false},
         ]
     });

@@ -56,7 +56,14 @@
 
                 <div class="form-group">
                     <label>Biaya Produksi</label>
-                    {!! Form::text('biaya_produksi', null, ['class' => 'form-control', 'placeholder' => 'Masukkan biaya produksi']) !!}
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span>Rp.</span>
+                            </span>
+                        </div>
+                        {!! Form::number('biaya_produksi', null, ['class' => 'form-control', 'placeholder' => 'Masukkan biaya produksi']) !!}
+                    </div>
                 </div>
                 
                 <div class="modal-footer">

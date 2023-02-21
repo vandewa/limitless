@@ -111,9 +111,19 @@ class BiayaProduksiController extends Controller
                     return $actionBtn;
                 }
             )
+            ->editColumn('biaya_produksi', function($data){
+                return $this->rupiah($data->biaya_produksi);
+            })
             ->rawColumns(['action'])
             ->make(true);
 
+    }
+
+    function rupiah($angka){
+	
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
+     
     }
 
 }

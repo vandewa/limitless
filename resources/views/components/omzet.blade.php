@@ -56,7 +56,14 @@
 
                 <div class="form-group">
                     <label>Omzet</label>
-                    {!! Form::text('omzet', null, ['class' => 'form-control', 'placeholder' => 'Masukkan omzet']) !!}
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span>Rp.</span>
+                            </span>
+                        </div>
+                        {!! Form::number('omzet', null, ['class' => 'form-control', 'placeholder' => 'Masukkan omzet']) !!}
+                    </div>
                 </div>
                 
                 <div class="modal-footer">

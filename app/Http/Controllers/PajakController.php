@@ -109,8 +109,18 @@ class PajakController extends Controller
                     return $actionBtn;
                 }
             )
+            ->editColumn('pajak', function($data){
+                return $this->rupiah($data->pajak);
+            })
             ->rawColumns(['action'])
             ->make(true);
 
+    }
+
+    function rupiah($angka){
+	
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
+     
     }
 }

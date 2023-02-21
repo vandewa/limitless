@@ -57,7 +57,14 @@
 
                 <div class="form-group">
                     <label>Pajak</label>
-                    {!! Form::text('pajak', null, ['class' => 'form-control', 'placeholder' => 'Masukkan pajak']) !!}
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <span>Rp.</span>
+                            </span>
+                        </div>
+                        {!! Form::number('pajak', null, ['class' => 'form-control', 'placeholder' => 'Masukkan pajak']) !!}
+                    </div>
                 </div>
                 
                 <div class="modal-footer">
