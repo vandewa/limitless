@@ -106,21 +106,18 @@
 											<a href="#profile" class="nav-link @if(session('biaya')) active @endif" data-toggle="tab">
 												<i class="icon-coins"></i>
 												Biaya Produksi
-                                                <span class="badge bg-success badge-pill ml-auto">16</span>
 											</a>
 										</li>
 										<li class="nav-item">
 											<a href="#schedule" class="nav-link @if(session('omzet')) active @endif" data-toggle="tab">
 												<i class="icon-cash3"></i>
 												Omzet
-												<span class="badge bg-success badge-pill ml-auto">16</span>
 											</a>
 										</li>
 										<li class="nav-item">
 											<a href="#inbox" class="nav-link @if(session('pajak')) active @endif" data-toggle="tab">
 												<i class="icon-coin-dollar"></i>
 												Pajak
-												<span class="badge bg-danger badge-pill ml-auto">29</span>
 											</a>
 										</li>
 									</ul>
