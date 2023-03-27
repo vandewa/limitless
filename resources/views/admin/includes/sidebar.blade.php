@@ -76,7 +76,7 @@
                                         </ul>
                                 </li>
                                 <li class="nav-item">
-                                        <a href="{{ route('ekraf.index') }}" class="nav-link {{ Request::segment(2) == 'pelaku' ? 'active' : '' }}">
+                                        <a href="{{ route('ekraf.index') }}" class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">
                                                 <i class="icon-store2"></i>
                                                 <span>
                                                         Data Ekraf
@@ -84,7 +84,7 @@
                                         </a>
                                 </li>
                                 <li class="nav-item">
-                                        <a href="{{ route('pelaku.pelaku-wisata.index') }}" class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">
+                                        <a href="{{ route('pelaku.pelaku-wisata.index') }}" class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
                                                 <i class="icon-users"></i>
                                                 <span>
                                                         Pelaku Wisata Perorangan
