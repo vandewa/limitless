@@ -36,6 +36,8 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('zilom/files/assets/css/zilom.css')}}" />
     <link rel="stylesheet" href="{{ asset('zilom/files/assets/css/zilom-responsive.css')}}" />
+
+    @stack('css')
 </head>
 
 <body>
@@ -70,6 +72,9 @@
 
     <!-- template js -->
     <script src="{{ asset('zilom/files/assets/js/zilom.js')}}"></script>
+    <script src="https://kit.fontawesome.com/bb9305debb.js" crossorigin="anonymous"></script>
+
+    @stack('js')
 
 
 </body>

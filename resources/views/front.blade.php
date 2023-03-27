@@ -70,18 +70,18 @@
                 <!--Start Single Swiper Slide-->
                 <div class="swiper-slide">
                     <div class="image-layer"
-                        style="background-image: url(http://ekraf.disporapar.jatengprov.go.id/banner/hu7cC9WOkA1tl2bqxegYIn6Da5QRysmf.png);"></div>
+                        style="background-image: url({{ asset('header.png') }});object-fit: cover;"></div>
                     <div class="image-layer-overlay"></div>
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="main-slider-two__content text-center">
-                                    <h2 class="main-slider-two__tagline">Learn Anything Online</h2>
-                                    <h2 class="main-slider__title">Online Study is Now <br>Much Easier</h2>
+                                    <h2 class="main-slider-two__tagline">Selamat Datang di</h2>
+                                    <h2 class="main-slider__title">Aplikasi Pendataan Ekonomi Kreatif</h2>
                                 </div>
-                                <div class="main-slider-two__button-box text-center">
+                                {{-- <div class="main-slider-two__button-box text-center">
                                     <a href="#" class="thm-btn">Discover more</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -105,104 +105,82 @@
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="categories-two__inner">
+                    <div class="categories-two__inner d-flex justify-content-center">
                         <div class="shape1 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms"><img
                                 src="{{ asset('zilom/files/assets/images/shapes/thm-shape4.png')}}" alt="" /></div>
                         <ul class="categories-two__wrapper list-unstyled">
                             <!--Start Single Categories Two-->
                             <li class="categories-two__single text-center wow fadeInUp animated animated"
-                                data-wow-delay="00ms" data-wow-duration="1500ms">
-                                <div class="categories-two__single-icon">
-                                    <span class="icon-creativity"></span>
-                                    <div class="count">
-                                        <h5>30</h5>
+                            data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <a href="#">
+                                    <div class="categories-two__single-icon">
+                                        <span class="fa-solid fa-user"></span>
+                                        <div class="overly-bg"
+                                            style="background-image: url({{ asset('bg-kecil.png')}});">
+                                        </div>
                                     </div>
-                                    <div class="overly-bg"
-                                        style="background-image: url({{ asset('zilom/files/assets/images/resources/categories-v2-overlay-img.png')}});">
+                                    <div class="categories-two__single-text">
+                                        <h5>Pelaku</h5>
+                                        <p>Silakan Data Pelaku Bisnis di kabupaten/kota Anda. Apabila termasuk dalam komunitas kreatif</p>
                                     </div>
-                                </div>
-                                <div class="categories-two__single-text">
-                                    <h5><a href="#">Art & Design</a></h5>
-                                    <p>46 hours course time</p>
-                                </div>
+                                </a>
                             </li>
                             <!--End Single Categories Two-->
 
                             <!--Start Single Categories Two-->
                             <li class="categories-two__single text-center wow fadeInUp animated animated"
                                 data-wow-delay="200ms" data-wow-duration="1500ms">
-                                <div class="categories-two__single-icon">
-                                    <span class="icon-needs"></span>
-                                    <div class="count">
-                                        <h5>30</h5>
+                                <a href="#">
+                                    <div class="categories-two__single-icon">
+                                        <span class="fa-solid fa-users"></span>
+                                        <div class="overly-bg"
+                                                style="background-image: url({{ asset('bg-kecil.png')}});">
+                                        </div>
                                     </div>
-                                    <div class="overly-bg"
-                                        style="background-image: url({{ asset('zilom/files/assets/images/resources/categories-v2-overlay-img.png')}});">
+                                    <div class="categories-two__single-text">
+                                        <h5>Komunitas</h5>
+                                        <p>Silakan Data Komunitas Bisnis di kabupaten/kota Anda. Apabila termasuk dalam komunitas kreatif</p>
                                     </div>
-                                </div>
-                                <div class="categories-two__single-text">
-                                    <h5><a href="#">Lifestyle</a></h5>
-                                    <p>46 hours course time</p>
-                                </div>
+                                </a>
                             </li>
                             <!--End Single Categories Two-->
 
                             <!--Start Single Categories Two-->
                             <li class="categories-two__single text-center wow fadeInUp animated animated"
                                 data-wow-delay="400ms" data-wow-duration="1500ms">
-                                <div class="categories-two__single-icon">
-                                    <span class="icon-photo-camera"></span>
-                                    <div class="count">
-                                        <h5>30</h5>
+                                <a href="#">
+                                    <div class="categories-two__single-icon">
+                                        <span class="fa-solid fa-shop"></span>
+                                        <div class="overly-bg"
+                                                style="background-image: url({{ asset('bg-kecil.png')}});">
+                                            </div>
                                     </div>
-                                    <div class="overly-bg"
-                                        style="background-image: url({{ asset('zilom/files/assets/images/resources/categories-v2-overlay-img.png')}});">
+                                    <div class="categories-two__single-text">
+                                        <h5>Usaha</h5>
+                                        <p>Silakan Data Bisnis/Usaha di kabupaten/kota Anda. apabila termasuk dalam komunitas kreatif</p>
                                     </div>
-                                </div>
-                                <div class="categories-two__single-text">
-                                    <h5><a href="#">Photography</a></h5>
-                                    <p>46 hours course time</p>
-                                </div>
+                                </a>
                             </li>
                             <!--End Single Categories Two-->
 
                             <!--Start Single Categories Two-->
                             <li class="categories-two__single text-center wow fadeInUp animated animated"
                                 data-wow-delay="600ms" data-wow-duration="1500ms">
-                                <div class="categories-two__single-icon">
-                                    <span class="icon-target"></span>
-                                    <div class="count">
-                                        <h5>30</h5>
+                                <a href="#">
+                                    <div class="categories-two__single-icon">
+                                        <span class="fa-solid fa-building"></span>
+                                        <div class="overly-bg"
+                                            style="background-image: url({{ asset('bg-kecil.png')}});">
+                                        </div>
                                     </div>
-                                    <div class="overly-bg"
-                                        style="background-image: url({{ asset('zilom/files/assets/images/resources/categories-v2-overlay-img.png')}});">
+                                    <div class="categories-two__single-text">
+                                        <h5>Lembaga</h5>
+                                        <p>Daftarkan Lembaga Pendidikan di kabupaten/kota Anda. Apabila termasuk dalam komunitas kreatif</p>
                                     </div>
-                                </div>
-                                <div class="categories-two__single-text">
-                                    <h5><a href="#">Marketing</a></h5>
-                                    <p>46 hours course time</p>
-                                </div>
+                                </a>
                             </li>
                             <!--End Single Categories Two-->
 
-                            <!--Start Single Categories Two-->
-                            <li class="categories-two__single text-center wow fadeInUp animated animated"
-                                data-wow-delay="800ms" data-wow-duration="1500ms">
-                                <div class="categories-two__single-icon">
-                                    <span class="icon-desk"></span>
-                                    <div class="count">
-                                        <h5>30</h5>
-                                    </div>
-                                    <div class="overly-bg"
-                                        style="background-image: url({{ asset('zilom/files/assets/images/resources/categories-v2-overlay-img.png')}});">
-                                    </div>
-                                </div>
-                                <div class="categories-two__single-text">
-                                    <h5><a href="#">Business</a></h5>
-                                    <p>46 hours course time</p>
-                                </div>
-                            </li>
-                            <!--End Single Categories Two-->
                         </ul>
                     </div>
                 </div>
@@ -256,7 +234,7 @@
                     <div class="col-xl-12">
                         <div class="footer-one__bottom-inner">
                             <div class="footer-one__bottom-text text-center">
-                                <p>&copy; Copyright 2021 by Layerdrops.com</p>
+                                <p>&copy; Copyright 2023. Dinas Pariwisata dan Kebudayaan Kabupaten Wonosobo</p>
                             </div>
                         </div>
                     </div>
@@ -277,8 +255,8 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="{{ asset('zilom/files/assets/images/resources/mobilemenu_logo.png')}}"
-                    width="155" alt="" /></a>
+            <a href="index.html" aria-label="logo image"><img src="{{ asset('logo-disparbud.png')}}"
+                    width="280" alt="" /></a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>
@@ -286,22 +264,10 @@
 
         <ul class="mobile-nav__contact list-unstyled">
             <li>
-                <i class="icon-phone-call"></i>
-                <a href="mailto:needhelp@packageName__.com">needhelp@zilom.com</a>
-            </li>
-            <li>
-                <i class="icon-letter"></i>
-                <a href="tel:666-888-0000">666 888 0000</a>
+                <i class="icon-user"></i>
+                <a href="{{ route('login') }}">Login</a>
             </li>
         </ul><!-- /.mobile-nav__contact -->
-        <div class="mobile-nav__top">
-            <div class="mobile-nav__social">
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-facebook-square"></a>
-                <a href="#" class="fab fa-pinterest-p"></a>
-                <a href="#" class="fab fa-instagram"></a>
-            </div><!-- /.mobile-nav__social -->
-        </div><!-- /.mobile-nav__top -->
     </div>
     <!-- /.mobile-nav__content -->
 </div>
