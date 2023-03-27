@@ -18,8 +18,8 @@ class PelakuWisataController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Master";
-        $submenu = "Pelaku Wisata Perorangan";
+        $menu = "Pelaku Wisata Perorangan";
+        $submenu = "List Pelaku Wisata Perorangan";
 
         if ($request->ajax()) {
             $data = PelakuWisata::orderBy('nama_usaha', 'ASC');
@@ -50,10 +50,10 @@ class PelakuWisataController extends Controller
      */
     public function create(Request $request)
     {
-        $menu = "Master";
-        $submenu = "Pelaku Wisata Perorangan";
-        $subsubmenu = "Tambah Ekraf";
-        $title = "Tambah Pelaku Wisata Perorangan";
+        $menu = "Pelaku Wisata Perorangan";
+        $submenu = "List Pelaku Wisata Perorangan";
+        $subsubmenu = "Tambah Pelaku Wisata Perorangan";
+        $title = "Tambah Data Pelaku Wisata Perorangan";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 
         if ($request->ajax()) {
@@ -127,8 +127,8 @@ class PelakuWisataController extends Controller
     {
         $data = PelakuWisata::find($id);
         $subsektornya = SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $id)->get()->pluck('subsektornya.id');
-        $menu = "Master";
-        $submenu = "Pelaku Wisata Perorangan";
+        $menu = "Pelaku Wisata Perorangan";
+        $submenu = "List Pelaku Wisata Perorangan";
         $title = "Detail Pelaku Wisata Perorangan";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 
@@ -165,8 +165,8 @@ class PelakuWisataController extends Controller
     {
         $data = PelakuWisata::find($id);
         $subsektornya = SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $id)->get()->pluck('subsektornya.id');
-        $menu = "Master";
-        $submenu = "Pelaku Wisata Perorangan";
+        $menu = "Pelaku Wisata Perorangan";
+        $submenu = "List Pelaku Wisata Perorangan";
         $title = "Edit Pelaku Wisata Perorangan";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 

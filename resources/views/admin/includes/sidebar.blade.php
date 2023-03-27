@@ -53,7 +53,7 @@
                                                 class="icon-menu" title="Main"></i>
                                 </li>
                                 <li class="nav-item">
-                                        <a href="{{ url('/') }}" class="nav-link">
+                                        <a href="{{ route('dashboard') }}" class="nav-link">
                                                 <i class="icon-home4"></i>
                                                 <span>
                                                         Dashboard

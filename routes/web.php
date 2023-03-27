@@ -31,7 +31,7 @@ Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/list-subsektor/{id}', [FrontController::class, 'listSubsektor'])->name('list.subsektor');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::group(['prefix' => 'master'], function () {
         Route::resource('jenis_usaha', MasterDataUsahaPariwisataController::class);
