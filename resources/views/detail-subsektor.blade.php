@@ -1,7 +1,7 @@
 @extends('layouts/front')
 @section('content')
 <div class="preloader">
-    <img class="preloader__image" width="60" src="{{ asset('zilom/files/assets/images/loader.png')}}" alt="" />
+    <img class="preloader__image" width="60" src="{{ asset('logo.png')}}" alt="" />
 </div>
 
 <!-- /.preloader -->

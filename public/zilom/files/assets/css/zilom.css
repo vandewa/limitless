@@ -2650,7 +2650,7 @@ ul {
 }
 
 .main-slider-two__tagline {
-    color: var(--thm-base);
+    color: white;
     font-size: 30px;
     line-height: 40px;
     font-weight: 400;

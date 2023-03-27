@@ -12,7 +12,7 @@ class FrontController extends Controller
     {
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->get();
 
-        return view('list-subsektor', compact('subsektor'));
+        return view('front', compact('subsektor'));
     }
 
     public function listSubsektor($id)
