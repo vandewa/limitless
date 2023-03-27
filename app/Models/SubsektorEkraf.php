@@ -15,4 +15,9 @@ class SubsektorEkraf extends Model
     {
         return $this->belongsTo(Subsektor::class, 'subsektor_id');
     }
+
+    public function ekrafnya()
+    {
+        return $this->belongsTo(Ekraf::class, 'ekraf_id');
+    }
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\OmzetController;
 use App\Http\Controllers\PajakController;
 use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PelakuWisataController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,11 @@ use App\Http\Controllers\PelakuWisataController;
 */
 
 Auth::routes();
+Route::get('/', [FrontController::class, 'index'])->name('home');
+Route::get('/list-subsektor/{id}', [FrontController::class, 'listSubsektor'])->name('list.subsektor');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::group(['prefix' => 'master'], function () {
         Route::resource('jenis_usaha', MasterDataUsahaPariwisataController::class);
