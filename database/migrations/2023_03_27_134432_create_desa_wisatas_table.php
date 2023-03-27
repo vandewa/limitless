@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('desa_wisatas', function (Blueprint $table) {
+            $table->id();
+            $table->string('region_kec');
+            $table->string('region_kel');
+            $table->string('telepon')->nullable();
+            $table->string('email')->nullable();
+            $table->string('website')->nullable();
+            $table->string('tahun_dibentuk')->nullable();
+            $table->integer('jumlah_pemandu')->nullable();
+            $table->integer('jumlah_pemandu_bersertifikat')->nullable();
+            $table->double('lng',8,8)->nullable();
+            $table->double('ltd',8,8)->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('desa_wisatas');
+    }
+};

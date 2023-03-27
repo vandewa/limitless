@@ -17,6 +17,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\BiayaPelakuWisataController;
 use App\Http\Controllers\OmzetPelakuWisataController;
 use App\Http\Controllers\PajakPelakuWisataController;
+use App\Http\Controllers\DesaWisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'master'], function () {
         Route::resource('jenis_usaha', MasterDataUsahaPariwisataController::class);
+        Route::resource('desa-wisata', DesaWisataController::class);
         Route::resource('ekraf', DataEkrafController::class);
         Route::resource('subsektor', SubsektorController::class);
         Route::resource('pengguna', PenggunaController::class);

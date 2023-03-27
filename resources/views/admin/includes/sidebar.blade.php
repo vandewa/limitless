@@ -92,6 +92,14 @@
                                         </a>
                                 </li>
                                 <li class="nav-item">
+                                        <a href="{{ route('desa-wisata.index') }}" class="nav-link {{ Request::segment(2) == 'desa-wisata' ? 'active' : '' }}">
+                                                <i class="icon-users"></i>
+                                                <span>
+                                                        Desa Wisata
+                                                </span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
                                         <a href="{{ route('jenis_usaha.index') }}" class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">
                                                 <i class="icon-bed2"></i>
                                                 <span>
