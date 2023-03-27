@@ -14,6 +14,9 @@ use App\Http\Controllers\PajakController;
 use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PelakuWisataController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\BiayaPelakuWisataController;
+use App\Http\Controllers\OmzetPelakuWisataController;
+use App\Http\Controllers\PajakPelakuWisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::group(['prefix' => 'pelaku-wisata', 'as' => 'pelaku.'], function(){
         Route::resource('pelaku-wisata', PelakuWisataController::class);
-        Route::get('/biaya/list', [BiayaProduksiController::class, 'biaya'])->name('biaya.list');
-        Route::get('/omzet/list', [OmzetController::class, 'omzet'])->name('omzet.list');
-        Route::get('/pajak/list', [PajakController::class, 'pajak'])->name('pajak.list');
+        Route::resource('biaya', BiayaPelakuWisataController::class);
+        Route::resource('omzet', OmzetPelakuWisataController::class);
+        Route::resource('pajak', PajakPelakuWisataController::class);
     });
     Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');
     Route::get('/biaya/list', [BiayaProduksiController::class, 'biaya'])->name('biaya.list');

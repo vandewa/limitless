@@ -12,9 +12,11 @@ class Pelatihan extends Component
      * @return void
      */
     public $devan;
-    public function __construct($pelatihan)
+    public $route;
+    public function __construct($pelatihan, $route = "pelatihan.store")
     {
         $this->devan = $pelatihan;
+        $this->route = $route;
     }
 
     /**

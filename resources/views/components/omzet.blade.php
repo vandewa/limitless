@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Page length options -->
     <div class="card">
         <div class="card-body">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <!-- /page length options -->
-    
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter1Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -42,7 +42,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            {{Form::open(['route' => 'omzet.store','method' => 'post', 'id' => 'my-form2'])}} 
+            {{Form::open(['route' =>  $route,'method' => 'post', 'id' => 'omzet'])}}
             <input type="hidden" name="ekraf_id" value="{{ $devan }}">
             <div class="modal-body">
                 <div class="form-group">
@@ -65,12 +65,12 @@
                         {!! Form::number('omzet', null, ['class' => 'form-control', 'placeholder' => 'Masukkan omzet']) !!}
                     </div>
                 </div>
-                
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>
-                
+
             </div>
             {{Form::close()}}
           </div>
@@ -78,6 +78,4 @@
       </div>
 </div>
 
-@push('after-script')
-{!! JsValidator::formRequest('App\Http\Requests\OmzetStoreValidation') !!}
-@endpush
+

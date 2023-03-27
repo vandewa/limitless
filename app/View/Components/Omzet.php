@@ -12,9 +12,11 @@ class Omzet extends Component
      * @return void
      */
     public $devan;
-    public function __construct($omzet)
+    public $route;
+    public function __construct($omzet, $route='omzet.store')
     {
         $this->devan = $omzet;
+        $this->route = $route;
     }
 
     /**
