@@ -120,6 +120,12 @@
 												Pajak
 											</a>
 										</li>
+										<li class="nav-item">
+											<a href="#pelatihan" class="nav-link @if(session('pelatihan')) active @endif" data-toggle="tab">
+												<i class="icon-bookmark"></i>
+												Pelatihan
+											</a>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -149,7 +155,12 @@
 
                             <x-pajak :pajak="$data->id"/>
 
-							
+				    	</div>
+
+					    <div class="tab-pane fade  @if(session('pelatihan')) active show @endif" id="pelatihan">
+
+                            <x-pelatihan :pelatihan="$data->id"/>
+
 				    	</div>
 
 					</div>
@@ -206,6 +217,20 @@
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
             { data: 'pajak', name: 'pajak',  orderable: false, searchable: false},
+            { data: 'action', className: "text-center",orderable: false, searchable: false},
+        ]
+    });
+</script>
+<script type="text/javascript">
+    var table = $('.pelatihan').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
+        ajax: "{{ route('pelatihan.list') }}",
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
+            { data: 'tahun', name: 'tahun',  },
+            { data: 'nama_pelatihan', name: 'nama_pelatihan'},
             { data: 'action', className: "text-center",orderable: false, searchable: false},
         ]
     });
