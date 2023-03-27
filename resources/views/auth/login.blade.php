@@ -12,14 +12,19 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+	<!-- favicons Icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('zilom/files/assets/images/favicons/apple-touch-icon.png')}}" />
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('zilom/files/assets/images/favicons/favicon-32x32.png')}}" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('zilom/files/assets/images/favicons/favicon-16x16.png')}}" />
 	<link rel="stylesheet" href="{{ asset('style.css') }}">
+	
 </head>
 <body class="img js-fullheight" style="background-image:url({{ asset('bg.png') }});">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-0 mt-4">
-					<img src="https://www.simok.wonosobokab.go.id/image/pemda.png" style="width: 80px;">
+					<img src="{{ asset('logo.png') }}" style="width: 80px;">
 					<h2 class="heading-section">
 						<span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 40pt">SIPAREKRAF</span>
 					</h2>
