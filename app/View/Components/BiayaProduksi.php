@@ -12,9 +12,11 @@ class BiayaProduksi extends Component
      * @return void
      */
     public $devan;
-    public function __construct($produksi)
+    public $route;
+    public function __construct($produksi, $route='biaya-produksi.store')
     {
         $this->devan = $produksi;
+        $this->route = $route;
     }
 
     /**
@@ -27,5 +29,5 @@ class BiayaProduksi extends Component
         return view('components.biaya-produksi');
     }
 
-    
+
 }

@@ -14,8 +14,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
     <!-- Page length options -->
     <div class="card">
         <div class="card-body">
@@ -32,7 +32,7 @@
         </div>
     </div>
     <!-- /page length options -->
-    
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter4Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -43,7 +43,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            {{Form::open(['route' => 'pelatihan.store','method' => 'post'])}} 
+            {{Form::open(['route' =>  $route,'method' => 'post', "id" => "pelatihan"])}}
             <input type="hidden" name="ekraf_id" value="{{ $devan }}">
             <div class="modal-body">
                 <div class="form-group">
@@ -61,7 +61,7 @@
                         {{ Form::text('nama_pelatihan', null, ['class' => 'form-control','placeholder' => 'Masukkan nama pelatihan' ]) }}
                     </div>
                 </div>
-                
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button type="submit" class="btn btn-primary">Tambah</button>
@@ -73,6 +73,3 @@
       </div>
 </div>
 
-@push('after-script')
-{!! JsValidator::formRequest('App\Http\Requests\PelatihanStoreValidation') !!}
-@endpush

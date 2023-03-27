@@ -249,4 +249,9 @@
         ]
     });
 </script>
+
+{!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiStoreValidation', '#biaya') !!}
+{!! JsValidator::formRequest('App\Http\Requests\OmzetStoreValidation', "#omzet") !!}
+{!! JsValidator::formRequest('App\Http\Requests\PajakStoreValidation', "#pajak") !!}
+{!! JsValidator::formRequest('App\Http\Requests\PelatihanStoreValidation', "#pelatihan") !!}
 @endpush

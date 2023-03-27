@@ -135,19 +135,19 @@
 					<div class="tab-content w-100 overflow-auto">
 						<div class="tab-pane @if(session('biaya')) active show @endif" id="profile">
 
-                            <x-biaya-produksi :produksi="$data->id"/>
+                            <x-biaya-produksi :produksi="$data->id" route="pelaku.biaya.store"/>
 
 					    </div>
 
 					    <div class="tab-pane fade @if(session('omzet')) active show @endif" id="schedule">
 
-                            <x-omzet :omzet="$data->id"/>
+                            <x-omzet :omzet="$data->id" route="pelaku.omzet.store"/>
 
 				    	</div>
 
 					    <div class="tab-pane fade  @if(session('pajak')) active show @endif" id="inbox">
 
-                            <x-pajak :pajak="$data->id"/>
+                            <x-pajak :pajak="$data->id" route="pelaku.pajak.store"/>
 
 
 				    	</div>
@@ -173,7 +173,7 @@
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: "{{ route('biaya.list', ['ekraf_id' => Request::segment(3)]) }}",
+        ajax: "{{ route('pelaku.biaya.index', ['ekraf_id' => Request::segment(3)]) }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
@@ -187,7 +187,7 @@
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: "{{ route('omzet.list') }}",
+        ajax: "{{ route('pelaku.omzet.index') }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
@@ -201,7 +201,7 @@
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: "{{ route('pajak.list') }}",
+        ajax: "{{ route('pelaku.pajak.index') }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun',  },
@@ -223,5 +223,9 @@
             { data: 'action', className: "text-center" },
         ]
     });
+{!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya') !!}
+{!! JsValidator::formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet") !!}
+{!! JsValidator::formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak") !!}
+{!! JsValidator::formRequest('App\Http\Requests\PelatihanStorePelakuValidation', "#pelatihan") !!}
 </script>
 @endpush

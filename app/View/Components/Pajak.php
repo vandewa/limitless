@@ -12,9 +12,11 @@ class Pajak extends Component
      * @return void
      */
     public $devan;
-    public function __construct($pajak)
+    public $route;
+    public function __construct($pajak, $route='pajak.store')
     {
         $this->devan = $pajak;
+        $this->route = $route;
     }
 
     /**
