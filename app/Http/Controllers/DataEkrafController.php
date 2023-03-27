@@ -19,8 +19,8 @@ class DataEkrafController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Master";
-        $submenu = "Data Ekraf";
+        $menu = "Data Ekraf";
+        $submenu = "List Data Ekraf";
 
         if ($request->ajax()) {
             $data = Ekraf::orderBy('nama_usaha', 'ASC');
@@ -51,8 +51,8 @@ class DataEkrafController extends Controller
      */
     public function create(Request $request)
     {
-        $menu = "Master";
-        $submenu = "Data Ekraf";
+        $menu = "Data Ekraf";
+        $submenu = "List Data Ekraf";
         $subsubmenu = "Tambah Ekraf";
         $title = "Tambah Data Ekraf";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
@@ -129,8 +129,8 @@ class DataEkrafController extends Controller
     {
         $data = Ekraf::find($id);
         $subsektornya = SubsektorEkraf::with('subsektornya')->where('ekraf_id', $id)->get()->pluck('subsektornya.id');
-        $menu = "Master";
-        $submenu = "Data Ekraf"; 
+        $menu = "Data Ekraf";
+        $submenu = "List Data Ekraf";
         $title = "Detail Data Ekraf";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 
@@ -167,8 +167,8 @@ class DataEkrafController extends Controller
     {
         $data = Ekraf::find($id);
         $subsektornya = SubsektorEkraf::with('subsektornya')->where('ekraf_id', $id)->get()->pluck('subsektornya.id');
-        $menu = "Master";
-        $submenu = "Data Ekraf"; 
+        $menu = "Data Ekraf";
+        $submenu = "List Data Ekraf";
         $title = "Edit Data Ekraf";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 

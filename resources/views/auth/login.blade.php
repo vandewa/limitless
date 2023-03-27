@@ -1,121 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    @include('admin.includes.meta')
-    @stack('before-style')
-    @include('admin.includes.style')
-    @stack('after-style')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Sistem Informasi Pariwisata dan Ekonomi Kreatif">
+	<meta name="author" content="Diskominfo Wonosobo">
+	<meta name="keyword" content="Sistem Informasi Pariwisata dan Ekonomi Kreatif">
+	<link rel="shortcut icon" href="{{ asset('pemda.ico') }}">
+	<title>Login SIPAREKRAF</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+	<!-- favicons Icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('zilom/files/assets/images/favicons/apple-touch-icon.png')}}" />
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('zilom/files/assets/images/favicons/favicon-32x32.png')}}" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('zilom/files/assets/images/favicons/favicon-16x16.png')}}" />
+	<link rel="stylesheet" href="{{ asset('style.css') }}">
+	
 </head>
+<body class="img js-fullheight" style="background-image:url({{ asset('bg.png') }});">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-0 mt-4">
+					<img src="{{ asset('logo.png') }}" style="width: 80px;">
+					<h2 class="heading-section">
+						<span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 40pt">SIPAREKRAF</span>
+					</h2>
+					<span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">( Sistem Informasi Pariwisata dan Ekonomi Kreatif )</span>	
+				</div>
+			</div>
+			<div class="row justify-content-center mt-4">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h6 class="mb-4 text-center" style="color: #ffffff;">Masukkan Email dan Password Anda</h6>
+						<form action="{{ route('login') }}" class="signin-form" id="flogin" onsubmit="return lsogin();" method="post" accept-charset="utf-8">
+							 @csrf
+							 
+                             @if ($errors->any())
+                             <div class="alert alert-danger">
+                                 <ul>
+                                     @foreach ($errors->all() as $error)
+                                     <li>{{ $error }}</li>
+                                     @endforeach
+                                 </ul>
+                             </div>
+                             @endif
 
-<body>
-
-    <!-- Page content -->
-    <div class="page-content">
-
-        <!-- Main content -->
-        <div class="content-wrapper">
-
-            <!-- Content area -->
-            <div class="content d-flex justify-content-center align-items-center">
-
-                <!-- Login card -->
-                {{ Form::open(['route' => 'login', 'method' => 'POST', 'class' => 'login-form']) }}
-                <div class="card mb-0">
-                    <div class="card-body">
-
-                        <div class="text-center mb-3">
-                            <i
-                                class="icon-reading icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i>
-                            <h5 class="mb-0">Login to your account</h5>
-                            <span class="d-block text-muted">Your credentials</span>
-                        </div>
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                        <div class="form-group form-group-feedback form-group-feedback-left">
-                            {{ Form::email('email', null, ['class' => 'form-control',
-                            'placeholder' => 'Email']) }}
-                            <div class="form-control-feedback">
-                                <i class="icon-user text-muted"></i>
-                            </div>
-                        </div>
-
-                        <div class="form-group form-group-feedback form-group-feedback-left">
-                            {{ Form::password('password', ['class' => 'form-control',
-                            'placeholder' => 'Password']) }}
-                            <div class="form-control-feedback">
-                                <i class="icon-lock2 text-muted"></i>
-                            </div>
-                        </div>
-
-                        <!-- <div class="form-group d-flex align-items-center">
-                                <div class="form-check mb-0">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" name="remember" class="form-input-styled" checked
-                                            data-fouc>
-                                        Remember
-                                    </label>
-                                </div>
-
-                                <a href="login_password_recover.html" class="ml-auto">Forgot password?</a>
-                            </div> -->
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Sign in <i
-                                    class="icon-circle-right2 ml-2"></i></button>
-                        </div>
-
-                        <!-- <div class="form-group text-center text-muted content-divider">
-                                <span class="px-2">or sign in with</span>
-                            </div>
-
-                            <div class="form-group text-center">
-                                <button type="button"
-                                    class="btn btn-outline bg-indigo border-indigo text-indigo btn-icon rounded-round border-2"><i
-                                        class="icon-facebook"></i></button>
-                                <button type="button"
-                                    class="btn btn-outline bg-pink-300 border-pink-300 text-pink-300 btn-icon rounded-round border-2 ml-2"><i
-                                        class="icon-dribbble3"></i></button>
-                                <button type="button"
-                                    class="btn btn-outline bg-slate-600 border-slate-600 text-slate-600 btn-icon rounded-round border-2 ml-2"><i
-                                        class="icon-github"></i></button>
-                                <button type="button"
-                                    class="btn btn-outline bg-info border-info text-info btn-icon rounded-round border-2 ml-2"><i
-                                        class="icon-twitter"></i></button>
-                            </div> -->
-
-                        <!-- <div class="form-group text-center text-muted content-divider">
-                            <span class="px-2">Don't have an account?</span>
-                        </div>
-
-                        <div class="form-group">
-                            <a href="#" class="btn btn-light btn-block">Sign up</a>
-                        </div> -->
-
-                        <!-- <span class="form-text text-center text-muted">By continuing, you're confirming that you've
-                                read our <a href="#">Terms &amp; Conditions</a> and <a href="#">Cookie Policy</a></span> -->
-                    </div>
-                </div>
-                {{ Form::close() }}
-                <!-- /login card -->
-
-            </div>
-            <!-- /content area -->
-
-        </div>
-        <!-- /main content -->
-
-    </div>
-    <!-- /page content -->
-
+							<div class="form-group">
+								<input type="email" class="form-control" name="email" placeholder="Email" id="flogin_username" autofocus required>
+							</div>
+							<div class="form-group">
+								<input name="password" placeholder="Password" id="flogin_password" type="password" class="form-control" required>
+								<span toggle="#flogin_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn submit px-3" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
+								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
+								background-size: 210% 210%;
+								background-position: 100% 0;
+								transition: all .15s ease;
+								box-shadow: none;
+								color: #fff;"><b>Login</b></button>
+							</div>
+						</form>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <script src="{{ asset('jquery.min.js') }}"></script>
+	<script>
+		$(function(){
+			$(".alert").delay(3000).slideUp(300);
+		});
+	</script>
+    <script type="text/javascript">
+		(function ($) {
+				"use strict";
+				var fullHeight = function () {
+					$('.js-fullheight').css('height', $(window).height());
+					// $(window).resize(function () {
+					// 	$('.js-fullheight').css('height', $(window).height());
+					// });
+				};
+				fullHeight();
+				$(".toggle-password").click(function () {
+					$(this).toggleClass("fa-eye fa-eye-slash");
+					var input = $($(this).attr("toggle"));
+					if (input.attr("type") == "password") {
+						input.attr("type", "text");
+					} else {
+						input.attr("type", "password");
+					}
+				});
+		})(jQuery);
+	</script>
 </body>
-
 </html>
