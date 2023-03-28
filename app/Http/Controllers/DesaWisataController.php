@@ -20,7 +20,7 @@ class DesaWisataController extends Controller
         $submenu = "Desa Wisata";
 
         if ($request->ajax()) {
-            $data = DesaWisata::select("*");
+            $data = DesaWisata::with(['kecamatan', 'kelurahan'])->select("*");
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(
@@ -58,12 +58,8 @@ class DesaWisataController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'region_kel' => 'required',
-            'region_kec' => 'required',
-        ]);
 
-        DesaWisata::create($validated);
+        DesaWisata::create($request->all());
         Alert::success('Sukses', 'Data Berhasil di Simpan');
         return redirect(route('desa-wisata.index'));
     }
@@ -100,12 +96,8 @@ class DesaWisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'desa-wisata' => 'required',
-        ]);
-
         $data = DesaWisata::find($id);
-        $data->update($validated);
+        $data->update($request->except("_token"));
         Alert::success('Sukses', 'Data Telah di Perbaharui');
         return redirect(route('desa-wisata.index'));
     }

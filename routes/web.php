@@ -18,6 +18,7 @@ use App\Http\Controllers\BiayaPelakuWisataController;
 use App\Http\Controllers\OmzetPelakuWisataController;
 use App\Http\Controllers\PajakPelakuWisataController;
 use App\Http\Controllers\DesaWisataController;
+use App\Http\Controllers\KunjunganLokasiWisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +60,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/omzet/list', [OmzetController::class, 'omzet'])->name('omzet.list');
     Route::get('/pajak/list', [PajakController::class, 'pajak'])->name('pajak.list');
     Route::get('/pelatihan/list', [PelatihanController::class, 'pelatihan'])->name('pelatihan.list');
+    Route::get('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'index'])->name('kunjungan-wisata.index');
+    Route::get('kunjungan-wisata/create', [KunjunganLokasiWisataController::class, 'create'])->name('kunjungan-wisata.create');
 });

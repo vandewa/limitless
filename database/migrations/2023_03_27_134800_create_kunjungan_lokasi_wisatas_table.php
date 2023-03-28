@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('kunjungan_lokasi_wisatas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('lokasi_wisata_id');
-            $table->string('bulan');
+            $table->integer('bulan');
+            $table->integer('tahun');
+            $table->integer('kunjungan');
             $table->timestamps();
         });
     }

@@ -70,24 +70,52 @@
 
         <!-- Content area -->
         <div class="content">
-            <div class="col-12 mb-3">
-                <a href="{{ route('desa-wisata.create') }}"><button class="btn btn-primary rounded-round"><i
-                            class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
-            </div>
+
 
             <!-- Page length options -->
-            <div class="card">`
+            <div class="card">
                 <div class="card-body">
+
+                        <div class="row font-size-lg">
+                            <div class="col-md-6">
+                                <div class="row mb-2">
+                                    <div class="col-md-3">Nama</div>
+                                    <div class="col-md-9">: {{ $lokasi->name }}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">Jenis Lokasi</div>
+                                    <div class="col-md-9">: {{ $lokasi->lokasi_wisata_tp }}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">Alamat</div>
+                                    <div class="col-md-9">: {{ $lokasi->alamat }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row mb-2">
+                                    <div class="col-md-3">Contact Person</div>
+                                    <div class="col-md-9">: {{ $lokasi->contact_person }}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">Email</div>
+                                    <div class="col-md-9">: {{ $lokasi->email }}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">No Wa</div>
+                                    <div class="col-md-9">: {{ $lokasi->no_wa }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                   <hr>
                     <table class="table datatable-basic tabelku">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Id</th>
-                                <th>Kecamatan</th>
-                                <th>Desa</th>
-                                <th>Telepon</th>
-                                <th>Email</th>
-                                <th class="text-center">Aksi</th>
+                                <th>Tahun</th>
+                                <th>Bulan</th>
+                                <th>Jumlah Kunjungan</th>
+
                             </tr>
                         </thead>
                     </table>
@@ -113,12 +141,9 @@
         responsive: true,
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'id', name: 'id', className: "text-center", visible: false, },
-            { data: 'kecamatan.region_nm', name: 'kecamatan.region_nm' },
-            { data: 'kelurahan.region_nm', name: 'kelurahan.region_nm' },
-            { data: 'telepon', name: 'telepon', className: "text-center" },
-            { data: 'email', name: 'email', className: "text-center" },
-            { data: 'action', className: "text-center" },
+            { data: 'tahun', name: 'tahun' },
+            { data: 'bulan', name: 'bulan' },
+            { data: 'kunjungan', name: 'kunjungan'},
         ]
     });
 </script>

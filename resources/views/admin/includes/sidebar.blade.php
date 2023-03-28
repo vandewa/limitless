@@ -92,6 +92,14 @@
                                         </a>
                                 </li>
                                 <li class="nav-item">
+                                        <a href="{{ route('kunjungan-wisata.index',['lokasi_id' => '1']) }}" class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
+                                                <i class="icon-users"></i>
+                                                <span>
+                                                        Kunjungan Wisata
+                                                </span>
+                                        </a>
+                                </li>
+                                <li class="nav-item">
                                         <a href="{{ route('desa-wisata.index') }}" class="nav-link {{ Request::segment(2) == 'desa-wisata' ? 'active' : '' }}">
                                                 <i class="icon-users"></i>
                                                 <span>
