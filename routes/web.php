@@ -18,11 +18,8 @@ use App\Http\Controllers\BiayaPelakuWisataController;
 use App\Http\Controllers\OmzetPelakuWisataController;
 use App\Http\Controllers\PajakPelakuWisataController;
 use App\Http\Controllers\DesaWisataController;
-<<<<<<< HEAD
 use App\Http\Controllers\KunjunganLokasiWisataController;
-=======
 use App\Http\Controllers\LokasiWisataController;
->>>>>>> 6b276576003a73c3b39a3548db1beb98709f0518
 
 /*
 |--------------------------------------------------------------------------
