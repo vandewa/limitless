@@ -61,7 +61,7 @@
     <section class="courses-one">
         <div class="container">
             <div class="section-title text-center">
-                <h2 class="section-title__title">Jumlah Kunjungan</h2>
+                <h2 class="section-title__title">Pelaporan Jumlah Kunjungan</h2>
             </div>
 
             <div class="mt-2">
@@ -97,20 +97,21 @@
                 </div>
             </div>
 
-            {!! Form::open(['route' => "kunjungan-wisata.create", "class" => "mt-3"]) !!}
+            {!! Form::open(['route' => "kunjungan-wisata.store", "class" => "mt-3",  'method' => 'POST']) !!}
+            <input type="hidden" name="lokasi_wisata_id" value="{{ request('lokasi_id') }}" id="">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Tahun:</label>
-                        {{ Form::text('telepon', null, ['class' => 'form-control',
-                        'placeholder' => 'Masukkan Nomor Telepon']) }}
+                        {{ Form::text('tahun', request('tahun'), ['class' => 'form-control',
+                        'placeholder' => 'Masukkan Nomor Telepon', "disabled"]) }}
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Bulan:</label>
-                        {{ Form::email('email', null, ['class' => 'form-control',
-                        'placeholder' => 'Masukkan Email']) }}
+                        {{ Form::email('bulan', get_bulan(request('bulan')), ['class' => 'form-control',
+                        'placeholder' => 'Masukkan Email', "disabled"]) }}
                     </div>
                 </div>
             </div>
@@ -118,12 +119,16 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Jumlah Kunjungan:</label>
-                        {{ Form::text('website', null, ['class' => 'form-control',
-                        'placeholder' => 'desa-wisata.com']) }}
+                        {{ Form::number('kunjungan', null, ['class' => 'form-control',
+                        'placeholder' => 'jumlah kunjungan']) }}
                     </div>
                 </div>
             </div>
-
+            <div class="d-flex justify-content-between align-items-center">
+                <a class="btn btn-light" href="{{ url('/') }}">Kembali</a>
+                <button type="submit" class="btn btn-primary bg-blue">Simpan <i
+                        class="icon-paperplane ml-2"></i></button>
+            </div>
 
             {!! Form::close() !!}
 

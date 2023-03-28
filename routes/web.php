@@ -62,4 +62,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pelatihan/list', [PelatihanController::class, 'pelatihan'])->name('pelatihan.list');
     Route::get('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'index'])->name('kunjungan-wisata.index');
     Route::get('kunjungan-wisata/create', [KunjunganLokasiWisataController::class, 'create'])->name('kunjungan-wisata.create');
+    Route::post('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'store'])->name('kunjungan-wisata.store');
 });

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\LokasiWisata;
+use Session;
 
 class KunjunganLokasiWisataController extends Controller
 {
@@ -52,7 +53,31 @@ class KunjunganLokasiWisataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            "kunjungan" => 'required'
+        ]);
+
+        $cek = KunjunganLokasiWisata::where('lokasi_wisata_id', $request->lokasi_wisata_id)->where('bulan', (int) date('m'))->where('tahun', date('Y'))->first();
+
+        if(!$cek) {
+            $a = KunjunganLokasiWisata::create([
+                'lokasi_wisata_id' => $request->lokasi_wisata_id,
+                'bulan' => (int) date('m'),
+                'tahun' => date('Y'),
+                'kunjungan' => $request->kunjungan,
+
+            ]);
+        }else {
+           $a=  $cek->update(['kunjungan' => $request->kunjungan]);
+        }
+
+
+        if($a){
+            Session::flash('success', "Data berhasil disimpan");
+
+            return redirect(url('/'));
+        }
+        return "terjadi masalah";
     }
 
     /**
