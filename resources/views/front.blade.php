@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <!--End Single Swiper Slide-->
-              
+
 
             </div>
             <!-- If we need navigation buttons -->
@@ -211,7 +211,7 @@
                         <div class="courses-one__single-content">
                             <h4 class="courses-one__single-content-title">
                                 <a href="{{ route('list.subsektor', $sub->id) }}">
-                                   <center> {{ $sub->nama_subsektor }}</center> 
+                                   <center> {{ $sub->nama_subsektor }}</center>
                                 </a>
                             </h4>
                         </div>
@@ -242,6 +242,27 @@
             </div>
         </div>
         <!--End Footer One Bottom-->
+        @if (Session::has('success'))
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <h3>Data berhasil disimpan</h3>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        @endif
     </footer>
     <!--End Footer One-->
 
