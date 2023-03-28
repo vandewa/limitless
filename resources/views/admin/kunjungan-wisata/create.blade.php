@@ -97,7 +97,33 @@
                 </div>
             </div>
 
-            {!! Form::open() !!}
+            {!! Form::open(['route' => "kunjungan-wisata.create", "class" => "mt-3"]) !!}
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Tahun:</label>
+                        {{ Form::text('telepon', null, ['class' => 'form-control',
+                        'placeholder' => 'Masukkan Nomor Telepon']) }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Bulan:</label>
+                        {{ Form::email('email', null, ['class' => 'form-control',
+                        'placeholder' => 'Masukkan Email']) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Jumlah Kunjungan:</label>
+                        {{ Form::text('website', null, ['class' => 'form-control',
+                        'placeholder' => 'desa-wisata.com']) }}
+                    </div>
+                </div>
+            </div>
+
 
             {!! Form::close() !!}
 
