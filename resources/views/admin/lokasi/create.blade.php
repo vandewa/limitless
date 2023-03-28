@@ -25,7 +25,7 @@
                     <div class="breadcrumb">
                         <a href="{{ url('dashboard') }}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>
                             Home</a>
-                        <a href="{{ route('jenis_usaha.index') }}" class="breadcrumb-item">{{ $menu }}</a>
+                        <a href="{{ route('lokasi.index') }}" class="breadcrumb-item">{{ $menu }}</a>
                         <span class="breadcrumb-item">{{ $submenu }}</span>
                         <span class="breadcrumb-item active">{{ $title }}</span>
                     </div>
@@ -56,9 +56,8 @@
                 </div>
 
                 <div class="card-body">
-                    {{Form::model($data, ['route' => ['subsektor.update', $data->id], 'method' => 'put', 'id' =>
-                    'my-form'])}}
-                    @include('admin.subsektor.form')
+                    {{Form::open(['route' => 'lokasi.store','method' => 'post', 'id' => 'my-form'])}}
+                    @include('admin.lokasi.form')
                     {{Form::close()}}
                 </div>
             </div>
@@ -80,5 +79,5 @@
 
 <!-- Laravel Javascript Validation -->
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
-{!! JsValidator::formRequest('App\Http\Requests\SubsektorStoreValidation','#my-form') !!}
+{!! JsValidator::formRequest('App\Http\Requests\LokasiStoreValidation','#my-form') !!}
 @endpush
