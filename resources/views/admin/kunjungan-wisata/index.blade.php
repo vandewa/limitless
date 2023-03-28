@@ -106,6 +106,7 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="{{ route('kunjungan-wisata.create', ["lokasi_id" => $lokasi->id, "tahun" => date('Y'), "bulan" => (int) date('m')]) }}" target="_blank" class="btn btn-dark">Penyisihan Data</a>
 
                    <hr>
                     <table class="table datatable-basic tabelku">

@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li
-                    class="nav-item nav-item-submenu {{ Request::segment(2) == 'subsektor' || Request::segment(2) == 'pengguna' || Request::segment(2) == 'lokasi' ? 'nav-item-expanded nav-item-open' : '' }} ">
+                    class="nav-item nav-item-submenu {{ Request::segment(2) == 'subsektor' || Request::segment(2) == 'pengguna' ? 'nav-item-expanded nav-item-open' : '' }} ">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
@@ -73,10 +73,6 @@
                         <li class="nav-item"><a href="{{ route('pengguna.index') }}"
                                 class="nav-link {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">Data
                                 Pengguna</a>
-                        </li>
-                        <li class="nav-item"><a href="{{ route('lokasi.index') }}"
-                                class="nav-link {{ Request::segment(2) == 'lokasi' ? 'active' : '' }}">Lokasi
-                                Wisata</a>
                         </li>
                     </ul>
                 </li>
@@ -104,6 +100,16 @@
                         <i class="icon-users"></i>
                         <span>
                             Desa Wisata
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('lokasi.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'lokasi' || Request::segment(1) == 'kunjungan-wisata' ? 'active' : '' }}">
+                        <i class="icon-users"></i>
+                        <span>
+                            Lokasi
+                            Wisata
                         </span>
                     </a>
                 </li>

@@ -28,6 +28,7 @@ class LokasiWisataController extends Controller
                     function ($data) {
                         $actionBtn = '
                         <div>
+                            <a href="' . route('kunjungan-wisata.index', ["lokasi_id"=> $data->id]) . ' "  class="btn btn-outline-success rounded-round"><i class="mr-2 icon-eye"></i>Data Kunjungan</a>
                             <a href="' . route('lokasi.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
                             <a href="' . route('lokasi.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
                         </div>';
