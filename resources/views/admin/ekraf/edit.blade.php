@@ -17,13 +17,14 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-                 
+
             </div>
 
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                        <a href="{{ url('dashboard') }}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>
+                            Home</a>
                         <a href="{{ route('jenis_usaha.index') }}" class="breadcrumb-item">{{ $menu }}</a>
                         <span class="breadcrumb-item active">{{ $submenu }}</span>
                     </div>
@@ -31,7 +32,7 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-                  
+
             </div>
         </div>
         <!-- /page header -->
@@ -52,12 +53,12 @@
                 </div>
 
                 <div class="card-body">
-                    {{Form::open(['route' => 'ekraf.store','method' => 'post', 'id' => 'my-form'])}} 
-                    @include('admin.ekraf.form')	
+                    {{Form::open(['route' => 'ekraf.store','method' => 'post', 'id' => 'my-form'])}}
+                    @include('admin.ekraf.form')
                     {{Form::close()}}
                 </div>
             </div>
-				<!-- /form inputs -->
+            <!-- /form inputs -->
         </div>
         <!-- /main content -->
 

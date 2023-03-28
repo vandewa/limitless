@@ -1,24 +1,24 @@
 <!-- Main sidebar -->
 <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
-        <!-- Sidebar mobile toggler -->
-        <div class="sidebar-mobile-toggler text-center">
-                <a href="#" class="sidebar-mobile-main-toggle">
-                        <i class="icon-arrow-left8"></i>
-                </a>
-                Navigation
-                <a href="#" class="sidebar-mobile-expand">
-                        <i class="icon-screen-full"></i>
-                        <i class="icon-screen-normal"></i>
-                </a>
-        </div>
-        <!-- /sidebar mobile toggler -->
+    <!-- Sidebar mobile toggler -->
+    <div class="sidebar-mobile-toggler text-center">
+        <a href="#" class="sidebar-mobile-main-toggle">
+            <i class="icon-arrow-left8"></i>
+        </a>
+        Navigation
+        <a href="#" class="sidebar-mobile-expand">
+            <i class="icon-screen-full"></i>
+            <i class="icon-screen-normal"></i>
+        </a>
+    </div>
+    <!-- /sidebar mobile toggler -->
 
 
-        <!-- Sidebar content -->
-        <div class="sidebar-content">
+    <!-- Sidebar content -->
+    <div class="sidebar-content">
 
-                <!-- User menu -->
-                <!-- <div class="sidebar-user">
+        <!-- User menu -->
+        <!-- <div class="sidebar-user">
                     <div class="card-body">
                         <div class="media">
                             <div class="mr-3">
@@ -40,87 +40,88 @@
                         </div>
                     </div>
                 </div> -->
-                <!-- /user menu -->
+        <!-- /user menu -->
 
 
-                <!-- Main navigation -->
-                <div class="card card-sidebar-mobile">
-                        <ul class="nav nav-sidebar" data-nav-type="accordion">
+        <!-- Main navigation -->
+        <div class="card card-sidebar-mobile">
+            <ul class="nav nav-sidebar" data-nav-type="accordion">
 
-                                <!-- Main -->
-                                <li class="nav-item-header">
-                                        <div class="text-uppercase font-size-xs line-height-xs">Main</div> <i
-                                                class="icon-menu" title="Main"></i>
-                                </li>
-                                <li class="nav-item">
-                                        <a href="{{ route('dashboard') }}" class="nav-link">
-                                                <i class="icon-home4"></i>
-                                                <span>
-                                                        Dashboard
-                                                </span>
-                                        </a>
-                                </li>
-                                <li
-                                        class="nav-item nav-item-submenu {{ Request::segment(2) == 'subsektor' ? 'nav-item-expanded nav-item-open' : '' }} ">
-                                        <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
+                <!-- Main -->
+                <li class="nav-item-header">
+                    <div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu"
+                        title="Main"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard') }}"
+                        class="nav-link {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
+                        <i class="icon-home4"></i>
+                        <span>
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+                <li
+                    class="nav-item nav-item-submenu {{ Request::segment(2) == 'subsektor' || Request::segment(2) == 'pengguna' || Request::segment(2) == 'lokasi' ? 'nav-item-expanded nav-item-open' : '' }} ">
+                    <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
-                                        <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                                                <li class="nav-item"><a href="{{ route('subsektor.index') }}"
-                                                                class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">
-                                                                Subsektor</a>
-                                                </li>
-                                                <li class="nav-item"><a href="{{ route('pengguna.index') }}"
-                                                                class="nav-link active">Data
-                                                                Pengguna</a>
-                                                </li>
-                                        </ul>
-                                </li>
-                                <li class="nav-item">
-                                        <a href="{{ route('ekraf.index') }}" class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">
-                                                <i class="icon-store2"></i>
-                                                <span>
-                                                        Data Ekraf
-                                                </span>
-                                        </a>
-                                </li>
-                                <li class="nav-item">
-                                        <a href="{{ route('pelaku.pelaku-wisata.index') }}" class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
-                                                <i class="icon-users"></i>
-                                                <span>
-                                                        Pelaku Wisata Perorangan
-                                                </span>
-                                        </a>
-                                </li>
-                                <li class="nav-item">
-                                        <a href="{{ route('kunjungan-wisata.index',['lokasi_id' => '1']) }}" class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
-                                                <i class="icon-users"></i>
-                                                <span>
-                                                        Kunjungan Wisata
-                                                </span>
-                                        </a>
-                                </li>
-                                <li class="nav-item">
-                                        <a href="{{ route('desa-wisata.index') }}" class="nav-link {{ Request::segment(2) == 'desa-wisata' ? 'active' : '' }}">
-                                                <i class="icon-users"></i>
-                                                <span>
-                                                        Desa Wisata
-                                                </span>
-                                        </a>
-                                </li>
-                                <li class="nav-item">
-                                        <a href="{{ route('jenis_usaha.index') }}" class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">
-                                                <i class="icon-bed2"></i>
-                                                <span>
-                                                        Data Usaha Pariwisata
-                                                </span>
-                                        </a>
-                                </li>
-                        </ul>
-                </div>
-                <!-- /main navigation -->
-
+                    <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                        <li class="nav-item"><a href="{{ route('subsektor.index') }}"
+                                class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">
+                                Subsektor</a>
+                        </li>
+                        <li class="nav-item"><a href="{{ route('pengguna.index') }}"
+                                class="nav-link {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">Data
+                                Pengguna</a>
+                        </li>
+                        <li class="nav-item"><a href="{{ route('lokasi.index') }}"
+                                class="nav-link {{ Request::segment(2) == 'lokasi' ? 'active' : '' }}">Lokasi
+                                Wisata</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('ekraf.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'ekraf' ? 'active' : '' }}">
+                        <i class="icon-store2"></i>
+                        <span>
+                            Data Ekraf
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('pelaku.pelaku-wisata.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
+                        <i class="icon-users"></i>
+                        <span>
+                            Pelaku Wisata Perorangan
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('desa-wisata.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'desa-wisata' ? 'active' : '' }}">
+                        <i class="icon-users"></i>
+                        <span>
+                            Desa Wisata
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('jenis_usaha.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">
+                        <i class="icon-bed2"></i>
+                        <span>
+                            Data Usaha Pariwisata
+                        </span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <!-- /sidebar content -->
+        <!-- /main navigation -->
+
+    </div>
+    <!-- /sidebar content -->
 
 </div>
 <!-- /main sidebar -->

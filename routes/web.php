@@ -18,7 +18,11 @@ use App\Http\Controllers\BiayaPelakuWisataController;
 use App\Http\Controllers\OmzetPelakuWisataController;
 use App\Http\Controllers\PajakPelakuWisataController;
 use App\Http\Controllers\DesaWisataController;
+<<<<<<< HEAD
 use App\Http\Controllers\KunjunganLokasiWisataController;
+=======
+use App\Http\Controllers\LokasiWisataController;
+>>>>>>> 6b276576003a73c3b39a3548db1beb98709f0518
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('omzet', OmzetController::class);
         Route::resource('pajak', PajakController::class);
         Route::resource('pelatihan', PelatihanController::class);
+        Route::resource('lokasi', LokasiWisataController::class);
     });
-    Route::group(['prefix' => 'pelaku-wisata', 'as' => 'pelaku.'], function(){
+    Route::group(['prefix' => 'pelaku-wisata', 'as' => 'pelaku.'], function () {
         Route::resource('pelaku-wisata', PelakuWisataController::class);
         Route::resource('biaya', BiayaPelakuWisataController::class);
         Route::resource('omzet', OmzetPelakuWisataController::class);

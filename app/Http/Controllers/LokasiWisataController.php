@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LokasiStoreValidation;
+use App\Models\LokasiWisata;
+use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 
 class LokasiWisataController extends Controller
@@ -11,9 +14,30 @@ class LokasiWisataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $menu = "Master";
+        $submenu = "Data Lokasi Wisata";
+
+        if ($request->ajax()) {
+            $data = LokasiWisata::with('jenislokasinya')->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn(
+                    'action',
+                    function ($data) {
+                        $actionBtn = '
+                        <div>
+                            <a href="' . route('lokasi.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
+                            <a href="' . route('lokasi.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
+                        </div>';
+                        return $actionBtn;
+                    }
+                )
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('admin.lokasi.index', compact('menu', 'submenu'));
     }
 
     /**
@@ -23,7 +47,12 @@ class LokasiWisataController extends Controller
      */
     public function create()
     {
-        //
+        $menu = "Master";
+        $submenu = "Data Lokasi";
+        $subsubmenu = "Tambah Lokasi";
+        $title = "Tambah Data Lokasi";
+
+        return view('admin.lokasi.create', compact('menu', 'submenu', 'subsubmenu', 'title'));
     }
 
     /**
@@ -32,9 +61,11 @@ class LokasiWisataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LokasiStoreValidation $request)
     {
-        //
+        LokasiWisata::create($request->except('proengsoft_jsvalidation'));
+
+        return redirect(route('lokasi.index'))->with('tambah', 'oke');
     }
 
     /**
@@ -56,7 +87,13 @@ class LokasiWisataController extends Controller
      */
     public function edit($id)
     {
-        //
+        $menu = "Master";
+        $submenu = "Data Lokasi";
+        $subsubmenu = "Edit Lokasi";
+        $title = "Edit Data Lokasi";
+        $data = LokasiWisata::where('id', $id)->first();
+
+        return view('admin.lokasi.edit', compact('data', 'menu', 'submenu', 'subsubmenu', 'title'));
     }
 
     /**
@@ -68,7 +105,15 @@ class LokasiWisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $email = $request->validate(
+            [
+                'email' => 'required|email|unique:users,email,' . $id . ',id',
+            ]
+        );
+
+        LokasiWisata::find($id)->update($request->except(['proengsoft_jsvalidation', 'email']) + $email);
+
+        return redirect(route('lokasi.index'))->with('edit', 'oke');
     }
 
     /**
@@ -79,6 +124,6 @@ class LokasiWisataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        LokasiWisata::destroy($id);
     }
 }

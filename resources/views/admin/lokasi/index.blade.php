@@ -16,8 +16,6 @@
                         {{ $submenu }}</h4>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
-
-
             </div>
 
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
@@ -32,16 +30,15 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-
             </div>
         </div>
         <!-- /page header -->
 
-
         <!-- Content area -->
         <div class="content">
+
             <div class="col-12 mb-3">
-                <a href="{{ route('jenis_usaha.create') }}"><button class="btn btn-primary rounded-round"><i
+                <a href="{{ route('lokasi.create') }}"><button class="btn btn-primary rounded-round"><i
                             class="mr-2 icon-file-plus2"></i>Tambah Data</button></a>
             </div>
 
@@ -51,8 +48,13 @@
                     <table class="table datatable-basic tabelku">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Jenis Usaha Pariwisata</th>
+                                <th>No</th>
+                                <th>Nama Lokasi</th>
+                                <th>Jenis Lokasi</th>
+                                <th>Alamat</th>
+                                <th>Contact Person</th>
+                                <th>Nomor Whatsapp</th>
+                                <th>Email</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -79,7 +81,12 @@
         responsive: true,
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'jenis_usaha', name: 'jenis_usaha', className: "text-center" },
+            { data: 'name', name: 'name', },
+            { data: 'jenislokasinya.code_nm', name: 'jenislokasinya.code_nm', },
+            { data: 'alamat', name: 'alamat', },
+            { data: 'contact_person', name: 'contact_person', },
+            { data: 'no_wa', name: 'no_wa', },
+            { data: 'email', name: 'email', },
             { data: 'action', className: "text-center" },
         ]
     });

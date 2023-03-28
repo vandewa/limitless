@@ -17,13 +17,14 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-                 
+
             </div>
 
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                        <a href="{{ url('dashboard') }}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i>
+                            Home</a>
                         <a href="{{ route('ekraf.index') }}" class="breadcrumb-item">{{ $menu }}</a>
                         <span class="breadcrumb-item">{{ $submenu }}</span>
                         <span class="breadcrumb-item active">{{ $title }}</span>
@@ -32,7 +33,7 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-                  
+
             </div>
         </div>
         <!-- /page header -->
@@ -53,79 +54,83 @@
                 </div>
 
                 <div class="card-body">
-                    <x-detail-pelaku-wisata :id="$data->id"/>
+                    <x-detail-pelaku-wisata :id="$data->id" />
                 </div>
             </div>
 
             <!-- Inner container -->
-				<div class="d-md-flex align-items-md-start">
+            <div class="d-md-flex align-items-md-start">
 
-					<!-- Left sidebar component -->
-					<div class="sidebar sidebar-light bg-transparent sidebar-component sidebar-component-left wmin-300 border-0 shadow-0 sidebar-expand-md">
+                <!-- Left sidebar component -->
+                <div
+                    class="sidebar sidebar-light bg-transparent sidebar-component sidebar-component-left wmin-300 border-0 shadow-0 sidebar-expand-md">
 
-						<!-- Sidebar content -->
-						<div class="sidebar-content">
+                    <!-- Sidebar content -->
+                    <div class="sidebar-content">
 
-							<!-- Navigation -->
-							<div class="card">
-								<div class="card-body p-0">
-									<ul class="nav nav-sidebar mb-2">
-										<li class="nav-item-header">Navigation</li>
-										<li class="nav-item">
-											<a href="#profile" class="nav-link @if(session('biaya')) active @endif" data-toggle="tab">
-												<i class="icon-coins"></i>
-												Biaya Produksi
-											</a>
-										</li>
-										<li class="nav-item">
-											<a href="#schedule" class="nav-link @if(session('omzet')) active @endif" data-toggle="tab">
-												<i class="icon-cash3"></i>
-												Omzet
-											</a>
-										</li>
-										<li class="nav-item">
-											<a href="#inbox" class="nav-link @if(session('pajak')) active @endif" data-toggle="tab">
-												<i class="icon-coin-dollar"></i>
-												Pajak
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<!-- /navigation -->
-						</div>
-						<!-- /sidebar content -->
+                        <!-- Navigation -->
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <ul class="nav nav-sidebar mb-2">
+                                    <li class="nav-item-header">Navigation</li>
+                                    <li class="nav-item">
+                                        <a href="#profile" class="nav-link @if(session('biaya')) active @endif"
+                                            data-toggle="tab">
+                                            <i class="icon-coins"></i>
+                                            Biaya Produksi
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#schedule" class="nav-link @if(session('omzet')) active @endif"
+                                            data-toggle="tab">
+                                            <i class="icon-cash3"></i>
+                                            Omzet
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#inbox" class="nav-link @if(session('pajak')) active @endif"
+                                            data-toggle="tab">
+                                            <i class="icon-coin-dollar"></i>
+                                            Pajak
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /navigation -->
+                    </div>
+                    <!-- /sidebar content -->
 
-					</div>
-					<!-- /left sidebar component -->
-
-
-					<!-- Right content -->
-					<div class="tab-content w-100 overflow-auto">
-						<div class="tab-pane @if(session('biaya')) active show @endif" id="profile">
-
-                            <x-biaya-produksi :produksi="$data->id" route="pelaku.biaya.store"/>
-
-					    </div>
-
-					    <div class="tab-pane fade @if(session('omzet')) active show @endif" id="schedule">
-
-                            <x-omzet :omzet="$data->id" route="pelaku.omzet.store"/>
-
-				    	</div>
-
-					    <div class="tab-pane fade  @if(session('pajak')) active show @endif" id="inbox">
-
-                            <x-pajak :pajak="$data->id" route="pelaku.pajak.store"/>
+                </div>
+                <!-- /left sidebar component -->
 
 
-				    	</div>
+                <!-- Right content -->
+                <div class="tab-content w-100 overflow-auto">
+                    <div class="tab-pane @if(session('biaya')) active show @endif" id="profile">
 
-					</div>
-					<!-- /right content -->
+                        <x-biaya-produksi :produksi="$data->id" route="pelaku.biaya.store" />
 
-				</div>
-				<!-- /inner container -->
+                    </div>
+
+                    <div class="tab-pane fade @if(session('omzet')) active show @endif" id="schedule">
+
+                        <x-omzet :omzet="$data->id" route="pelaku.omzet.store" />
+
+                    </div>
+
+                    <div class="tab-pane fade  @if(session('pajak')) active show @endif" id="inbox">
+
+                        <x-pajak :pajak="$data->id" route="pelaku.pajak.store" />
+
+
+                    </div>
+
+                </div>
+                <!-- /right content -->
+
+            </div>
+            <!-- /inner container -->
         </div>
         <!-- /main content -->
 
@@ -145,7 +150,7 @@
         ajax: "{{ route('pelaku.biaya.index', ['ekraf_id' => Request::segment(3)]) }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'tahun', name: 'tahun',  },
+            { data: 'tahun', name: 'tahun', },
             { data: 'biaya_produksi', name: 'biaya_produksi', orderable: false, searchable: false },
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
@@ -159,9 +164,9 @@
         ajax: "{{ route('pelaku.omzet.index') }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'tahun', name: 'tahun',  },
+            { data: 'tahun', name: 'tahun', },
             { data: 'omzet', name: 'omzet', orderable: false, searchable: false },
-            { data: 'action', className: "text-center",orderable: false, searchable: false},
+            { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });
 </script>
@@ -173,9 +178,9 @@
         ajax: "{{ route('pelaku.pajak.index') }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'tahun', name: 'tahun',  },
-            { data: 'pajak', name: 'pajak',  orderable: false, searchable: false},
-            { data: 'action', className: "text-center",orderable: false, searchable: false},
+            { data: 'tahun', name: 'tahun', },
+            { data: 'pajak', name: 'pajak', orderable: false, searchable: false },
+            { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });
 </script>
@@ -187,14 +192,14 @@
         responsive: true,
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama_pemilik', name: 'nama_pemilik',  },
-            { data: 'nama_usaha', name: 'jenis_usaha',  },
+            { data: 'nama_pemilik', name: 'nama_pemilik', },
+            { data: 'nama_usaha', name: 'jenis_usaha', },
             { data: 'action', className: "text-center" },
         ]
     });
-{!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya') !!}
-{!! JsValidator::formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet") !!}
-{!! JsValidator::formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak") !!}
-{!! JsValidator::formRequest('App\Http\Requests\PelatihanStorePelakuValidation', "#pelatihan") !!}
+    { !!JsValidator:: formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya')!! }
+    { !!JsValidator:: formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet")!! }
+    { !!JsValidator:: formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak")!! }
+    { !!JsValidator:: formRequest('App\Http\Requests\PelatihanStorePelakuValidation', "#pelatihan")!! }
 </script>
 @endpush
