@@ -93,7 +93,7 @@
                 {{Form::select('kelurahan',[], null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih
                 Kelurahan', 'id' => 'kelurahan'])}}
                 @else
-                {{Form::select('kelurahan', get_kel($data->kelurahan), $data->kelurahan, ['class' => 'form-control
+                {{Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, ['class' => 'form-control
                 select-search', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
                 @endif
             </div>
