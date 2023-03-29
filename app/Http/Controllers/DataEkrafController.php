@@ -87,36 +87,37 @@ class DataEkrafController extends Controller
      */
     public function store(Request $request)
     {
-       $ekraf = Ekraf::create([
-        'nama_pemilik' => $request->nama_pemilik,
-        'nik' => $request->nik,
-        'jenis_kelamin' => $request->jenis_kelamin,
-        'tempat_lahir' => $request->tempat_lahir,
-        'tanggal_lahir' => $request->tanggal_lahir,
-        'alamat' => $request->alamat,
-        'rt' => $request->rt,
-        'rw' => $request->rw,
-        'kelurahan' => $request->kelurahan,
-        'kecamatan' => $request->kecamatan,
-        'kabupaten' => $request->kabupaten,
-        'jenis_barang_jasa' => $request->jenis_barang_jasa,
-        'nama_usaha' => $request->nama_usaha,
-        'nama_merek' => $request->nama_merek,
-        'hki_status' => $request->hki_status,
-        'nomor_hp' => $request->nomor_hp,
-        'jml_tenaga' => $request->jml_tenaga
-       ]);
+        $ekraf = Ekraf::create([
+            'nama_pemilik' => $request->nama_pemilik,
+            'nik' => $request->nik,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
+            'alamat' => $request->alamat,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'kelurahan' => $request->kelurahan,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten' => $request->kabupaten,
+            'jenis_barang_jasa' => $request->jenis_barang_jasa,
+            'nama_usaha' => $request->nama_usaha,
+            'nama_merek' => $request->nama_merek,
+            'hki_status' => $request->hki_status,
+            'nomor_hp' => $request->nomor_hp,
+            'jml_tenaga_laki' => $request->jml_tenaga_laki,
+            'jml_tenaga_perempuan' => $request->jml_tenaga_perempuan
+        ]);
 
-       $subsektors = $request->subsektor_id;
+        $subsektors = $request->subsektor_id;
 
-       foreach($subsektors as $subsektor) {
+        foreach ($subsektors as $subsektor) {
             $ekraf->subsektorEkraf()->create([
-                    'ekraf_id' => $ekraf->id,
-                    'subsektor_id' => $subsektor,
+                'ekraf_id' => $ekraf->id,
+                'subsektor_id' => $subsektor,
             ]);
         }
 
-       return redirect(route('ekraf.index'))->with('tambah', 'oke');
+        return redirect(route('ekraf.index'))->with('tambah', 'oke');
     }
 
     /**
@@ -151,12 +152,12 @@ class DataEkrafController extends Controller
                 )
                 ->rawColumns(['action'])
                 ->make(true);
-                }
+        }
 
 
         return view('admin.ekraf.show', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -184,7 +185,18 @@ class DataEkrafController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $ekraf = Ekraf::find($id)->update($request->all());
+
+        $subsektors = $request->subsektor_id;
+
+        foreach ($subsektors as $subsektor) {
+            $ekraf->subsektorEkraf()->create([
+                'ekraf_id' => $ekraf->id,
+                'subsektor_id' => $subsektor,
+            ]);
+        }
+
+        return redirect(route('ekraf.index'))->with('edit', 'oke');
     }
 
     /**

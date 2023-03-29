@@ -31,7 +31,8 @@ return new class extends Migration
             $table->string('nama_merek')->nullable();
             $table->string('hki_status')->nullable();
             $table->string('nomor_hp')->nullable();
-            $table->integer('jml_tenaga')->nullable();
+            $table->integer('jml_tenaga_laki')->nullable();
+            $table->integer('jml_tenaga_perempuan')->nullable();
             $table->timestamps();
         });
     }

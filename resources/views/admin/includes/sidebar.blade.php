@@ -97,7 +97,7 @@
                 <li class="nav-item">
                     <a href="{{ route('desa-wisata.index') }}"
                         class="nav-link {{ Request::segment(2) == 'desa-wisata' ? 'active' : '' }}">
-                        <i class="icon-users"></i>
+                        <i class="icon-theater"></i>
                         <span>
                             Desa Wisata
                         </span>
@@ -106,10 +106,9 @@
                 <li class="nav-item">
                     <a href="{{ route('lokasi.index') }}"
                         class="nav-link {{ Request::segment(2) == 'lokasi' || Request::segment(1) == 'kunjungan-wisata' ? 'active' : '' }}">
-                        <i class="icon-users"></i>
+                        <i class="icon-location4"></i>
                         <span>
-                            Lokasi
-                            Wisata
+                            Destinasi Wisata
                         </span>
                     </a>
                 </li>

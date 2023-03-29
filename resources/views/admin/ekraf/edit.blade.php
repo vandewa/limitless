@@ -53,7 +53,8 @@
                 </div>
 
                 <div class="card-body">
-                    {{Form::open(['route' => 'ekraf.store','method' => 'post', 'id' => 'my-form'])}}
+                    {{Form::model($data, ['route' => ['ekraf.update', $data->id], 'method' => 'put', 'id' =>
+                    'my-form'])}}
                     @include('admin.ekraf.form')
                     {{Form::close()}}
                 </div>
