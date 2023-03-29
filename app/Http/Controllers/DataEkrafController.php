@@ -185,15 +185,18 @@ class DataEkrafController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ekraf = Ekraf::find($id)->update($request->all());
+        $data = Ekraf::find($id);
+        $data->update($request->except('subsektor_id'));
 
         $subsektors = $request->subsektor_id;
 
-        foreach ($subsektors as $subsektor) {
-            $ekraf->subsektorEkraf()->create([
-                'ekraf_id' => $ekraf->id,
-                'subsektor_id' => $subsektor,
-            ]);
+        if (!$subsektors == []) {
+            foreach ($subsektors as $subsektor) {
+                $data->subsektorEkraf()->create([
+                    'ekraf_id' => $data->id,
+                    'subsektor_id' => $subsektor,
+                ]);
+            }
         }
 
         return redirect(route('ekraf.index'))->with('edit', 'oke');

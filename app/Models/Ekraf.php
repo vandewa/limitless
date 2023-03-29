@@ -10,10 +10,14 @@ class Ekraf extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function setTanggalLahirAttribute($value)
+    {
+        $this->attributes['tanggal_lahir'] = date('Y-m-d', strtotime($value));
+    }
+
     public function getTanggalLahirAttribute($value)
     {
-        $from_db = \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
-        return $from_db;
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
     }
 
     public function subsektorEkraf()

@@ -16,8 +16,8 @@ class LokasiWisataController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Master";
-        $submenu = "Data Lokasi Wisata";
+        $menu = "Data";
+        $submenu = "Destinasi Wisata";
 
         if ($request->ajax()) {
             $data = LokasiWisata::with('jenislokasinya')->get();
@@ -28,7 +28,7 @@ class LokasiWisataController extends Controller
                     function ($data) {
                         $actionBtn = '
                         <div>
-                            <a href="' . route('kunjungan-wisata.index', ["lokasi_id"=> $data->id]) . ' "  class="btn btn-outline-success rounded-round"><i class="mr-2 icon-eye"></i>Data Kunjungan</a>
+                            <a href="' . route('kunjungan-wisata.index', ["lokasi_id" => $data->id]) . ' "  class="btn btn-outline-success rounded-round"><i class="mr-2 icon-eye"></i>Data Kunjungan</a>
                             <a href="' . route('lokasi.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
                             <a href="' . route('lokasi.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
                         </div>';
@@ -48,7 +48,7 @@ class LokasiWisataController extends Controller
      */
     public function create()
     {
-        $menu = "Master";
+        $menu = "Data";
         $submenu = "Data Lokasi";
         $subsubmenu = "Tambah Lokasi";
         $title = "Tambah Data Lokasi";
@@ -88,7 +88,7 @@ class LokasiWisataController extends Controller
      */
     public function edit($id)
     {
-        $menu = "Master";
+        $menu = "Data";
         $submenu = "Data Lokasi";
         $subsubmenu = "Edit Lokasi";
         $title = "Edit Data Lokasi";
