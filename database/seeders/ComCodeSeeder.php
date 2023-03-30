@@ -30,7 +30,16 @@ class ComCodeSeeder extends Seeder
             ['code_cd' => 'LOKASI_WISATA_TP_04', 'code_nm' => 'Objek Wisata', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
             ['code_cd' => 'JENIS_ORGANISASI_01', 'code_nm' => 'Seni Budaya', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
             ['code_cd' => 'JENIS_ORGANISASI_02', 'code_nm' => 'Mitrawisata', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
-            ['code_cd' => 'JENIS_ORGANISASI_03', 'code_nm' => 'lembaga Ekraf', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
+            ['code_cd' => 'JENIS_ORGANISASI_03', 'code_nm' => 'Lembaga Ekraf', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
+            ['code_cd' => 'JENIS_DESA_WISATA_01', 'code_nm' => 'Alam', 'code_group' => 'JENIS_DESA_WISATA', 'code_value' => ''],
+            ['code_cd' => 'JENIS_DESA_WISATA_02', 'code_nm' => 'Budaya', 'code_group' => 'JENIS_DESA_WISATA', 'code_value' => ''],
+            ['code_cd' => 'JENIS_DESA_WISATA_03', 'code_nm' => 'Minat Khusus', 'code_group' => 'JENIS_DESA_WISATA', 'code_value' => ''],
+            ['code_cd' => 'JENIS_DESA_WISATA_04', 'code_nm' => 'Agrowisata', 'code_group' => 'JENIS_DESA_WISATA', 'code_value' => ''],
+            ['code_cd' => 'JENIS_DESA_WISATA_05', 'code_nm' => 'Buatan', 'code_group' => 'JENIS_DESA_WISATA', 'code_value' => ''],
+            ['code_cd' => 'STRATA_DESA_01', 'code_nm' => 'Rintisan', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
+            ['code_cd' => 'STRATA_DESA_02', 'code_nm' => 'Berkembang', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
+            ['code_cd' => 'STRATA_DESA_03', 'code_nm' => 'Maju', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
+            ['code_cd' => 'STRATA_DESA_04', 'code_nm' => 'Lestari', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {
