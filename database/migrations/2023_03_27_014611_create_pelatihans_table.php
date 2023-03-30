@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('ekraf_id')->nullable();
             $table->string('tahun')->nullable();
             $table->string('nama_pelatihan')->nullable();
+            $table->string('lembaga_penyelenggara')->nullable();
             $table->timestamps();
         });
     }

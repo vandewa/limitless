@@ -105,16 +105,19 @@ class DataEkrafController extends Controller
             'hki_status' => $request->hki_status,
             'nomor_hp' => $request->nomor_hp,
             'jml_tenaga_laki' => $request->jml_tenaga_laki,
-            'jml_tenaga_perempuan' => $request->jml_tenaga_perempuan
+            'jml_tenaga_perempuan' => $request->jml_tenaga_perempuan,
+            'nib' => $request->nib
         ]);
 
         $subsektors = $request->subsektor_id;
 
-        foreach ($subsektors as $subsektor) {
-            $ekraf->subsektorEkraf()->create([
-                'ekraf_id' => $ekraf->id,
-                'subsektor_id' => $subsektor,
-            ]);
+        if (!$subsektors = []) {
+            foreach ($subsektors as $subsektor) {
+                $ekraf->subsektorEkraf()->create([
+                    'ekraf_id' => $ekraf->id,
+                    'subsektor_id' => $subsektor,
+                ]);
+            }
         }
 
         return redirect(route('ekraf.index'))->with('tambah', 'oke');
@@ -187,10 +190,11 @@ class DataEkrafController extends Controller
     {
         $data = Ekraf::find($id);
         $data->update($request->except('subsektor_id'));
+        $data->subsektorEkraf()->delete();
 
         $subsektors = $request->subsektor_id;
 
-        if (!$subsektors == []) {
+        if (!$subsektors = []) {
             foreach ($subsektors as $subsektor) {
                 $data->subsektorEkraf()->create([
                     'ekraf_id' => $data->id,

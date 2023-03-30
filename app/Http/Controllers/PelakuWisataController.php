@@ -11,7 +11,7 @@ use App\Models\SubsektorPelakuWisata;
 
 class PelakuWisataController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -86,35 +86,36 @@ class PelakuWisataController extends Controller
      */
     public function store(Request $request)
     {
-       $ekraf = PelakuWisata::create([
-        'nama_pemilik' => $request->nama_pemilik,
-        'nik' => $request->nik,
-        'jenis_kelamin' => $request->jenis_kelamin,
-        'tempat_lahir' => $request->tempat_lahir,
-        'tanggal_lahir' => $request->tanggal_lahir,
-        'alamat' => $request->alamat,
-        'rt' => $request->rt,
-        'rw' => $request->rw,
-        'kelurahan' => $request->kelurahan,
-        'kecamatan' => $request->kecamatan,
-        'kabupaten' => $request->kabupaten,
-        'jenis_barang_jasa' => $request->jenis_barang_jasa,
-        'nama_usaha' => $request->nama_usaha,
-        'nama_merek' => $request->nama_merek,
-        'hki_status' => $request->hki_status,
-        'nomor_hp' => $request->nomor_hp,
-        'jml_tenaga' => $request->jml_tenaga
-       ]);
+        $ekraf = PelakuWisata::create([
+            'nama_pemilik' => $request->nama_pemilik,
+            'nik' => $request->nik,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'kelurahan' => $request->kelurahan,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten' => $request->kabupaten,
+            'jenis_barang_jasa' => $request->jenis_barang_jasa,
+            'nama_usaha' => $request->nama_usaha,
+            'hki_status' => $request->hki_status,
+            'nomor_hp' => $request->nomor_hp,
+            'jml_tenaga' => $request->jml_tenaga
+        ]);
 
-       $subsektors = $request->subsektor_id;
+        $subsektors = $request->subsektor_id;
 
-       foreach($subsektors as $subsektor) {
-            $ekraf->subsektorEkraf()->create([
+        if (!$subsektors = []) {
+            foreach ($subsektors as $subsektor) {
+                $ekraf->subsektorEkraf()->create([
                     'subsektor_id' => $subsektor,
-            ]);
+                ]);
+            }
         }
 
-       return redirect(route('pelaku.pelaku-wisata.index'))->with('tambah', 'oke');
+        return redirect(route('pelaku.pelaku-wisata.index'))->with('tambah', 'oke');
     }
 
     /**
@@ -149,7 +150,7 @@ class PelakuWisataController extends Controller
                 )
                 ->rawColumns(['action'])
                 ->make(true);
-                }
+        }
 
 
         return view('admin.pelaku-wisata.show', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
@@ -182,7 +183,22 @@ class PelakuWisataController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = PelakuWisata::find($id);
+        $data->update($request->except('subsektor_id'));
+        $data->subsektorEkraf()->delete();
 
+        $subsektors = $request->subsektor_id;
+
+        if (!$subsektors = []) {
+            foreach ($subsektors as $subsektor) {
+                $data->subsektorEkraf()->create([
+                    'ekraf_id' => $data->id,
+                    'subsektor_id' => $subsektor,
+                ]);
+            }
+        }
+
+        return redirect(route('pelaku.pelaku-wisata.index'))->with('edit', 'oke');
     }
 
     /**

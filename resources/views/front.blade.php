@@ -111,8 +111,8 @@
                         <ul class="categories-two__wrapper list-unstyled">
                             <!--Start Single Categories Two-->
                             <li class="categories-two__single text-center wow fadeInUp animated animated"
-                            data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <a href="#">
+                                data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <a href="#">
                                     <div class="categories-two__single-icon">
                                         <span class="fa-solid fa-user"></span>
                                         <div class="overly-bg"
@@ -121,7 +121,8 @@
                                     </div>
                                     <div class="categories-two__single-text">
                                         <h5>Pelaku</h5>
-                                        <p>Silakan Data Pelaku Bisnis di kabupaten/kota Anda. Apabila termasuk dalam komunitas kreatif</p>
+                                        <p>Silakan Data Pelaku Bisnis di kabupaten/kota Anda. Apabila termasuk dalam
+                                            komunitas kreatif</p>
                                     </div>
                                 </a>
                             </li>
@@ -134,12 +135,13 @@
                                     <div class="categories-two__single-icon">
                                         <span class="fa-solid fa-users"></span>
                                         <div class="overly-bg"
-                                                style="background-image: url({{ asset('bg-kecil.png')}});">
+                                            style="background-image: url({{ asset('bg-kecil.png')}});">
                                         </div>
                                     </div>
                                     <div class="categories-two__single-text">
                                         <h5>Komunitas</h5>
-                                        <p>Silakan Data Komunitas Bisnis di kabupaten/kota Anda. Apabila termasuk dalam komunitas kreatif</p>
+                                        <p>Silakan Data Komunitas Bisnis di kabupaten/kota Anda. Apabila termasuk dalam
+                                            komunitas kreatif</p>
                                     </div>
                                 </a>
                             </li>
@@ -152,12 +154,13 @@
                                     <div class="categories-two__single-icon">
                                         <span class="fa-solid fa-shop"></span>
                                         <div class="overly-bg"
-                                                style="background-image: url({{ asset('bg-kecil.png')}});">
-                                            </div>
+                                            style="background-image: url({{ asset('bg-kecil.png')}});">
+                                        </div>
                                     </div>
                                     <div class="categories-two__single-text">
                                         <h5>Usaha</h5>
-                                        <p>Silakan Data Bisnis/Usaha di kabupaten/kota Anda. apabila termasuk dalam komunitas kreatif</p>
+                                        <p>Silakan Data Bisnis/Usaha di kabupaten/kota Anda. apabila termasuk dalam
+                                            komunitas kreatif</p>
                                     </div>
                                 </a>
                             </li>
@@ -175,7 +178,8 @@
                                     </div>
                                     <div class="categories-two__single-text">
                                         <h5>Lembaga</h5>
-                                        <p>Daftarkan Lembaga Pendidikan di kabupaten/kota Anda. Apabila termasuk dalam komunitas kreatif</p>
+                                        <p>Daftarkan Lembaga Pendidikan di kabupaten/kota Anda. Apabila termasuk dalam
+                                            komunitas kreatif</p>
                                     </div>
                                 </a>
                             </li>
@@ -198,24 +202,58 @@
             <div class="row">
                 @foreach ($subsektor as $sub)
                 <!--Start Single Courses One-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
-                    data-wow-duration="1000ms">
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
                     <a href="{{ route('list.subsektor', $sub->id) }}">
-                    <div class="courses-one__single">
-                        <div class="courses-one__single-img">
-                            <img src="{{ asset($sub->icons)}}" alt="" height="200" style="object-fit: cover;"/>
-                            <div class="overlay-text">
-                                <p>{{ $sub->nama_subsektor }}</p>
+                        <div class="courses-one__single">
+                            <div class="courses-one__single-img">
+                                <img src="{{ asset($sub->icons)}}" alt="" height="200" style="object-fit: cover;" />
+                                <div class="overlay-text">
+                                    <p>{{ $sub->nama_subsektor }}</p>
+                                </div>
+                            </div>
+                            <div class="courses-one__single-content">
+                                <h4 class="courses-one__single-content-title">
+                                    <a href="{{ route('list.subsektor', $sub->id) }}">
+                                        <center> {{ $sub->nama_subsektor }}</center>
+                                    </a>
+                                </h4>
                             </div>
                         </div>
-                        <div class="courses-one__single-content">
-                            <h4 class="courses-one__single-content-title">
-                                <a href="{{ route('list.subsektor', $sub->id) }}">
-                                   <center> {{ $sub->nama_subsektor }}</center>
-                                </a>
-                            </h4>
+                    </a>
+                </div>
+                <!--End Single Courses One-->
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!--Courses One End-->
+
+    <!--Courses One Start-->
+    <section class="courses-one">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="section-title__title">Usaha Pariwisata</h2>
+            </div>
+            <div class="row">
+                @foreach ($uspars as $uspar)
+                <!--Start Single Courses One-->
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
+                    <a href="{{ route('list.uspar', $uspar->id) }}">
+                        <div class="courses-one__single">
+                            <div class="courses-one__single-img">
+                                <img src="{{ asset($sub->icons)}}" alt="" height="200" style="object-fit: cover;" />
+                                <div class="overlay-text">
+                                    <p>{{ $uspar->jenis_usaha }}</p>
+                                </div>
+                            </div>
+                            <div class="courses-one__single-content">
+                                <h4 class="courses-one__single-content-title">
+                                    <a href="{{ route('list.uspar', $uspar->id) }}">
+                                        <center> {{ $uspar->jenis_usaha }}</center>
+                                    </a>
+                                </h4>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <!--End Single Courses One-->
@@ -246,20 +284,20 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Data berhasil disimpan</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                <h3>Data berhasil disimpan</h3>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
             </div>
         </div>
         @endif
@@ -276,8 +314,8 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="{{ asset('logo-disparbud.png')}}"
-                    width="280" alt="" /></a>
+            <a href="index.html" aria-label="logo image"><img src="{{ asset('logo-disparbud.png')}}" width="280"
+                    alt="" /></a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>

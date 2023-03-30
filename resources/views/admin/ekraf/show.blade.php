@@ -206,6 +206,7 @@
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun', },
             { data: 'nama_pelatihan', name: 'nama_pelatihan' },
+            { data: 'lembaga_penyelenggara', name: 'lembaga_penyelenggara' },
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });

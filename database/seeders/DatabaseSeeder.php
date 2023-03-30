@@ -24,17 +24,18 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // $faker = Faker::create('id_ID');
- 
-    	// for($i = 1; $i <= 50; $i++){
- 
-    	//       // insert data ke table pegawai menggunakan Faker
-    	// 	DB::table('ekrafs')->insert([
-    	// 		'nama_pemilik' => $faker->name,
-    	// 		'nama_usaha' => $faker->address
-    	// 	]);
- 
-    	// }
+
+        // for($i = 1; $i <= 50; $i++){
+
+        //       // insert data ke table pegawai menggunakan Faker
+        // 	DB::table('ekrafs')->insert([
+        // 		'nama_pemilik' => $faker->name,
+        // 		'nama_usaha' => $faker->address
+        // 	]);
+
+        // }
         $this->call(SubsektorSeeder::class);
+        $this->call(UsparSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(RegionSeeder::class);
         $this->call(ComCodeSeeder::class);

@@ -62,17 +62,23 @@
                     </a>
                 </li>
                 <li
-                    class="nav-item nav-item-submenu {{ Request::segment(2) == 'subsektor' || Request::segment(2) == 'pengguna' ? 'nav-item-expanded nav-item-open' : '' }} ">
+                    class="nav-item nav-item-submenu {{ Request::segment(2) == 'jenis_usaha' || Request::segment(2) == 'subsektor' || Request::segment(2) == 'pengguna' ? 'nav-item-expanded nav-item-open' : '' }} ">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Master</span></a>
 
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                        <li class="nav-item"><a href="{{ route('pengguna.index') }}"
+                                class="nav-link {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">Data
+                                Pengguna</a>
+                        </li>
                         <li class="nav-item"><a href="{{ route('subsektor.index') }}"
                                 class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">
                                 Subsektor</a>
                         </li>
-                        <li class="nav-item"><a href="{{ route('pengguna.index') }}"
-                                class="nav-link {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">Data
-                                Pengguna</a>
+                        <li class="nav-item">
+                            <a href="{{ route('jenis_usaha.index') }}"
+                                class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">
+                                Usaha Pariwisata
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -82,15 +88,6 @@
                         <i class="icon-store2"></i>
                         <span>
                             Data Ekraf
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('pelaku.pelaku-wisata.index') }}"
-                        class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
-                        <i class="icon-users"></i>
-                        <span>
-                            Pelaku Wisata Perorangan
                         </span>
                     </a>
                 </li>
@@ -113,14 +110,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('jenis_usaha.index') }}"
-                        class="nav-link {{ Request::segment(2) == 'jenis_usaha' ? 'active' : '' }}">
-                        <i class="icon-bed2"></i>
+                    <a href="{{ route('pelaku.pelaku-wisata.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
+                        <i class="icon-users"></i>
                         <span>
-                            Data Usaha Pariwisata
+                            Pelaku Wisata Perorangan
                         </span>
                     </a>
                 </li>
+
             </ul>
         </div>
         <!-- /main navigation -->

@@ -40,12 +40,14 @@ class PelatihanController extends Controller
         $request->validate([
             'tahun' => 'required',
             'nama_pelatihan' => 'required',
+            'lembaga_penyelenggara' => 'required',
         ]);
 
         Pelatihan::create([
             'ekraf_id' => $request->ekraf_id,
             'tahun' => $request->tahun,
-            'nama_pelatihan' => $request->nama_pelatihan
+            'nama_pelatihan' => $request->nama_pelatihan,
+            'lembaga_penyelenggara' => $request->lembaga_penyelenggara
         ]);
 
         return redirect()->back()->with('pelatihan', 'oke');
@@ -113,6 +115,5 @@ class PelatihanController extends Controller
             )
             ->rawColumns(['action'])
             ->make(true);
-
     }
 }

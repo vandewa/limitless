@@ -35,6 +35,9 @@ use App\Http\Controllers\LokasiWisataController;
 Auth::routes();
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/list-subsektor/{id}', [FrontController::class, 'listSubsektor'])->name('list.subsektor');
+Route::get('/list-uspar/{id}', function () {
+    return 'on development';
+})->name('list.uspar');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -51,12 +54,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('pelatihan', PelatihanController::class);
         Route::resource('lokasi', LokasiWisataController::class);
     });
+
     Route::group(['prefix' => 'pelaku-wisata', 'as' => 'pelaku.'], function () {
         Route::resource('pelaku-wisata', PelakuWisataController::class);
         Route::resource('biaya', BiayaPelakuWisataController::class);
         Route::resource('omzet', OmzetPelakuWisataController::class);
         Route::resource('pajak', PajakPelakuWisataController::class);
     });
+
     Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');
     Route::get('/biaya/list', [BiayaProduksiController::class, 'biaya'])->name('biaya.list');
     Route::get('/omzet/list', [OmzetController::class, 'omzet'])->name('omzet.list');

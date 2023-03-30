@@ -168,6 +168,16 @@
             </div>
         </div>
     </div>
+    <div class="form-group row">
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">NIB</label>
+            <div class="col-lg-10">
+                {!! Form::text('nib',null, ['class' => 'form-control',
+                'placeholder' => 'Masukkan Nomor Induk Berusaha'])
+                !!}
+            </div>
+        </div>
+    </div>
 </fieldset>
 
 <div class="text-right">
