@@ -28,6 +28,9 @@ class ComCodeSeeder extends Seeder
             ['code_cd' => 'LOKASI_WISATA_TP_02', 'code_nm' => 'Homestay', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
             ['code_cd' => 'LOKASI_WISATA_TP_03', 'code_nm' => 'Basecamp', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
             ['code_cd' => 'LOKASI_WISATA_TP_04', 'code_nm' => 'Objek Wisata', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
+            ['code_cd' => 'JENIS_ORGANISASI_01', 'code_nm' => 'Seni Budaya', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
+            ['code_cd' => 'JENIS_ORGANISASI_02', 'code_nm' => 'Mitrawisata', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
+            ['code_cd' => 'JENIS_ORGANISASI_03', 'code_nm' => 'lembaga Ekraf', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {

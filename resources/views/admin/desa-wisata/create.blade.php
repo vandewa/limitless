@@ -81,14 +81,16 @@
                             {{ Form::open(['route' => 'desa-wisata.store', 'method' => 'POST']) }}
                             <div class="row">
                                 <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Telepon:</label>
-                                            {{Form::select('region_kec', get_kec(), null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kecamatan', 'id' => 'kecamatan'])}}
-                                        </div>
+                                    <div class="form-group">
+                                        <label>Kecamatan:</label>
+                                        {{Form::select('region_kec', get_kec(), null, ['class' => 'form-control
+                                        select-search', 'placeholder' => 'Pilih Kecamatan', 'id' => 'kecamatan'])}}
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Telepon:</label>
-                                    {{Form::select('region_kel',[], null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
+                                    <label>Kelurahan:</label>
+                                    {{Form::select('region_kel',[], null, ['class' => 'form-control select-search',
+                                    'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
                                 </div>
                             </div>
                             <div class="row">
@@ -135,7 +137,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Jumlah Pemandu Bersertifikat:</label>
-                                        {{ Form::number('jumlah_pemandu_bersertifikat', null, ['class' => 'form-control',
+                                        {{ Form::number('jumlah_pemandu_bersertifikat', null, ['class' =>
+                                        'form-control',
                                         'placeholder' => 'Masukkan Jenis Usaha']) }}
                                     </div>
                                 </div>
@@ -156,12 +159,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
                             <div class="d-flex justify-content-between align-items-center">
                                 <a class="btn btn-light" href="{{ url('master/jenis_usaha') }}">Kembali</a>
                                 <button type="submit" class="btn bg-blue">Simpan <i
@@ -186,20 +183,20 @@
 
 @push('after-script')
 <script>
-    $('#kecamatan').change(function() {
-       var kelurahan = $(this).val();
-           $.ajax({
-               type: "GET",
-               url: "{{ route('kelurahan') }}?kelurahan=" + kelurahan,
-               success: function(res) {
-                    $("#kelurahan").empty();
-                    $("#kelurahan").append('<option value="">Pilih Kelurahan</option>');
-                    $.each(res, function(key, value) {
-                        $("#kelurahan").append('<option value="' + key + '">' + value +
-                            '</option>');
-                    });
-                }
-           });
+    $('#kecamatan').change(function () {
+        var kelurahan = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "{{ route('kelurahan') }}?kelurahan=" + kelurahan,
+            success: function (res) {
+                $("#kelurahan").empty();
+                $("#kelurahan").append('<option value="">Pilih Kelurahan</option>');
+                $.each(res, function (key, value) {
+                    $("#kelurahan").append('<option value="' + key + '">' + value +
+                        '</option>');
+                });
+            }
+        });
     });
 </script>
 @endpush

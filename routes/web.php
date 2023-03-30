@@ -20,6 +20,7 @@ use App\Http\Controllers\PajakPelakuWisataController;
 use App\Http\Controllers\DesaWisataController;
 use App\Http\Controllers\KunjunganLokasiWisataController;
 use App\Http\Controllers\LokasiWisataController;
+use App\Http\Controllers\OrganisasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('pajak', PajakController::class);
         Route::resource('pelatihan', PelatihanController::class);
         Route::resource('lokasi', LokasiWisataController::class);
+        Route::resource('organisasi', OrganisasiController::class);
     });
 
     Route::group(['prefix' => 'pelaku-wisata', 'as' => 'pelaku.'], function () {
