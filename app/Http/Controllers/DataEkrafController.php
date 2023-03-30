@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EkrafStoreValidation;
 use App\Models\BiayaProduksi;
 use Carbon\Carbon;
 use App\Models\Ekraf;
@@ -85,7 +86,7 @@ class DataEkrafController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EkrafStoreValidation $request)
     {
         $ekraf = Ekraf::create([
             'nama_pemilik' => $request->nama_pemilik,
@@ -186,10 +187,10 @@ class DataEkrafController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EkrafStoreValidation $request, $id)
     {
         $data = Ekraf::find($id);
-        $data->update($request->except('subsektor_id'));
+        $data->update($request->except('subsektor_id', 'proengsoft_jsvalidation'));
         $data->subsektorEkraf()->delete();
 
         $subsektors = $request->subsektor_id;

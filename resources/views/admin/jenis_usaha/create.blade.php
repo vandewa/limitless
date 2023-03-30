@@ -17,7 +17,7 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-                 
+
             </div>
 
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
@@ -33,7 +33,7 @@
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
-                  
+
             </div>
         </div>
         <!-- /page header -->
@@ -47,7 +47,7 @@
                     <!-- Left and right buttons -->
                     <div class="card">
                         <div class="card-body">
-                            {{ Form::open(['route' => 'jenis_usaha.store', 'method' => 'POST']) }}
+                            {{ Form::open(['route' => 'jenis_usaha.store', 'method' => 'POST', 'id' => 'my-form']) }}
                             <div class="form-group">
                                 <label>Jenis Usaha:</label>
                                 {{ Form::text('jenis_usaha', null, ['class' => 'form-control',
@@ -76,4 +76,11 @@
 </div>
 @endsection
 @push('after-script')
+<!-- Javascript Requirements -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\UsparStoreValidation','#my-form') !!}
 @endpush

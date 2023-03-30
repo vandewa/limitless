@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsparStoreValidation;
 use App\Models\MasterDataUsahaPariwisata;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -56,13 +57,12 @@ class MasterDataUsahaPariwisataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsparStoreValidation $request)
     {
-        $validated = $request->validate([
-            'jenis_usaha' => 'required',
+        MasterDataUsahaPariwisata::create([
+            'jenis_usaha' => $request->jenis_usaha
         ]);
 
-        MasterDataUsahaPariwisata::create($validated);
         Alert::success('Sukses', 'Data Berhasil di Simpan');
         return redirect(route('jenis_usaha.index'));
     }
