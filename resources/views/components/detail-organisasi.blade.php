@@ -88,6 +88,9 @@
                     </div>
                 </div>
             </fieldset>
+            <div class="d-flex justify-content-between align-items-center">
+                <a class="btn btn-light" href="{{ url('master/organisasi') }}">Kembali</a>
+            </div>
         </div>
     </div>
 

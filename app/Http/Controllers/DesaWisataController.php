@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DesaWisataValidation;
 use App\Models\DesaWisata;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -56,10 +57,9 @@ class DesaWisataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DesaWisataValidation $request)
     {
-
-        DesaWisata::create($request->all());
+        DesaWisata::create($request->except('proengsoft_jsvalidation'));
         Alert::success('Sukses', 'Data Berhasil di Simpan');
         return redirect(route('desa-wisata.index'));
     }

@@ -72,7 +72,7 @@
                         </li>
                         <li class="nav-item"><a href="{{ route('organisasi.index') }}"
                                 class="nav-link {{ Request::segment(2) == 'organisasi' ? 'active' : '' }}">
-                                Organisasi</a>
+                                Organisasi / Lembaga</a>
                         </li>
                         <li class="nav-item"><a href="{{ route('subsektor.index') }}"
                                 class="nav-link {{ Request::segment(2) == 'subsektor' ? 'active' : '' }}">

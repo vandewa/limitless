@@ -156,8 +156,9 @@
     </div>
 </fieldset>
 
-<div class="text-right">
-    <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+<div class="d-flex justify-content-between align-items-center">
+    <a class="btn btn-light" href="{{ url('pelaku-wisata/pelaku-wisata') }}">Kembali</a>
+    <button type="submit" class="btn bg-blue">Simpan <i class="icon-paperplane ml-2"></i></button>
 </div>
 
 @push('after-script')
