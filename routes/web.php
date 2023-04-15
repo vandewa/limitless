@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('biaya', BiayaPelakuWisataController::class);
         Route::resource('omzet', OmzetPelakuWisataController::class);
         Route::resource('pajak', PajakPelakuWisataController::class);
+        Route::resource('certificate', PajakPelakuWisataController::class);
     });
 
     Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');

@@ -94,6 +94,14 @@
                                             Pajak
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="#certificate"
+                                            class="nav-link @if(session('certificate')) active @endif"
+                                            data-toggle="tab">
+                                            <i class="icon-certificate"></i>
+                                            Sertifikat
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -122,6 +130,13 @@
                     <div class="tab-pane fade  @if(session('pajak')) active show @endif" id="inbox">
 
                         <x-pajak :pajak="$data->id" route="pelaku.pajak.store" />
+
+
+                    </div>
+
+                    <div class="tab-pane fade  @if(session('certificate')) active show @endif" id="certificate">
+
+                        <x-certificate :certificate="$data->id" route="pelaku.certificate.store" />
 
 
                     </div>

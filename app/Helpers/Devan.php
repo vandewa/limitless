@@ -4,7 +4,6 @@ if (!function_exists('get_kab')) {
     function get_kab()
     {
         return \App\Models\ComRegion::where("region_root", 33)->pluck('region_nm', 'region_cd');
-
     }
 }
 if (!function_exists('get_kec')) {
@@ -27,48 +26,53 @@ if (!function_exists('get_code_group')) {
     }
 }
 
-if (!function_exists('get_bulan')) {
-    function get_bulan($code)
+if (!function_exists('get_organisasi')) {
+    function get_organisasi()
     {
-        switch  ($code){
-            case  1:
-            return  "Januari";
-            break;
-            case  2:
-            return  "Februari";
-            break;
-            case  3:
-            return  "Maret";
-            break;
-            case  4:
-            return  "April";
-            break;
-            case  5:
-            return  "Mei";
-            break;
-            case  6:
-            return  "Juni";
-            break;
-            case  7:
-            return  "Juli";
-            break;
-            case  8:
-            return  "Agustus";
-            break;
-            case  9:
-            return  "September";
-            break;
-            case  10:
-            return  "Oktober";
-            break;
-            case  11:
-            return  "November";
-            break;
-            case  12:
-            return  "Desember";
-            break;
-        }
+        return \App\Models\Organisasi::pluck('nama', 'id');
     }
 }
 
-
+if (!function_exists('get_bulan')) {
+    function get_bulan($code)
+    {
+        switch ($code) {
+            case  1:
+                return  "Januari";
+                break;
+            case  2:
+                return  "Februari";
+                break;
+            case  3:
+                return  "Maret";
+                break;
+            case  4:
+                return  "April";
+                break;
+            case  5:
+                return  "Mei";
+                break;
+            case  6:
+                return  "Juni";
+                break;
+            case  7:
+                return  "Juli";
+                break;
+            case  8:
+                return  "Agustus";
+                break;
+            case  9:
+                return  "September";
+                break;
+            case  10:
+                return  "Oktober";
+                break;
+            case  11:
+                return  "November";
+                break;
+            case  12:
+                return  "Desember";
+                break;
+        }
+    }
+}

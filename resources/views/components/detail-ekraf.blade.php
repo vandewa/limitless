@@ -69,7 +69,7 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">TANGGAL LAHIR</label>
                                 <div class="col-lg-10">
-                                    {!! Form::date('tanggal_lahir', $data['tanggal_lahir'], ['class' => 'form-control',
+                                    {!! Form::text('tanggal_lahir', $data->tanggal_lahir, ['class' => 'form-control',
                                     'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -85,14 +85,16 @@
                             <div class="col-3">
                                 <label class="col-form-label col-lg-6">RT</label>
                                 <div class="col-lg-8">
-                                    {!! Form::number('rt', null, ['class' => 'form-control', 'placeholder' => 'Masukkan
+                                    {!! Form::number('rt', $data->rt, ['class' => 'form-control', 'placeholder' =>
+                                    'Masukkan
                                     RT', 'readonly' => true]) !!}
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label class="col-form-label col-lg-6">RW</label>
                                 <div class="col-lg-8">
-                                    {!! Form::number('rw', null, ['class' => 'form-control', 'placeholder' => 'Masukkan
+                                    {!! Form::number('rw', $data->rw, ['class' => 'form-control', 'placeholder' =>
+                                    'Masukkan
                                     RW', 'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -117,7 +119,7 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">KELURAHAN/DESA</label>
                                 <div class="col-lg-10">
-                                    {{Form::select('kelurahan', get_kel($data->kelurahan), $data->kelurahan, ['class' =>
+                                    {{Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, ['class' =>
                                     'form-control select-search', 'placeholder' => 'Pilih Kelurahan', 'id' =>
                                     'kelurahan', 'disabled' => true])}}
                                 </div>
@@ -127,6 +129,7 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">SUBSEKTOR EKRAF</label>
                                 <div class="col-lg-10">
+                                    {{ $data['subsektor'] }}
                                     {!! Form::select('subsektor_id[]', $subsektor, $subsektornya, ['class' =>
                                     'form-control select-fixed-multiple','multiple' => 'multiple', 'disabled' => true])
                                     !!}
@@ -149,9 +152,9 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA</label>
+                                <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA LAKI - LAKI</label>
                                 <div class="col-lg-10">
-                                    {!! Form::number('jml_tenaga', $data['jml_tenaga'], ['class' => 'form-control',
+                                    {!! Form::number('jml_tenaga', $data->jml_tenaga_laki, ['class' => 'form-control',
                                     'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -160,8 +163,17 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">STATUS HKI</label>
                                 <div class="col-lg-10">
-                                    {!! Form::select('hki_status', get_code_group('HKI_ST'),null, ['class' =>
+                                    {!! Form::select('hki_status', get_code_group('HKI_ST'), $data[']hki_status'],
+                                    ['class'
+                                    =>
                                     'form-control', 'readonly' => true, 'disabled' => true]) !!}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA PEREMPUAN</label>
+                                <div class="col-lg-10">
+                                    {!! Form::number('jml_tenaga', $data->jml_perempuan, ['class' => 'form-control',
+                                    'readonly' => true]) !!}
                                 </div>
                             </div>
                         </div>

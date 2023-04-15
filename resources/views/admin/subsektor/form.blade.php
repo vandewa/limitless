@@ -4,8 +4,8 @@
     <div class="form-group row">
         <label class="col-form-label col-lg-2">Nama Subsektor</label>
         <div class="col-lg-10">
-            {!! Form::text('nama_subsektor', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nama
-            subsektor']) !!}
+            {!! Form::text('nama_subsektor', null, ['class' => 'form-control',
+            'placeholder' => 'Masukkan nama subsektor']) !!}
         </div>
     </div>
 </fieldset>

@@ -118,7 +118,7 @@
                         class="nav-link {{ Request::segment(2) == 'pelaku-wisata' ? 'active' : '' }}">
                         <i class="icon-users"></i>
                         <span>
-                            Pelaku Wisata Perorangan
+                            Pariwisata / Ekraf Perorangan
                         </span>
                     </a>
                 </li>

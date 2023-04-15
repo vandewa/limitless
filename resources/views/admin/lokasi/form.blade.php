@@ -12,7 +12,8 @@
     <div class="form-group row">
         <label class="col-form-label col-lg-2">Jenis Lokasi</label>
         <div class="col-lg-10">
-            {!! Form::select('lokasi_wisata_tp', get_code_group('LOKASI_WISATA_TP'),null, ['class' => 'form-control',
+            {!! Form::select('lokasi_wisata_tp', get_code_group('LOKASI_WISATA_TP'),null, ['class' => 'form-control
+            select-search',
             'placeholder' => 'Silahkan Pilih'])
             !!}
         </div>

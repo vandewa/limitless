@@ -100,14 +100,14 @@ class PelakuWisataController extends Controller
             'kabupaten' => $request->kabupaten,
             'jenis_barang_jasa' => $request->jenis_barang_jasa,
             'nama_usaha' => $request->nama_usaha,
-            'hki_status' => $request->hki_status,
+            'organisasi_id' => $request->organisasi_id,
             'nomor_hp' => $request->nomor_hp,
             'jml_tenaga' => $request->jml_tenaga
         ]);
 
         $subsektors = $request->subsektor_id;
 
-        if (!$subsektors = []) {
+        if (!empty($subsektors)) {
             foreach ($subsektors as $subsektor) {
                 $ekraf->subsektorEkraf()->create([
                     'subsektor_id' => $subsektor,
@@ -189,10 +189,10 @@ class PelakuWisataController extends Controller
 
         $subsektors = $request->subsektor_id;
 
-        if (!$subsektors = []) {
+        if (!empty($subsektors)) {
             foreach ($subsektors as $subsektor) {
                 $data->subsektorEkraf()->create([
-                    'ekraf_id' => $data->id,
+                    'pelaku_wisata_id' => $data->id,
                     'subsektor_id' => $subsektor,
                 ]);
             }

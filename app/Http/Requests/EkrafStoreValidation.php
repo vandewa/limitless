@@ -35,6 +35,7 @@ class EkrafStoreValidation extends FormRequest
             'kelurahan' => 'required',
             'kecamatan' => 'required',
             'kabupaten' => 'required',
+            'subsektor_id' => 'required',
             'jenis_barang_jasa' => 'required',
             'nama_usaha' => 'required',
             'nama_merek' => 'required',

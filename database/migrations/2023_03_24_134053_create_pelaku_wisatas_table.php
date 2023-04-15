@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('jenis_barang_jasa')->nullable();
             $table->string('nama_usaha')->nullable();
             $table->string('nama_merek')->nullable();
-            $table->string('hki_status')->nullable();
+            $table->string('organisasi_id')->nullable();
             $table->string('nomor_hp')->nullable();
             $table->integer('jml_tenaga')->nullable();
             $table->timestamps();

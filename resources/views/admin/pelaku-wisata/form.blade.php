@@ -90,10 +90,10 @@
             <label class="col-form-label col-lg-6">KELURAHAN/DESA</label>
             <div class="col-lg-10">
                 @if(Request::segment(3) == 'create' )
-                {{Form::select('kelurahan',[], null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih
+                {{Form::select('kelurahan', [], null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih
                 Kelurahan', 'id' => 'kelurahan'])}}
                 @else
-                {{Form::select('kelurahan', get_kel($data->kelurahan), $data->kelurahan, ['class' => 'form-control
+                {{Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, ['class' => 'form-control
                 select-search', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
                 @endif
             </div>
@@ -147,9 +147,9 @@
     </div>
     <div class="form-group row">
         <div class="col-6">
-            <label class="col-form-label col-lg-6">STATUS HKI</label>
+            <label class="col-form-label col-lg-6">ORGANISASI</label>
             <div class="col-lg-10">
-                {!! Form::select('hki_status', get_code_group('HKI_ST'),null, ['class' => 'form-control select-search'])
+                {!! Form::select('organisasi_id', get_organisasi(), null, ['class' => 'form-control select-search'])
                 !!}
             </div>
         </div>

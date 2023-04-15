@@ -11,21 +11,14 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <label class="col-form-label col-lg-6">NAMA MEREK</label>
-                        <div class="col-lg-10">
-                            {!! Form::text('nama_merek', $data['nama_merek'], ['class' => 'form-control', 'readonly' =>
-                            true]) !!}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-6">
                         <label class="col-form-label col-lg-6">NAMA LENGKAP</label>
                         <div class="col-lg-10">
                             {!! Form::text('nama_pemilik', $data['nama_pemilik'], ['class' => 'form-control',
                             'placeholder' => 'Masukkan nama pemlik', 'readonly' => true]) !!}
                         </div>
                     </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-6">
                         <label class="col-form-label col-lg-6">NIK</label>
                         <div class="col-lg-10">

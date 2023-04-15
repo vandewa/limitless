@@ -93,7 +93,7 @@ class DataEkrafController extends Controller
             'nik' => $request->nik,
             'jenis_kelamin' => $request->jenis_kelamin,
             'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
+            'tanggal_lahir' => $request->tanggal_lahir,
             'alamat' => $request->alamat,
             'rt' => $request->rt,
             'rw' => $request->rw,
@@ -112,7 +112,7 @@ class DataEkrafController extends Controller
 
         $subsektors = $request->subsektor_id;
 
-        if (!$subsektors = []) {
+        if (!empty($subsektors)) {
             foreach ($subsektors as $subsektor) {
                 $ekraf->subsektorEkraf()->create([
                     'ekraf_id' => $ekraf->id,
@@ -195,7 +195,7 @@ class DataEkrafController extends Controller
 
         $subsektors = $request->subsektor_id;
 
-        if (!$subsektors = []) {
+        if (!empty($subsektors)) {
             foreach ($subsektors as $subsektor) {
                 $data->subsektorEkraf()->create([
                     'ekraf_id' => $data->id,
