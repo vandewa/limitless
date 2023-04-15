@@ -47,7 +47,6 @@
             <div class="collapse" id="collapse-button-collapsed">
                 <div class="mt-3">
                     <fieldset class="mb-3">
-                        {{-- <legend class="text-uppercase font-size-sm font-weight-bold">{{ $submenu }}</legend> --}}
 
                         <div class="form-group row">
                             <div class="col-6">
@@ -129,7 +128,6 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">SUBSEKTOR EKRAF</label>
                                 <div class="col-lg-10">
-                                    {{ $data['subsektor'] }}
                                     {!! Form::select('subsektor_id[]', $subsektor, $subsektornya, ['class' =>
                                     'form-control select-fixed-multiple','multiple' => 'multiple', 'disabled' => true])
                                     !!}
@@ -138,7 +136,8 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">JENIS BARANG/JASA</label>
                                 <div class="col-lg-10">
-                                    {!! Form::text('jenis_barang_jasa', $data['jenis_barang_jasa'], ['class' =>
+                                    {!! Form::select('jenis_barang_jasa', get_code_group('BARANG_ST'),
+                                    $data->jenis_barang_jasa, ['class' =>
                                     'form-control', 'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -154,7 +153,8 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA LAKI - LAKI</label>
                                 <div class="col-lg-10">
-                                    {!! Form::number('jml_tenaga', $data->jml_tenaga_laki, ['class' => 'form-control',
+                                    {!! Form::number('jml_tenaga_laki', $data->jml_tenaga_laki, ['class' =>
+                                    'form-control',
                                     'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">STATUS HKI</label>
                                 <div class="col-lg-10">
-                                    {!! Form::select('hki_status', get_code_group('HKI_ST'), $data[']hki_status'],
+                                    {!! Form::select('hki_status', get_code_group('HKI_ST'), $data['hki_status'],
                                     ['class'
                                     =>
                                     'form-control', 'readonly' => true, 'disabled' => true]) !!}
@@ -172,7 +172,8 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA PEREMPUAN</label>
                                 <div class="col-lg-10">
-                                    {!! Form::number('jml_tenaga', $data->jml_perempuan, ['class' => 'form-control',
+                                    {!! Form::number('jml_tenaga_perempuan', $data->jml_tenaga_perempuan, ['class' =>
+                                    'form-control',
                                     'readonly' => true]) !!}
                                 </div>
                             </div>

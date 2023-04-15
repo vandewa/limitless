@@ -2,7 +2,7 @@
     <div class="col-12 mb-3">
         <button type="button" class="btn btn-primary rounded-round" data-toggle="modal"
             data-target="#exampleModalCenter3">
-            <i class="mr-2 icon-file-plus2"></i>Tambah Pajak
+            <i class="mr-2 icon-file-plus2"></i>Tambah Sertifikat
         </button>
     </div>
 
@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-center">
-                    <h1>Pajak</h1>
+                    <h1>Sertifikat</h1>
                 </div>
             </div>
         </div>
@@ -20,12 +20,13 @@
     <!-- Page length options -->
     <div class="card">
         <div class="card-body">
-            <table class="table pajak" style="width:100% !important;">
+            <table class="table certificate" style="width:100% !important;">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Tahun</th>
-                        <th>Pajak</th>
+                        <th>Sertifikat</th>
+                        <th>Lembaga</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>

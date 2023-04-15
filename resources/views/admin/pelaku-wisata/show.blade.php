@@ -131,13 +131,11 @@
 
                         <x-pajak :pajak="$data->id" route="pelaku.pajak.store" />
 
-
                     </div>
 
                     <div class="tab-pane fade  @if(session('certificate')) active show @endif" id="certificate">
 
                         <x-certificate :certificate="$data->id" route="pelaku.certificate.store" />
-
 
                     </div>
 
@@ -158,6 +156,7 @@
 
 @push('after-script')
 <script type="text/javascript">
+
     var table = $('.produksi').DataTable({
         processing: true,
         serverSide: true,
@@ -170,8 +169,7 @@
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });
-</script>
-<script type="text/javascript">
+
     var table = $('.omzet').DataTable({
         processing: true,
         serverSide: true,
@@ -184,8 +182,7 @@
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });
-</script>
-<script type="text/javascript">
+
     var table = $('.pajak').DataTable({
         processing: true,
         serverSide: true,
@@ -198,9 +195,7 @@
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });
-</script>
 
-<script type="text/javascript">
     var table = $('.tabelku').DataTable({
         processing: true,
         serverSide: true,
@@ -212,9 +207,23 @@
             { data: 'action', className: "text-center" },
         ]
     });
-    { !!JsValidator:: formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya')!! }
-    { !!JsValidator:: formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet")!! }
-    { !!JsValidator:: formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak")!! }
-    { !!JsValidator:: formRequest('App\Http\Requests\PelatihanStorePelakuValidation', "#pelatihan")!! }
+
+    var table = $('.certificate').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
+            { data: 'nama', name: 'nama', },
+            { data: 'tahun', name: 'tahun', },
+            { data: 'lembaga', name: 'lembaga', },
+            { data: 'action', className: "text-center" },
+        ]
+    });
+
 </script>
+
+{!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya')!! }
+{!! JsValidator::formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet")!! }
+{!! JsValidator::formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak")!! }
 @endpush

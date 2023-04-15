@@ -4,7 +4,7 @@
             <fieldset>
                 <div class="form-group row">
                     <div class="col-6">
-                        <label class="col-form-label col-lg-6">NAMA USAHA EKRAF</label>
+                        <label class="col-form-label col-lg-6">NAMA PELAKU WISATA PERORANGAN</label>
                         <div class="col-lg-10">
                             {!! Form::text('nama_usaha', $data['nama_usaha'], ['class' => 'form-control', 'readonly' =>
                             true]) !!}
@@ -40,7 +40,6 @@
             <div class="collapse" id="collapse-button-collapsed">
                 <div class="mt-3">
                     <fieldset class="mb-3">
-                        {{-- <legend class="text-uppercase font-size-sm font-weight-bold">{{ $submenu }}</legend> --}}
 
                         <div class="form-group row">
                             <div class="col-6">
@@ -62,7 +61,7 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">TANGGAL LAHIR</label>
                                 <div class="col-lg-10">
-                                    {!! Form::date('tanggal_lahir', $data['tanggal_lahir'], ['class' => 'form-control',
+                                    {!! Form::text('tanggal_lahir', $data['tanggal_lahir'], ['class' => 'form-control',
                                     'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -78,14 +77,16 @@
                             <div class="col-3">
                                 <label class="col-form-label col-lg-6">RT</label>
                                 <div class="col-lg-8">
-                                    {!! Form::number('rt', null, ['class' => 'form-control', 'placeholder' => 'Masukkan
+                                    {!! Form::number('rt', $data->rt, ['class' => 'form-control', 'placeholder' =>
+                                    'Masukkan
                                     RT', 'readonly' => true]) !!}
                                 </div>
                             </div>
                             <div class="col-3">
                                 <label class="col-form-label col-lg-6">RW</label>
                                 <div class="col-lg-8">
-                                    {!! Form::number('rw', null, ['class' => 'form-control', 'placeholder' => 'Masukkan
+                                    {!! Form::number('rw', $data->rw, ['class' => 'form-control', 'placeholder' =>
+                                    'Masukkan
                                     RW', 'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -110,7 +111,7 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">KELURAHAN/DESA</label>
                                 <div class="col-lg-10">
-                                    {{Form::select('kelurahan', get_kel($data->kelurahan), $data->kelurahan, ['class' =>
+                                    {{Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, ['class' =>
                                     'form-control select-search', 'placeholder' => 'Pilih Kelurahan', 'id' =>
                                     'kelurahan', 'disabled' => true])}}
                                 </div>
@@ -128,7 +129,8 @@
                             <div class="col-6">
                                 <label class="col-form-label col-lg-6">JENIS BARANG/JASA</label>
                                 <div class="col-lg-10">
-                                    {!! Form::text('jenis_barang_jasa', $data['jenis_barang_jasa'], ['class' =>
+                                    {!! Form::select('jenis_barang_jasa', get_code_group('BARANG_ST'),
+                                    $data['jenis_barang_jasa'], ['class' =>
                                     'form-control', 'readonly' => true]) !!}
                                 </div>
                             </div>
@@ -151,9 +153,9 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-6">
-                                <label class="col-form-label col-lg-6">STATUS HKI</label>
+                                <label class="col-form-label col-lg-6">ORGANISASI</label>
                                 <div class="col-lg-10">
-                                    {!! Form::select('hki_status', get_code_group('HKI_ST'),null, ['class' =>
+                                    {!! Form::text('organisasi_id', $data['organisasi_id'], ['class' =>
                                     'form-control', 'readonly' => true, 'disabled' => true]) !!}
                                 </div>
                             </div>

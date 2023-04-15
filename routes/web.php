@@ -15,6 +15,7 @@ use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\PelakuWisataController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\BiayaPelakuWisataController;
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\OmzetPelakuWisataController;
 use App\Http\Controllers\PajakPelakuWisataController;
 use App\Http\Controllers\DesaWisataController;
@@ -62,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('biaya', BiayaPelakuWisataController::class);
         Route::resource('omzet', OmzetPelakuWisataController::class);
         Route::resource('pajak', PajakPelakuWisataController::class);
-        Route::resource('certificate', PajakPelakuWisataController::class);
+        Route::resource('certificate', CertificateController::class);
     });
 
     Route::get('kelurahan', [RegionController::class, 'kelurahan'])->name('kelurahan');

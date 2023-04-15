@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\PelakuWisata;
 use Illuminate\View\Component;
 use App\Models\Subsektor;
-use App\Models\SubsektorEkraf;
+use App\Models\SubsektorPelakuWisata;
 
 class DetailPelakuWisata extends Component
 {
@@ -33,9 +33,8 @@ class DetailPelakuWisata extends Component
     {
         return view('components.detail-pelaku-wisata', [
             'data' => $this->data,
-            'subsektornya' => SubsektorEkraf::with('subsektornya')->where('ekraf_id', $this->id)->get()->pluck('subsektornya.id'),
+            'subsektornya' => SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $this->id)->get()->pluck('subsektornya.id'),
             'subsektor' => Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id')
         ]);
-
     }
 }
