@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-md-3">Jenis Lokasi</div>
-                                    <div class="col-md-9">: {{ $lokasi->lokasi_wisata_tp }}</div>
+                                    <div class="col-md-9">: {{ $lokasi->jenislokasinya->code_nm }}</div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-md-3">Alamat</div>
@@ -106,8 +106,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{ route('kunjungan-wisata.create', ["lokasi_id" => $lokasi->id, "tahun" => date('Y'), "bulan" => (int) date('m')]) }}" target="_blank" class="btn btn-dark">Penyisihan Data</a>
-
+                        <a href="{{ route('kunjungan-wisata.create', ["lokasi_id" => $lokasi->id, "tahun" => date('Y'), "bulan" => (int) date('m')]) }}" target="_blank" class="btn btn-dark mr-2">Penyisihan Data</a>
+                        <a href='https://wa.me/{{ konversi_nomor($lokasi->no_wa) }}?text=Silahkan melaporkan jumlah kunjungan bulan {{ get_bulan(date('m')) }} dengan klik pada tautan dibawah ini:%0D%0A%0D%0A{{ url('/kunjungan-wisata/create?lokasi_id='.$lokasi->id.'%26tahun='.date('Y').'%26bulan='.date('m')) }}' class="btn btn-info" target="_blank">Kirim WhatsApp</a>
                    <hr>
                     <table class="table datatable-basic tabelku">
                         <thead>

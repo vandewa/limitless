@@ -73,7 +73,7 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-3">Jenis Lokasi</div>
-                            <div class="col-md-9">: {{ $lokasi->lokasi_wisata_tp }}</div>
+                            <div class="col-md-9">: {{ $lokasi->jenislokasinya->code_nm }}</div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-3">Alamat</div>
