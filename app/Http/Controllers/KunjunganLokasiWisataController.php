@@ -26,7 +26,7 @@ class KunjunganLokasiWisataController extends Controller
             $data = KunjunganLokasiWisata::select("*");
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->editColumn('bulan', function($a){
+                ->editColumn('bulan', function ($a) {
                     return get_bulan($a->bulan);
                 })
                 ->make(true);
@@ -59,7 +59,7 @@ class KunjunganLokasiWisataController extends Controller
 
         $cek = KunjunganLokasiWisata::where('lokasi_wisata_id', $request->lokasi_wisata_id)->where('bulan', (int) date('m'))->where('tahun', date('Y'))->first();
 
-        if(!$cek) {
+        if (!$cek) {
             $a = KunjunganLokasiWisata::create([
                 'lokasi_wisata_id' => $request->lokasi_wisata_id,
                 'bulan' => (int) date('m'),
@@ -67,15 +67,13 @@ class KunjunganLokasiWisataController extends Controller
                 'kunjungan' => $request->kunjungan,
 
             ]);
-        }else {
-           $a=  $cek->update(['kunjungan' => $request->kunjungan]);
+        } else {
+            $a = $cek->update(['kunjungan' => $request->kunjungan]);
         }
 
 
-        if($a){
-            Session::flash('success', "Data berhasil disimpan");
-
-            return redirect(url('/'));
+        if ($a) {
+            return redirect(url('/'))->with('kunjungan', 'oke');
         }
         return "terjadi masalah";
     }
