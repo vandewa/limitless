@@ -25,4 +25,9 @@ class PelakuWisata extends Model
     {
         return $this->hasMany(SubsektorPelakuWisata::class);
     }
+
+    public function sertifikatnya()
+    {
+        return $this->hasMany(Certificate::class);
+    }
 }

@@ -152,7 +152,6 @@ class PelakuWisataController extends Controller
                 ->make(true);
         }
 
-
         return view('admin.pelaku-wisata.show', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
     }
 

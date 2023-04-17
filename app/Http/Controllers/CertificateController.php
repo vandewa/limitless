@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class CertificateController extends Controller
 {
@@ -81,5 +82,24 @@ class CertificateController extends Controller
     public function destroy(Certificate $certificate)
     {
         //
+    }
+
+    public function certificate()
+    {
+        $data = Certificate::orderBy('tahun', 'desc');
+        return DataTables::of($data ?? [])
+            ->addIndexColumn()
+            ->addColumn(
+                'action',
+                function ($data) {
+                    $actionBtn = '
+                    <div>
+                        <a href="' . route('certificate.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table-certificate"><i class="mr-2 icon-trash"></i>Delete</a>
+                    </div>';
+                    return $actionBtn;
+                }
+            )
+            ->rawColumns(['action'])
+            ->make(true);
     }
 }

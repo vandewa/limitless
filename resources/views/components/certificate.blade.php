@@ -1,7 +1,7 @@
 <div>
     <div class="col-12 mb-3">
         <button type="button" class="btn btn-primary rounded-round" data-toggle="modal"
-            data-target="#exampleModalCenter3">
+            data-target="#exampleModalCenter5">
             <i class="mr-2 icon-file-plus2"></i>Tambah Sertifikat
         </button>
     </div>
@@ -36,8 +36,8 @@
     <!-- /page length options -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter5Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,7 +46,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {{Form::open(['route' => $route,'method' => 'post', 'id' => 'pajak'])}}
+                {{Form::open(['route' => $route,'method' => 'post', 'id' => 'certificate'])}}
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Tahun</label>
@@ -66,8 +66,8 @@
                                     <span>Rp.</span>
                                 </span>
                             </div>
-                            {!! Form::number('pajak', null, ['class' => 'form-control', 'placeholder' => 'Masukkan
-                            pajak']) !!}
+                            {!! Form::number('pajak', null, ['class' => 'form-control',
+                            'placeholder' => 'Masukkan pajak']) !!}
                         </div>
                     </div>
 
