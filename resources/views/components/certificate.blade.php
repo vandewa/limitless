@@ -41,35 +41,41 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Pajak</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Sertifikat</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {{Form::open(['route' => $route,'method' => 'post', 'id' => 'certificate'])}}
+                {{Form::open(['route' => $route, 'method' => 'post', 'id' => 'certificate'])}}
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Tahun</label>
-                        {{Form::selectRange('tahun',2021,(int) date('Y')+1, null, ['class' =>
-                        'form-control','placeholder' => 'Pilih Tahun', "style" =>
-                        'width:150px', 'required'])}}
+                        <div class="input-group input-group-sm">
+                            {{Form::selectRange('tahun',2021,(int) date('Y')+1, null, ['class' =>
+                            'form-control','placeholder' => 'Pilih Tahun', "style" =>
+                            'width:150px', 'required'])}}
+                        </div>
                     </div>
-                    @if($errors->any())
-                    {{ implode('', $errors->all('<div>:message</div>')) }}
-                    @endif
 
                     <div class="form-group">
-                        <label>Pajak</label>
+                        <label>Nama Sertifikat</label>
                         <div class="input-group input-group-sm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <span>Rp.</span>
-                                </span>
-                            </div>
-                            {!! Form::number('pajak', null, ['class' => 'form-control',
+                            {!! Form::text('nama', null, ['class' => 'form-control',
                             'placeholder' => 'Masukkan pajak']) !!}
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label>Lembaga</label>
+                        <div class="input-group input-group-sm">
+                            {!! Form::text('lembaga', null, ['class' => 'form-control',
+                            'placeholder' => 'Masukkan pajak']) !!}
+                        </div>
+                    </div>
+
+                    @if($errors->any())
+                    {{ implode('', $errors->all('<div>:message</div>')) }}
+                    @endif
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
