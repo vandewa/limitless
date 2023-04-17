@@ -14,13 +14,16 @@
 <script src="{{ asset('limitless/global_assets/js/plugins/ui/moment/moment.min.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/pickers/daterangepicker.js')}}"></script>
 <script src="{{ asset ('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
-<script src="{{ asset ('limitless/global_assets/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
+<script
+    src="{{ asset ('limitless/global_assets/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
 
 <script src="{{ asset('limitless/layout_1/LTR/default/full/assets/js/app.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/demo_pages/components_buttons.js')}}"></script>
 <script src="{{ asset('limitless/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
-{{-- <script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script> --}}
-{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+{{--
+<script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script> --}}
+{{--
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('limitless/global_assets/js/demo_pages/form_select2.js')}}"></script> --}}
 
 
@@ -30,7 +33,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    $(document).on('click', '.delete-data-table-pajak', function (a) {
+    $(document).on('click', '.delete-data-table-certificate', function (a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -40,7 +43,7 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.value) {
                 a.preventDefault();
                 var url = $(this).attr('href');
@@ -55,9 +58,49 @@
                     method: 'delete',
                     success: function () {
                         Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                        $('.certificate').DataTable().ajax.reload();
+                        // if (typeof table2) {
+                        //     table2.ajax.reload();
+                        // }
+                    }
+                })
+            }
+        })
+    });
+</script>
+<script>
+    $(document).on('click', '.delete-data-table-pajak', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
                         )
                         $('.pajak').DataTable().ajax.reload();
                         // if (typeof table2) {
@@ -80,7 +123,7 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.value) {
                 a.preventDefault();
                 var url = $(this).attr('href');
@@ -95,9 +138,9 @@
                     method: 'delete',
                     success: function () {
                         Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
                         )
                         $('.omzet').DataTable().ajax.reload();
                         // if (typeof table2) {
@@ -120,7 +163,7 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.value) {
                 a.preventDefault();
                 var url = $(this).attr('href');
@@ -135,9 +178,9 @@
                     method: 'delete',
                     success: function () {
                         Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
                         )
                         $('.produksi').DataTable().ajax.reload();
                         // if (typeof table2) {
@@ -160,7 +203,7 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.value) {
                 a.preventDefault();
                 var url = $(this).attr('href');
@@ -175,9 +218,9 @@
                     method: 'delete',
                     success: function () {
                         Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
                         )
                         $('.tabelku').DataTable().ajax.reload();
                         // if (typeof table2) {
@@ -190,74 +233,69 @@
     });
 </script>
 <script type="text/javascript">
-    function sweetAlert() 
-    {  
+    function sweetAlert() {
         Swal.fire(
-        'Good job!',
-        'Berhasil menambahkan data.',
-        'success'
+            'Good job!',
+            'Berhasil menambahkan data.',
+            'success'
         )
     }
-    @if(session('tambah'))
-    sweetAlert();
+    @if (session('tambah'))
+        sweetAlert();
     @endif
 </script>
 <script type="text/javascript">
-    function sweetAlert2() 
-    {  
+    function sweetAlert2() {
         Swal.fire(
-        'Good job!',
-        'Berhasil mengedit data.',
-        'success'
+            'Good job!',
+            'Berhasil mengedit data.',
+            'success'
         )
     }
-    @if(session('edit'))
-    sweetAlert2();
+    @if (session('edit'))
+        sweetAlert2();
     @endif
 </script>
 <script type="text/javascript">
-    function sweetAlert3() 
-    {  
+    function sweetAlert3() {
         Swal.fire(
-        'Good job!',
-        'Berhasil menambahkan data biaya produksi.',
-        'success'
+            'Good job!',
+            'Berhasil menambahkan data biaya produksi.',
+            'success'
         )
     }
-    @if(session('biaya'))
-    sweetAlert3();
+    @if (session('biaya'))
+        sweetAlert3();
     @endif
 </script>
 <script type="text/javascript">
-    function sweetAlert4() 
-    {  
+    function sweetAlert4() {
         Swal.fire(
-        'Good job!',
-        'Berhasil menambahkan data omzet.',
-        'success'
+            'Good job!',
+            'Berhasil menambahkan data omzet.',
+            'success'
         )
     }
-    @if(session('omzet'))
-    sweetAlert4();
+    @if (session('omzet'))
+        sweetAlert4();
     @endif
 </script>
 <script type="text/javascript">
-    function sweetAlert5() 
-    {  
+    function sweetAlert5() {
         Swal.fire(
-        'Good job!',
-        'Berhasil menambahkan data pajak.',
-        'success'
+            'Good job!',
+            'Berhasil menambahkan data pajak.',
+            'success'
         )
     }
-    @if(session('pajak'))
-    sweetAlert4();
+    @if (session('pajak'))
+        sweetAlert4();
     @endif
 </script>
 <script>
-     $('.daterange-single').daterangepicker({ 
-            singleDatePicker: true
-        });
+    $('.daterange-single').daterangepicker({
+        singleDatePicker: true
+    });
 </script>
 <script>
     // Select with search

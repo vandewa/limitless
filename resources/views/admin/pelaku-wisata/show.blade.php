@@ -212,10 +212,11 @@
         processing: true,
         serverSide: true,
         responsive: true,
+        ajax: "{{ route('certificate.list') }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama', name: 'nama', },
             { data: 'tahun', name: 'tahun', },
+            { data: 'nama', name: 'nama', },
             { data: 'lembaga', name: 'lembaga', },
             { data: 'action', className: "text-center" },
         ]
