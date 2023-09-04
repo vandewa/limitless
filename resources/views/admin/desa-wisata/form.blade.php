@@ -1,3 +1,6 @@
+<fieldset>
+    <legend class="font-weight-semibold text-uppercase font-size-sm">Informasi Umum</legend>
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -69,13 +72,6 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>Alamat Website:</label>
-            {{ Form::text('website', null, ['class' => 'form-control',
-            'placeholder' => 'desa-wisata.com']) }}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
             <label>Tahun Dibentuk:</label>
             {{ Form::number('tahun_dibentuk', null, ['class' => 'form-control',
             'placeholder' => 'Tahun Desa Wisata dibentuk']) }}
@@ -99,6 +95,108 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Latitude:</label>
+            {{ Form::text('ltd', null, ['class' => 'form-control',
+            'placeholder' => 'Masukkan Latitude Lokasi']) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Longitude:</label>
+            {{ Form::text('lng', null, ['class' => 'form-control',
+            'placeholder' => 'Masukkan Longitude Lokasi']) }}
+        </div>
+    </div>
+</div>
+</fieldset>
+<fieldset>
+    <legend class="font-weight-semibold text-uppercase font-size-sm">Fasilitas Desa Wisata</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Nama Atraksi Wisata:</label>
+                {{ Form::text('nama_atraksi_wisata', null, ['class' => 'form-control',
+                'placeholder' => 'Atraksi Wisata']) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Jumlah Toilet:</label>
+                {{ Form::number('jumlah_toilet', null, ['class' =>
+                'form-control',
+                'placeholder' => 'Jumlah Toilet']) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Jumlah Tempat Ibadah:</label>
+                {{ Form::number('jumlah_tempat_ibadah', null, ['class' => 'form-control',
+                'placeholder' => 'Jumlah Tempat Ibadah']) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Jumlah Penginapan:</label>
+                {{ Form::number('jumlah_penginapan', null, ['class' =>
+                'form-control',
+                'placeholder' => 'Jumlah Penginapan']) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Jumlah Warung Makan:</label>
+                {{ Form::number('jumlah_warung_makan', null, ['class' => 'form-control',
+                'placeholder' => 'Jumlah Warung Makan']) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Jumlah Toko Cinderamata:</label>
+                {{ Form::number('jumlah_toko_cinderamata', null, ['class' =>
+                'form-control',
+                'placeholder' => 'Jumlah Toko Cinderamata']) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Luas Area Parkir:</label>
+                {{ Form::number('luas_area_parkir', null, ['class' => 'form-control',
+                'placeholder' => '3']) }}
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Rincian Paket Wisata:</label>
+                {{ Form::textarea('rincian_paket_wisata', null, ['class' =>
+                'form-control',
+                'placeholder' => 'Rimncian Paket Wisata']) }}
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset>
+    <legend class="font-weight-semibold text-uppercase font-size-sm">Website Dan Sosial Media</legend>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Alamat Website:</label>
+            {{ Form::text('website', null, ['class' => 'form-control',
+            'placeholder' => 'desa-wisata.com']) }}
+        </div>
+    </div>
+
+</div>
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -133,22 +231,8 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Latitude:</label>
-            {{ Form::text('ltd', null, ['class' => 'form-control',
-            'placeholder' => 'Masukkan Latitude Lokasi']) }}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Longitude:</label>
-            {{ Form::text('lng', null, ['class' => 'form-control',
-            'placeholder' => 'Masukkan Longitude Lokasi']) }}
-        </div>
-    </div>
-</div>
+</fieldset>
+
 <div class="d-flex justify-content-between align-items-center">
     <a class="btn btn-light" href="{{ url('master/desa-wisata') }}">Kembali</a>
     <button type="submit" class="btn bg-blue">Simpan <i class="icon-paperplane ml-2"></i></button>

@@ -7,6 +7,7 @@
     @include('admin.includes.style')
     @stack('after-style')
     @vite([])
+    @livewireStyles
 </head>
 
 <body>
@@ -16,6 +17,7 @@
     @stack('before-script')
     @include('admin.includes.script')
     @stack('after-script')
+    @livewireScripts
 </body>
 
 </html>

@@ -32,14 +32,14 @@ class DesaWisataValidation extends FormRequest
             'email' => 'required|email',
             'nama_pengelola' => 'required',
             'nama_desa' => 'required',
-            'website' => 'required',
+            // 'website' => 'required',
             'tahun_dibentuk' => 'required',
             'jumlah_pemandu' => 'required|numeric',
             'jumlah_pemandu_bersertifikat' => 'required|numeric',
-            'fb' => 'required',
-            'ig' => 'required',
-            'tiktok' => 'required',
-            'youtube' => 'required',
+            // 'fb' => 'required',
+            // 'ig' => 'required',
+            // 'tiktok' => 'required',
+            // 'youtube' => 'required',
         ];
     }
 }

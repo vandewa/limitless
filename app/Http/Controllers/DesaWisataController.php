@@ -72,7 +72,9 @@ class DesaWisataController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DesaWisata::find($id);
+        return view('admin.desa-wisata.show', compact('data'));
+
     }
 
     /**
