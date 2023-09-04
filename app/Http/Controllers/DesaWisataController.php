@@ -29,6 +29,7 @@ class DesaWisataController extends Controller
                     function ($data) {
                         $actionBtn = '
                         <div>
+                            <a href="' . route('desa-wisata.show', $data->id) . ' "  class="btn btn-outline-success rounded-round"><i class="mr-2 icon-eye"></i>Detail</a>
                             <a href="' . route('desa-wisata.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round"><i class="mr-2 icon-pencil5"></i>Edit</a>
                             <a href="' . route('desa-wisata.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
                         </div>';
