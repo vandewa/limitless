@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\Pages\Desa;
+
 use Livewire\WithPagination;
 use App\Models\DesaSertifikat;
 
@@ -21,25 +22,26 @@ class Sertifikat extends Component
         'lembaga' => '',
     ];
 
-    public function changeEdit($id) {
+    public function changeEdit($id)
+    {
         $this->idnya = $id;
         $this->edit = !$this->edit;
         $this->form = DesaSertifikat::find($this->idnya)->only(['nama', 'tahun', 'lembaga']);
     }
 
-    public function save() {
-        if($this->edit) {
+    public function save()
+    {
+        if ($this->edit) {
             $this->edit();
-
         } else {
             DesaSertifikat::create($this->form + ['desa_wisata_id' => $this->desa]);
         }
         $this->clear();
         session()->flash('message', 'Data berhasil disimpan.');
-
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         DesaSertifikat::destroy($id);
         session()->flash('hapus', 'Data berhasil dihapus.');
     }
@@ -49,7 +51,8 @@ class Sertifikat extends Component
         DesaSertifikat::find($this->idnya)->update($this->form);
     }
 
-    public function clear()  {
+    public function clear()
+    {
         $this->edit = false;
         $this->idnya = "";
         $this->form = [

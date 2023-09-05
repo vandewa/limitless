@@ -23,25 +23,26 @@ class Pelatihan extends Component
         'lembaga' => '',
     ];
 
-    public function changeEdit($id) {
+    public function changeEdit($id)
+    {
         $this->idnya = $id;
         $this->edit = !$this->edit;
         $this->form = DesaPelatihan::find($this->idnya)->only(['nama', 'tahun', 'lembaga']);
     }
 
-    public function save() {
-        if($this->edit) {
+    public function save()
+    {
+        if ($this->edit) {
             $this->edit();
-
         } else {
             DesaPelatihan::create($this->form + ['desa_wisata_id' => $this->desa]);
         }
         $this->clear();
         session()->flash('message', 'Data berhasil disimpan.');
-
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         DesaPelatihan::destroy($id);
         session()->flash('hapus', 'Data berhasil dihapus.');
     }
@@ -51,7 +52,8 @@ class Pelatihan extends Component
         DesaPelatihan::find($this->idnya)->update($this->form);
     }
 
-    public function clear()  {
+    public function clear()
+    {
         $this->edit = false;
         $this->idnya = "";
         $this->form = [

@@ -79,22 +79,24 @@
                     <div class="card">
                         <div class="card-body">
                             <ul class="nav nav-tabs">
-                                <li class="nav-item"><a href="#basic-tab1" class="nav-link active show" data-toggle="tab">Profile Desa</a></li>
-                                <li class="nav-item"><a href="#basic-tab2" class="nav-link" data-toggle="tab">SK</a></li>
-                                <li class="nav-item"><a href="#basic-tab3" class="nav-link" data-toggle="tab">Sertifikat</a></li>
-                                <li class="nav-item"><a href="#basic-tab4" class="nav-link" data-toggle="tab">Pelatihan</a></li>
+                                <li class="nav-item"><a href="#basic-tab1" class="nav-link active show"
+                                        data-toggle="tab">Profile Desa</a></li>
+                                <li class="nav-item"><a href="#basic-tab2" class="nav-link" data-toggle="tab">SK</a>
+                                </li>
+                                <li class="nav-item"><a href="#basic-tab3" class="nav-link"
+                                        data-toggle="tab">Sertifikat</a></li>
+                                <li class="nav-item"><a href="#basic-tab4" class="nav-link"
+                                        data-toggle="tab">Pelatihan</a></li>
 
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="basic-tab1">
-                                    Basic tabs example using <code>.nav-tabs</code> class. Also requires base <code>.nav</code> class.
                                 </div>
-
                                 <div class="tab-pane fade" id="basic-tab2">
-                                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid laeggin.
+                                    <livewire:pages.desa.sk :desa="$data->id" />
                                 </div>
                                 <div class="tab-pane fade" id="basic-tab3">
-                                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid laeggin.
+                                    <livewire:pages.desa.sertifikat :desa="$data->id" />
                                 </div>
                                 <div class="tab-pane fade" id="basic-tab4">
                                     <livewire:pages.desa.pelatihan :desa="$data->id" />
