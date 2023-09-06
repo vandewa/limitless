@@ -201,14 +201,14 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Alamat Facebook:</label>
-                {{ Form::number('fb', null, ['class' => 'form-control',
+                {{ Form::text('fb', null, ['class' => 'form-control',
                 'placeholder' => 'Masukkan Alamat Facebook']) }}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label>Alamat Instagram:</label>
-                {{ Form::number('ig', null, ['class' =>
+                {{ Form::text('ig', null, ['class' =>
                 'form-control',
                 'placeholder' => 'Masukkan Alamat Instagram']) }}
             </div>
@@ -218,14 +218,14 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Alamat TikTok:</label>
-                {{ Form::number('tiktok', null, ['class' => 'form-control',
+                {{ Form::text('tiktok', null, ['class' => 'form-control',
                 'placeholder' => 'Masukkan Alamat TikTok']) }}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label>Alamat Youtube:</label>
-                {{ Form::number('youtube', null, ['class' =>
+                {{ Form::text('youtube', null, ['class' =>
                 'form-control',
                 'placeholder' => 'Masukkan Alamat Youtube']) }}
             </div>
