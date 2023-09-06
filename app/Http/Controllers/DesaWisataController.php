@@ -75,7 +75,6 @@ class DesaWisataController extends Controller
     {
         $data = DesaWisata::find($id);
         return view('admin.desa-wisata.show', compact('data'));
-
     }
 
     /**
@@ -86,7 +85,7 @@ class DesaWisataController extends Controller
      */
     public function edit($id)
     {
-        $data = DesaWisata::find($id);
+        $data = DesaWisata::with(['kecamatan', 'kelurahan'])->find($id);
         return view('admin.desa-wisata.edit', compact('data'));
     }
 
