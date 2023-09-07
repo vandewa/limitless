@@ -35,12 +35,12 @@ return new class extends Migration
             $table->integer('luas_area_parkir')->nullable();
             $table->longText('nama_atraksi_wisata')->nullable();
             $table->longText('rincian_paket_wisata')->nullable();
-            $table->integer('fb')->nullable();
-            $table->integer('ig')->nullable();
-            $table->integer('tiktok')->nullable();
-            $table->integer('youtube')->nullable();
-            $table->double('lng', 8, 8)->nullable();
-            $table->double('ltd', 8, 8)->nullable();
+            $table->string('fb')->nullable();
+            $table->string('ig')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('ltd')->nullable();
             $table->timestamps();
         });
     }
