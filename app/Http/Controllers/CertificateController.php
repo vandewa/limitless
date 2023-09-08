@@ -84,9 +84,9 @@ class CertificateController extends Controller
         Certificate::destroy($id);
     }
 
-    public function certificate()
+    public function certificate($id)
     {
-        $data = Certificate::orderBy('tahun', 'desc');
+        $data = Certificate::with(['jenisSertifikat'])->where('pelaku_wisata_id', $id);
         return DataTables::of($data ?? [])
             ->addIndexColumn()
             ->addColumn(

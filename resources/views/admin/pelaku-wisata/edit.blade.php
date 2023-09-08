@@ -54,8 +54,7 @@
 
                 <div class="card-body">
                     {{Form::model($data, ['route' => ['pelaku.pelaku-wisata.update', $data->id],'method' => 'put', 'id'
-                    =>
-                    'my-form'])}}
+                    =>'my-form', 'files' => true])}}
                     @include('admin.pelaku-wisata.form')
                     {{Form::close()}}
                 </div>
