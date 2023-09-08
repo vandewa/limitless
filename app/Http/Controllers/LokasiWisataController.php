@@ -29,7 +29,8 @@ class LokasiWisataController extends Controller
                         $actionBtn = '
                         <div>
                             <a href="' . route('kunjungan-wisata.index', ["lokasi_id" => $data->id]) . ' "  class="btn btn-outline-success rounded-round mb-2"><i class="mr-2 icon-eye"></i>Data Kunjungan</a>
-                            <a href="' . route('lokasi.edit', $data->id) . ' "  class="btn btn-outline-info rounded-round mb-2"><i class="mr-2 icon-pencil5"></i>Edit</a>
+                            <a href="' . route('lokasi.show', $data->id) . ' "  class="btn btn-outline-info rounded-round mb-2"><i class="mr-2 icon-certificate"></i>Detail</a>
+                            <a href="' . route('lokasi.edit', $data->id) . ' "  class="btn btn-outline-warning rounded-round mb-2"><i class="mr-2 icon-pencil5"></i>Edit</a>
                             <a href="' . route('lokasi.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round mb-2 delete-data-table"><i class="mr-2 icon-trash"></i>Delete</a>
                         </div>';
                         return $actionBtn;
@@ -77,7 +78,12 @@ class LokasiWisataController extends Controller
      */
     public function show($id)
     {
-        //
+        $menu = "Data";
+        $submenu = "Destinasi Wisata";
+        $subsubmenu = "Destinasi Wisata";
+        $title = "Destinasi Wisata";
+        $data = LokasiWisata::find($id);
+        return view('admin.lokasi.show', compact('data', 'menu', 'submenu', 'subsubmenu', 'title'));
     }
 
     /**

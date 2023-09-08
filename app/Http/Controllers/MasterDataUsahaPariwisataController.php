@@ -117,6 +117,8 @@ class MasterDataUsahaPariwisataController extends Controller
      */
     public function destroy($id)
     {
-        MasterDataUsahaPariwisata::destroy($id);
+        $data = MasterDataUsahaPariwisata::find($id);
+        $data->data_usparnya()->delete();
+        $data->delete();
     }
 }

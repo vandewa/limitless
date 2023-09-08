@@ -5,27 +5,21 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label>Nama:</label>
-                    <input type="text" class="form-control" placeholder="Nama SK" wire:model="form.nama">
+                    <label>NIB:</label>
+                    <input type="text" class="form-control" placeholder="NIB" wire:model="form.nama">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Tanggal:</label>
-                    <input type="date" id="_tanggal" class="form-control" placeholder="Tanggal SK"
+                    <input type="date" id="_tanggal" class="form-control" placeholder="Tanggal NIB"
                         wire:model="form.tanggal">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label>Nomor:</label>
-                    <input type="text" class="form-control" placeholder="Nomor SK" wire:model="form.nomor">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Pejabat Yang Mengeluarkan:</label>
-                    <input type="text" class="form-control" placeholder="Pejabat Yang Mengeluarkan SK"
+                    <label>Lembaga Yang Mengeluarkan:</label>
+                    <input type="text" class="form-control" placeholder="Lembaga Yang Mengeluarkan"
                         wire:model="form.pejabat_yang_mengeluarkan">
                 </div>
             </div>

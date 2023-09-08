@@ -133,6 +133,6 @@ class UsparController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Uspar::destroy($id);
     }
 }

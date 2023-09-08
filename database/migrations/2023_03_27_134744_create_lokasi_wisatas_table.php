@@ -23,6 +23,18 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('harga_tiket')->nullable();
             $table->string('jam_operasional')->nullable();
+            $table->string('website')->nullable();
+            $table->boolean('pemandu_bersertifikat')->nullable();
+            $table->boolean('toilet')->nullable();
+            $table->boolean('tempat_ibadah')->nullable();
+            $table->boolean('penginapan')->nullable();
+            $table->boolean('warung_makan')->nullable();
+            $table->boolean('toko_cinderamata')->nullable();
+            $table->boolean('area_parkir')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('ig')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('youtube')->nullable();
             $table->timestamps();
         });
     }

@@ -9,4 +9,9 @@ class MasterDataUsahaPariwisata extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function data_usparnya()
+    {
+        return $this->hasMany(Uspar::class);
+    }
 }
