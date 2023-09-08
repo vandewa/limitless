@@ -128,6 +128,13 @@
                 !!}
             </div>
         </div>
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">NPWP</label>
+            <div class="col-lg-10">
+                {!! Form::text('npwp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan Nomor NPWP'])
+                !!}
+            </div>
+        </div>
     </div>
     <div class="form-group row">
         <div class="col-6">

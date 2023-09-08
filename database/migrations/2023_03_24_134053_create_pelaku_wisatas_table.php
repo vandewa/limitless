@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('organisasi_id')->nullable();
             $table->string('nomor_hp')->nullable();
             $table->integer('jml_tenaga')->nullable();
+            $table->string('npwp')->nullable();
             $table->timestamps();
         });
     }

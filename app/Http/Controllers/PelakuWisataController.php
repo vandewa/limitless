@@ -102,6 +102,7 @@ class PelakuWisataController extends Controller
             'nama_usaha' => $request->nama_usaha,
             'organisasi_id' => $request->organisasi_id,
             'nomor_hp' => $request->nomor_hp,
+            'npwp' => $request->npwp,
             'jml_tenaga' => $request->jml_tenaga
         ]);
 
