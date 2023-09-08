@@ -147,7 +147,7 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">Tanggal NIB</label>
             <div class="col-lg-10">
-                {!! Form::date('tgl_nib', null, ['class' => 'form-control',])
+                {!! Form::date('tgl_nib', null, ['class' => 'form-control daterange-single',])
                 !!}
             </div>
         </div>
@@ -178,20 +178,22 @@
         </div>
 
         {{-- <div class="col-md-6">
-            
+
         </div> --}}
 
         <div class="col-md-6">
             <label class="col-form-label col-lg-6">LOGO USAHA</label>
             <div class="col-lg-10">
-            <input type="file" name="logo" placeholder="Choose image" id="picture" class="form-control mb-3" accept="image/png">
-            @if (Request::segment(4) == 'edit')
-            <img src="{{ $data->preview_image }}" alt="" width="50%;">
-            @else
-            <img id="preview-image-before-upload" src="{{ asset('noimage.png') }}" alt="preview image" style="max-height: 250px;">
-            @endif
+                <input type="file" name="logo" placeholder="Choose image" id="picture" class="form-control mb-3"
+                    accept="image/png">
+                @if (Request::segment(4) == 'edit')
+                <img src="{{ $data->preview_image }}" alt="" width="50%;">
+                @else
+                <img id="preview-image-before-upload" src="{{ asset('noimage.png') }}" alt="preview image"
+                    style="max-height: 250px;">
+                @endif
+            </div>
         </div>
-    </div>
 
 
         {{-- <div class="col-6">
@@ -228,8 +230,8 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function(e) {
-        $('#picture').change(function() {
+    $(document).ready(function (e) {
+        $('#picture').change(function () {
             console.log('berubah');
             let reader = new FileReader();
 
