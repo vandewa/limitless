@@ -29,7 +29,9 @@ class LokasiStoreValidation extends FormRequest
             'alamat' => 'required',
             'contact_person' => 'required',
             'no_wa' => 'required|numeric',
-            'email' => 'required|email|unique:lokasi_wisatas,email'
+            'email' => 'required|email|unique:lokasi_wisatas,email',
+            'harga_tiket' => 'required',
+            'jam_operasional' => 'required'
         ];
     }
 }

@@ -51,6 +51,22 @@
         </div>
     </div>
 
+    <div class="form-group row">
+        <label class="col-form-label col-lg-2">Harga Tiket</label>
+        <div class="col-lg-10">
+            {!! Form::text('harga_tiket', null, ['class' => 'form-control',
+            'placeholder' => 'Harga Tiket']) !!}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-form-label col-lg-2">Jam Operasional</label>
+        <div class="col-lg-10">
+            {!! Form::text('jam_operasional', null, ['class' => 'form-control',
+            'placeholder' => 'Jam Operasional']) !!}
+        </div>
+    </div>
+
 </fieldset>
 
 <div class="d-flex justify-content-between align-items-center">

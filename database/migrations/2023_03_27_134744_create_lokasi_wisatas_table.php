@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('contact_person')->nullable();
             $table->string('no_wa')->nullable();
             $table->string('email')->nullable();
+            $table->string('harga_tiket')->nullable();
+            $table->string('jam_operasional')->nullable();
             $table->timestamps();
         });
     }

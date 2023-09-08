@@ -18,8 +18,8 @@ class PelakuWisataController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Pelaku Wisata Perorangan";
-        $submenu = "List Pelaku Wisata Perorangan";
+        $menu = "Pariwisata";
+        $submenu = "Ekraf Perorangan";
 
         if ($request->ajax()) {
             $data = PelakuWisata::orderBy('nama_usaha', 'ASC');
