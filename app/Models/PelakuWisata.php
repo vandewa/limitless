@@ -30,4 +30,10 @@ class PelakuWisata extends Model
     {
         return $this->hasMany(Certificate::class);
     }
+
+    public function getPreviewImageAttribute()
+    {
+        $devan = asset(str_replace('public', 'storage', $this->attributes['logo']))??asset('notfound.jpg');
+        return $devan;
+    }
 }

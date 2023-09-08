@@ -212,10 +212,11 @@
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: "{{ route('certificate.list') }}",
+        ajax: "{{ route('certificate.list', $data->id) }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'tahun', name: 'tahun', },
+            { data: 'tanggal', name: 'tanggal'},
+            { data: 'jenis_sertifikat.code_nm', name: 'jenisSertifikat.code_nm'},
             { data: 'nama', name: 'nama', },
             { data: 'lembaga', name: 'lembaga', },
             { data: 'action', className: "text-center" },
@@ -224,7 +225,10 @@
 
 </script>
 
-{!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya')!! }
-{!! JsValidator::formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet")!! }
-{!! JsValidator::formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak")!! }
+@endpush
+
+@push('after-script')
+{!! JsValidator::formRequest('App\Http\Requests\BiayaProduksiPelakuStoreValidation', '#biaya')!!}
+{!! JsValidator::formRequest('App\Http\Requests\OmzetStorePelakuValidation', "#omzet")!!}
+{!! JsValidator::formRequest('App\Http\Requests\PajakStorePelakuValidation', "#pajak")!!}
 @endpush

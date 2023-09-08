@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PelakuWisata;
+use Carbon\Carbon;
 use App\Models\Subsektor;
+use App\Models\PelakuWisata;
 use Illuminate\Http\Request;
 use App\Models\SubsektorEkraf;
-use Yajra\DataTables\Facades\DataTables;
 use App\Models\SubsektorPelakuWisata;
+use Yajra\DataTables\Facades\DataTables;
 
 class PelakuWisataController extends Controller
 {
@@ -86,6 +87,12 @@ class PelakuWisataController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->file('logo')){
+            $path = $request->file('logo')->storeAs(
+                'public/'.Carbon::now()->isoFormat('MMMM'), date('Ymdhis').'.'.$request->file('logo')->extension()
+            );
+        } 
+
         $ekraf = PelakuWisata::create([
             'nama_pemilik' => $request->nama_pemilik,
             'nik' => $request->nik,
@@ -103,7 +110,10 @@ class PelakuWisataController extends Controller
             'organisasi_id' => $request->organisasi_id,
             'nomor_hp' => $request->nomor_hp,
             'npwp' => $request->npwp,
-            'jml_tenaga' => $request->jml_tenaga
+            'jml_tenaga' => $request->jml_tenaga,
+            'nib' => $request->nib,
+            'tgl_nib' => $request->tgl_nib,
+            'logo' => $path,
         ]);
 
         $subsektors = $request->subsektor_id;
@@ -184,8 +194,18 @@ class PelakuWisataController extends Controller
     public function update(Request $request, $id)
     {
         $data = PelakuWisata::find($id);
-        $data->update($request->except('subsektor_id'));
+        $data->update($request->except(['subsektor_id', 'logo']));
         $data->subsektorEkraf()->delete();
+
+        if($request->file('logo')){
+            $path = $request->file('logo')->storeAs(
+                'public/'.Carbon::now()->isoFormat('MMMM'), date('Ymdhis').'.'.$request->file('logo')->extension()
+            );
+        } 
+
+        PelakuWisata::find($id)->update([
+            'logo' => $path
+        ]);
 
         $subsektors = $request->subsektor_id;
 

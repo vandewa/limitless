@@ -50,14 +50,20 @@ class CertificatePelakuWisataController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'tahun' => 'required|unique:certificates,tahun',
-        ]);
+        // $request->validate([
+        //     'tahun' => 'required|unique:certificates,tahun',
+        // ]);
+
+        // return $request->all();
 
         Certificate::create([
-            'tahun' => $request->tahun,
+            'pelaku_wisata_id' => $request->pelaku_wisata_id,
+            'tanggal' => $request->tanggal,
+            'jenis_sertifikat_tp' => $request->jenis_sertifikat_tp,
             'nama' => $request->nama,
-            'lembaga' => $request->lembaga
+            'lembaga' => $request->lembaga,
+            'no_registrasi' => $request->no_registrasi,
+            'no_sertifikat_bnps' => $request->no_sertifikat_bnps,
         ]);
 
         return redirect()->back()->with('certificate', 'oke');

@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="card-body">
-                    {{Form::open(['route' => 'pelaku.pelaku-wisata.store','method' => 'post', 'id' => 'my-form'])}}
+                    {{Form::open(['route' => 'pelaku.pelaku-wisata.store','method' => 'post', 'id' => 'my-form', 'files' => true])}}
                     @include('admin.pelaku-wisata.form')
                     {{Form::close()}}
                 </div>

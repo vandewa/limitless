@@ -9,4 +9,9 @@ class Certificate extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function jenisSertifikat()
+    {
+       return $this->belongsTo(ComCode::class, 'jenis_sertifikat_tp');
+    }
 }

@@ -40,6 +40,8 @@ class ComCodeSeeder extends Seeder
             ['code_cd' => 'STRATA_DESA_02', 'code_nm' => 'Berkembang', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
             ['code_cd' => 'STRATA_DESA_03', 'code_nm' => 'Maju', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
             ['code_cd' => 'STRATA_DESA_04', 'code_nm' => 'Lestari', 'code_group' => 'STRATA_DESA', 'code_value' => ''],
+            ['code_cd' => 'JENIS_SERTIFIKAT_TP_01', 'code_nm' => 'Sertifikat Kompetensi(bnsp)', 'code_group' => 'JENIS_SERTIFIKAT_TP', 'code_value' => ''],
+            ['code_cd' => 'JENIS_SERTIFIKAT_TP_02', 'code_nm' => 'Sertifikat HKI', 'code_group' => 'JENIS_SERTIFIKAT_TP', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {

@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <a href="{{ route('kunjungan-wisata.create', ['lokasi_id' => $lokasi->id, 'tahun' => date('Y'), 'bulan' => (int) date('m')]) }}"
-                        target="_blank" class="btn btn-dark mr-2">Penyisihan Data</a>
+                        target="_blank" class="btn btn-dark mr-2">Pengisian Data</a>
                     <a href='https://wa.me/{{ konversi_nomor($lokasi->no_wa) }}?text=Yth. Bapak/Ibu {{ ' *' .
                         $lokasi->contact_person . '*' }} pengelola wisata {{ '*' . $lokasi->name . '*' }}.%0D%0ASilahkan
                         melaporkan jumlah kunjungan bulan {{ get_bulan(date('m')) }} dengan klik pada tautan dibawah
