@@ -122,6 +122,15 @@
                         </span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('uspar.index') }}"
+                        class="nav-link {{ Request::segment(2) == 'uspar' ? 'active' : '' }}">
+                        <i class="icon-stats-bars"></i>
+                        <span>
+                            Usaha Pariwisata
+                        </span>
+                    </a>
+                </li>
 
             </ul>
         </div>

@@ -20,7 +20,7 @@ class LokasiWisataController extends Controller
         $submenu = "Destinasi Wisata";
 
         if ($request->ajax()) {
-            $data = LokasiWisata::with('jenislokasinya')->get();
+            $data = LokasiWisata::with('jenislokasinya');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

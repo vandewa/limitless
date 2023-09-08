@@ -61,23 +61,26 @@
     <section class="courses-one">
         <div class="container">
             <div class="section-title text-center">
-                <h2 class="section-title__title">{{ $judul->nama_subsektor }}</h2>
+                <h2 class="section-title__title">{{ $judul->nama_subsektor ?? $judul->jenis_usaha }}</h2>
+                @if(Request::segment(1) == 'list-uspar')
+                <h4>Total Usaha : {{ count($subsektor) }}</h4>
+                <h4>Jumlah Serapan Tenaga Kerja : {{ $subsektor->sum('tenaga_l') + $subsektor->sum('tenaga_p') }}</h4>
+                @endif
             </div>
             <div class="row">
                 @foreach ($subsektor as $sub)
                 <!--Start Single Courses One-->
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
-                    data-wow-duration="1000ms">
+                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1000ms">
                     <div class="courses-one__single">
                         <div class="courses-one__single-content">
                             <div class="courses-one__single-content-overlay-img">
                                 <img src="assets/images/resources/courses-v1-overlay-img1.png" alt="" />
                             </div>
                             <h4 class="courses-one__single-content-title">
-                                {{ $sub->ekrafnya->nama_usaha??'' }}
+                                {{ $sub->ekrafnya->nama_usaha ?? $sub->nama_usaha }}
                             </h4>
                             <ul class="courses-one__single-content-courses-info list-unstyled">
-                                <li>{{ $sub->ekrafnya->nama_pemilik??'' }}</li>
+                                <li>{{ $sub->ekrafnya->nama_pemilik ?? $sub->nama_pemilik }}</li>
                             </ul>
                         </div>
                     </div>
@@ -89,9 +92,10 @@
     </section>
     <!--Courses One End-->
 
-    <footer class="fixed-bottom" style="background:black;right: 0;text-align: center;padding: 7px;color: #ffffff;font-size: 14px;border-top: 1px solid rgb(255 255 255 / 15%);">
+    <footer class="fixed-bottom"
+        style="background:black;right: 0;text-align: center;padding: 7px;color: #ffffff;font-size: 14px;border-top: 1px solid rgb(255 255 255 / 15%);">
         <p>&copy; Copyright 2023. Dinas Pariwisata dan Kebudayaan Kabupaten Wonosobo</p>
-   </footer>
+    </footer>
 
 
 </div><!-- /.page-wrapper -->
@@ -103,8 +107,8 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="{{ asset('logo-disparbud.png')}}"
-                    width="280" alt="" /></a>
+            <a href="index.html" aria-label="logo image"><img src="{{ asset('logo-disparbud.png')}}" width="280"
+                    alt="" /></a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>

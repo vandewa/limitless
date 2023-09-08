@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MasterDataUsahaPariwisata;
 use App\Models\Subsektor;
 use App\Models\SubsektorEkraf;
-use Illuminate\Http\Request;
+use App\Models\Uspar;
 
 class FrontController extends Controller
 {
@@ -21,6 +21,13 @@ class FrontController extends Controller
     {
         $subsektor = SubsektorEkraf::with(['subsektornya', 'ekrafnya'])->where('subsektor_id', $id)->get();
         $judul = Subsektor::where('id', $id)->first();
+
+        return view('detail-subsektor', compact('subsektor', 'judul'));
+    }
+    public function listUspar($id)
+    {
+        $subsektor = Uspar::with(['usparnya'])->where('master_data_usaha_pariwisata_id', $id)->get();
+        $judul = MasterDataUsahaPariwisata::where('id', $id)->first();
 
         return view('detail-subsektor', compact('subsektor', 'judul'));
     }

@@ -21,7 +21,7 @@ class MasterDataUsahaPariwisataController extends Controller
         $submenu = "Data Usaha Pariwisata";
 
         if ($request->ajax()) {
-            $data = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'ASC')->get();
+            $data = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'ASC');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn(

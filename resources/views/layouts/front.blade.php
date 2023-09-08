@@ -39,6 +39,7 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('zilom/files/assets/css/zilom.css') }}" />
     <link rel="stylesheet" href="{{ asset('zilom/files/assets/css/zilom-responsive.css') }}" />
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @stack('css')
 </head>
@@ -55,7 +56,8 @@
     <script src="{{ asset('zilom/files/assets/vendors/jarallax/jarallax.min.js') }}"></script>
     <script src="{{ asset('zilom/files/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('zilom/files/assets/vendors/jquery-appear/jquery.appear.min.js') }}"></script>
-    <script src="{{ asset('zilom/files/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js') }}"></script>
+    <script
+        src="{{ asset('zilom/files/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js') }}"></script>
     <script src="{{ asset('zilom/files/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('zilom/files/assets/vendors/jquery-validate/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('zilom/files/assets/vendors/nouislider/nouislider.min.js') }}"></script>
