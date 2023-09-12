@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Pages\Desa;
-
-use Livewire\WithPagination;
-use App\Models\DesaSertifikat;
+namespace App\Livewire\Pages\Desa;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
-class Sertifikat extends Component
+class Profile extends Component
 {
     use WithPagination;
 
@@ -26,7 +24,7 @@ class Sertifikat extends Component
     {
         $this->idnya = $id;
         $this->edit = !$this->edit;
-        $this->form = DesaSertifikat::find($this->idnya)->only(['nama', 'tahun', 'lembaga']);
+        $this->form = DesaSk::find($this->idnya)->only(['nama', 'tahun', 'lembaga']);
     }
 
     public function save()
@@ -34,7 +32,7 @@ class Sertifikat extends Component
         if ($this->edit) {
             $this->edit();
         } else {
-            DesaSertifikat::create($this->form + ['desa_wisata_id' => $this->desa]);
+            DesaSk::create($this->form + ['desa_wisata_id' => $this->desa]);
         }
         $this->clear();
         session()->flash('message', 'Data berhasil disimpan.');
@@ -42,13 +40,13 @@ class Sertifikat extends Component
 
     public function delete($id)
     {
-        DesaSertifikat::destroy($id);
+        DesaSk::destroy($id);
         session()->flash('hapus', 'Data berhasil dihapus.');
     }
 
     public function edit()
     {
-        DesaSertifikat::find($this->idnya)->update($this->form);
+        DesaSk::find($this->idnya)->update($this->form);
     }
 
     public function clear()
@@ -62,11 +60,8 @@ class Sertifikat extends Component
         ];
     }
 
-
     public function render()
     {
-        return view('livewire.pages.desa.sertifikat', [
-            'post' => DesaSertifikat::where('desa_wisata_id', $this->desa)->paginate(10)
-        ]);
+        return view('livewire.pages.desa.profile');
     }
 }

@@ -6,26 +6,26 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Nama:</label>
-                    <input type="text" class="form-control" placeholder="Nama SK" wire:model="form.nama">
+                    <input type="text" class="form-control" placeholder="Nama SK" wire:model.live="form.nama">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Tanggal:</label>
-                    <input type="text" class="form-control" placeholder="Tanggal SK" wire:model="form.lembaga">
+                    <input type="text" class="form-control" placeholder="Tanggal SK" wire:model.live="form.lembaga">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Nomor:</label>
-                    <input type="text" class="form-control" placeholder="Nomor SK" wire:model="form.tahun">
+                    <input type="text" class="form-control" placeholder="Nomor SK" wire:model.live="form.tahun">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Pejabat Yang Mengeluarkan:</label>
                     <input type="text" class="form-control" placeholder="Pejabat Yang Mengeluarkan SK"
-                        wire:model="form.tahun">
+                        wire:model.live="form.tahun">
                 </div>
             </div>
         </div>

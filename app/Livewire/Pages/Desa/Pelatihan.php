@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Pages\Desa;
+namespace App\Livewire\Pages\Desa;
 
 use Livewire\Component;
 use App\Models\DesaPelatihan;

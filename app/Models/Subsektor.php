@@ -10,4 +10,8 @@ class Subsektor extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function ekraf() {
+        return $this->hasMany(SubsektorEkraf::class, 'subsektor_id');
+    }
+
 }

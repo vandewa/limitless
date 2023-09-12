@@ -6,8 +6,9 @@
     @stack('before-style')
     @include('admin.includes.style')
     @stack('after-style')
-    @vite([])
     @livewireStyles
+    @vite([])
+
 </head>
 
 <body>
@@ -18,6 +19,7 @@
     @include('admin.includes.script')
     @stack('after-script')
     @livewireScripts
+    @livewireChartsScripts
 </body>
 
 </html>

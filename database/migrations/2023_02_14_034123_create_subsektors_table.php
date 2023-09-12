@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('subsektors', function (Blueprint $table) {
             $table->id();
             $table->string('nama_subsektor')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }

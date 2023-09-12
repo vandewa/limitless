@@ -6,20 +6,20 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Nama:</label>
-                    <input type="text" class="form-control" placeholder="Nama Pelatihan" wire:model="form.nama">
+                    <input type="text" class="form-control" placeholder="Nama Pelatihan" wire:model.live="form.nama">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Lembaga:</label>
                     <input type="text" class="form-control" placeholder="Nama Lembaga Pelatihan"
-                        wire:model="form.lembaga">
+                        wire:model.live="form.lembaga">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Tahun:</label>
-                    <input type="number" class="form-control" placeholder="Tahun Pelatihan" wire:model="form.tahun">
+                    <input type="number" class="form-control" placeholder="Tahun Pelatihan" wire:model.live="form.tahun">
                 </div>
             </div>
         </div>
