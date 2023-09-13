@@ -103,7 +103,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#serti" class="nav-link @if(session('serti')) active @endif"
+                                        <a href="#serti2" class="nav-link @if(session('serti2')) active @endif"
                                             data-toggle="tab">
                                             <i class="icon-certificate"></i>
                                             Sertifikat Kompetensi
@@ -146,9 +146,9 @@
 
                     </div>
 
-                    <div class="tab-pane fade  @if(session('serti')) active show @endif" id="serti">
+                    <div class="tab-pane fade  @if(session('serti2')) active show @endif" id="serti2">
 
-                        <x-serti :serti="$data->id" />
+                        <x-serti2 :serti="$data->id" />
 
                     </div>
 
@@ -213,7 +213,7 @@
         processing: true,
         serverSide: true,
         responsive: true,
-        ajax: "{{ route('serti.list', $data->id) }}",
+        ajax: "{{ route('serti2.list', $data->id) }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
             { data: 'tahun', name: 'tahun', },

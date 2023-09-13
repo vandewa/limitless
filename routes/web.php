@@ -75,8 +75,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pajak/list', [PajakController::class, 'pajak'])->name('pajak.list');
     Route::get('/pelatihan/list', [PelatihanController::class, 'pelatihan'])->name('pelatihan.list');
     Route::get('/serti/list/{id}', [SertiController::class, 'serti'])->name('serti.list');
+    Route::get('/serti2/list/{id}', [SertiController::class, 'serti2'])->name('serti2.list');
     Route::get('/certificate/list/{id}', [CertificateController::class, 'certificate'])->name('certificate.list');
     Route::get('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'index'])->name('kunjungan-wisata.index');
     Route::get('kunjungan-wisata/create', [KunjunganLokasiWisataController::class, 'create'])->name('kunjungan-wisata.create');
     Route::post('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'store'])->name('kunjungan-wisata.store');
+    Route::post('serti', [SertiController::class, 'store2'])->name('serti.store2');
 });

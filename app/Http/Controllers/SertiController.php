@@ -29,6 +29,7 @@ class SertiController extends Controller
      */
     public function store(Request $request)
     {
+        dd(request()->segment(2));
         $request->validate([
             'tahun' => 'required',
             'lembaga_penguji' => 'required',
@@ -45,6 +46,25 @@ class SertiController extends Controller
         ]);
 
         return redirect()->back()->with('serti', 'oke');
+    }
+    public function store2(Request $request)
+    {
+        $request->validate([
+            'tahun' => 'required',
+            'lembaga_penguji' => 'required',
+            'nomor_registrasi' => 'required',
+            'nomor_bnsp' => 'required',
+        ]);
+
+        Serti::create([
+            'pelaku_wisata_id' => $request->ekraf_id,
+            'tahun' => $request->tahun,
+            'lembaga_penguji' => $request->lembaga_penguji,
+            'nomor_registrasi' => $request->nomor_registrasi,
+            'nomor_bnsp' => $request->nomor_bnsp
+        ]);
+
+        return redirect()->back()->with('serti2', 'oke');
     }
 
     /**
@@ -81,8 +101,26 @@ class SertiController extends Controller
 
     public function serti($id)
     {
-        dd($id);
         $data = Serti::where('ekraf_id', $id)->orderBy('tahun', 'desc');
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn(
+                'action',
+                function ($data) {
+                    $actionBtn = '
+                    <div>
+                        <a href="' . route('serti.destroy', $data->id) . ' " class="btn btn-outline-danger rounded-round delete-data-table-serti"><i class="mr-2 icon-trash"></i>Delete</a>
+                    </div>';
+                    return $actionBtn;
+                }
+            )
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
+    public function serti2($id)
+    {
+        $data = Serti::where('pelaku_wisata_id', $id)->orderBy('tahun', 'desc');
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn(

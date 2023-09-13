@@ -122,7 +122,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" hidden>
                     <a href="{{ route('uspar.index') }}"
                         class="nav-link {{ Request::segment(2) == 'uspar' ? 'active' : '' }}">
                         <i class="icon-stats-bars"></i>

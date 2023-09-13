@@ -71,8 +71,7 @@
             }
         })
     });
-</script>
-<script>
+
     $(document).on('click', '.delete-data-table-pelatihan', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -111,8 +110,7 @@
             }
         })
     });
-</script>
-<script>
+
     $(document).on('click', '.delete-data-table-serti', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -151,8 +149,7 @@
             }
         })
     });
-</script>
-<script>
+
     $(document).on('click', '.delete-data-table-pajak', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -191,8 +188,7 @@
             }
         })
     });
-</script>
-<script>
+
     $(document).on('click', '.delete-data-table-omzet', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -231,8 +227,7 @@
             }
         })
     });
-</script>
-<script>
+
     $(document).on('click', '.delete-data-table-produksi', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -271,8 +266,7 @@
             }
         })
     });
-</script>
-<script>
+
     $(document).on('click', '.delete-data-table', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -323,8 +317,7 @@
     @if (session('tambah'))
         sweetAlert();
     @endif
-</script>
-<script type="text/javascript">
+
     function sweetAlert2() {
         Swal.fire(
             'Good job!',
@@ -335,8 +328,7 @@
     @if (session('edit'))
         sweetAlert2();
     @endif
-</script>
-<script type="text/javascript">
+
     function sweetAlert3() {
         Swal.fire(
             'Good job!',
@@ -347,8 +339,7 @@
     @if (session('biaya'))
         sweetAlert3();
     @endif
-</script>
-<script type="text/javascript">
+
     function sweetAlert4() {
         Swal.fire(
             'Good job!',
@@ -359,8 +350,7 @@
     @if (session('omzet'))
         sweetAlert4();
     @endif
-</script>
-<script type="text/javascript">
+
     function sweetAlert5() {
         Swal.fire(
             'Good job!',
@@ -371,8 +361,7 @@
     @if (session('pajak'))
         sweetAlert4();
     @endif
-</script>
-<script type="text/javascript">
+
     function sweetAlert5() {
         Swal.fire(
             'Good job!',
@@ -383,8 +372,7 @@
     @if (session('pelatihan'))
         sweetAlert4();
     @endif
-</script>
-<script type="text/javascript">
+
     function sweetAlert5() {
         Swal.fire(
             'Good job!',
@@ -395,24 +383,31 @@
     @if (session('serti'))
         sweetAlert4();
     @endif
+
+    function sweetAlert5() {
+        Swal.fire(
+            'Good job!',
+            'Berhasil menambahkan data pajak.',
+            'success'
+        )
+    }
+    @if (session('serti2'))
+        sweetAlert4();
+    @endif
 </script>
 <script>
     $('.daterange-single').daterangepicker({
         singleDatePicker: true
     });
-</script>
-<script>
+
     // Select with search
     $('.select-search').select2();
-</script>
-<script>
+
     // Fixed width. Multiple selects
     $('.select-fixed-multiple').select2({
         minimumResultsForSearch: Infinity,
-
     });
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
 <!-- Laravel Javascript Validation -->
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>

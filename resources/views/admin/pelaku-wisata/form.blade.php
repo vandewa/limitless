@@ -162,10 +162,35 @@
             </div>
         </div>
         <div class="col-6">
-            <label class="col-form-label col-lg-6">JUMLAH TENAGA KERJA</label>
+            <label class="col-form-label col-lg-6">JUMLAH TENAGA LAKI - LAKI</label>
             <div class="col-lg-10">
-                {!! Form::number('jml_tenaga', null, ['class' => 'form-control',
-                'placeholder' => 'Masukkan tenaga kerja']) !!}
+                {!! Form::number('tenaga_l', null, ['class' => 'form-control',
+                'placeholder' => 'Jumlah Tenaga Laki - Laki']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">JUMLAH TENAGA PEREMPUAN</label>
+            <div class="col-lg-10">
+                {!! Form::number('tenaga_p', null, ['class' => 'form-control',
+                'placeholder' => 'Jumlah Tenaga Perempuan']) !!}
+            </div>
+        </div>
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">ASOSIASI</label>
+            <div class="col-lg-10">
+                {!! Form::text('asosiasi', null, ['class' => 'form-control',
+                'placeholder' => 'Contoh (PHRI)']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">IZIN USAHA PARIWISATA</label>
+            <div class="col-lg-10">
+                {!! Form::text('izin_dimiliki', null, ['class' => 'form-control',
+                'placeholder' => 'xxx/xxx/xxx']) !!}
             </div>
         </div>
     </div>
