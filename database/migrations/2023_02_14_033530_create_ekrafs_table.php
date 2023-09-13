@@ -34,6 +34,7 @@ return new class extends Migration
             $table->integer('jml_tenaga_laki')->nullable();
             $table->integer('jml_tenaga_perempuan')->nullable();
             $table->string('nib')->nullable();
+            $table->string('npwp')->nullable();
             $table->timestamps();
         });
     }

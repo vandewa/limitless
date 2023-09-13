@@ -77,6 +77,13 @@
                 'placeholder' => 'Tahun Desa Wisata dibentuk']) }}
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>NPWP:</label>
+                {{ Form::text('npwp', null, ['class' => 'form-control',
+                'placeholder' => 'Masukkan Nomor NPWP']) }}
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">

@@ -5,7 +5,7 @@
             <label class="col-form-label col-lg-6">NAMA LENGKAP</label>
             <div class="col-lg-10">
                 {!! Form::text('nama_pemilik', null, ['class' => 'form-control',
-                'placeholder' => 'Masukkan nama pemlik']) !!}
+                'placeholder' => 'Masukkan nama pemilik']) !!}
             </div>
         </div>
         <div class="col-6">
@@ -101,14 +101,14 @@
     </div>
     <div class="form-group row">
         <div class="col-6">
-            <label class="col-form-label col-lg-6">SUBSEKTOR EKRAF</label>
+            <label class="col-form-label col-lg-6">USAHA PARIWISATA</label>
             <div class="col-lg-10">
                 @if(Request::segment(3) == 'create' )
-                {!! Form::select('subsektor_id[]', $subsektor, null, ['class' => 'form-control
-                select-fixed-multiple','multiple' => 'multiple']) !!}
+                {!! Form::select('subsektor_id', $uspar, null, ['class' => 'form-control
+                select-search', 'placeholder' => 'Pilih Usaha Pariwisata']) !!}
                 @else
-                {!! Form::select('subsektor_id[]', $subsektor, $subsektornya, ['class' => 'form-control
-                select-fixed-multiple','multiple' => 'multiple']) !!}
+                {!! Form::select('subsektor_id', $uspar, $usparnya, ['class' => 'form-control
+                select-search', 'placeholder' => 'Pilih Usaha Pariwisata']) !!}
                 @endif
             </div>
         </div>
@@ -122,9 +122,10 @@
     </div>
     <div class="form-group row">
         <div class="col-6">
-            <label class="col-form-label col-lg-6">NAMA USAHA EKRAF</label>
+            <label class="col-form-label col-lg-6">NAMA USAHA PARIWISATA</label>
             <div class="col-lg-10">
-                {!! Form::text('nama_usaha', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nama usaha'])
+                {!! Form::text('nama_usaha', null, ['class' => 'form-control',
+                'placeholder' => 'Masukkan Nama Usaha Pariwisata'])
                 !!}
             </div>
         </div>

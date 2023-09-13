@@ -101,6 +101,13 @@
                                             Pelatihan
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="#serti" class="nav-link @if(session('serti')) active @endif"
+                                            data-toggle="tab">
+                                            <i class="icon-certificate"></i>
+                                            Sertifikat Kompetensi
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -135,6 +142,12 @@
                     <div class="tab-pane fade  @if(session('pelatihan')) active show @endif" id="pelatihan">
 
                         <x-pelatihan :pelatihan="$data->id" />
+
+                    </div>
+
+                    <div class="tab-pane fade  @if(session('serti')) active show @endif" id="serti">
+
+                        <x-serti :serti="$data->id" />
 
                     </div>
 
@@ -196,6 +209,7 @@
         ]
     });
 </script>
+
 <script type="text/javascript">
     var table = $('.pelatihan').DataTable({
         processing: true,
@@ -207,6 +221,23 @@
             { data: 'tahun', name: 'tahun', },
             { data: 'nama_pelatihan', name: 'nama_pelatihan' },
             { data: 'lembaga_penyelenggara', name: 'lembaga_penyelenggara' },
+            { data: 'action', className: "text-center", orderable: false, searchable: false },
+        ]
+    });
+</script>
+
+<script type="text/javascript">
+    var table = $('.serti').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
+        ajax: "{{ route('serti.list', $data->id) }}",
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
+            { data: 'tahun', name: 'tahun', },
+            { data: 'lembaga_penguji', name: 'lembaga_penguji' },
+            { data: 'nomor_registrasi', name: 'nomor_registrasi' },
+            { data: 'nomor_bnsp', name: 'nomor_bnsp' },
             { data: 'action', className: "text-center", orderable: false, searchable: false },
         ]
     });

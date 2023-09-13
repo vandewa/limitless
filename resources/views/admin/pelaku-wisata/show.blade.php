@@ -98,8 +98,15 @@
                                         <a href="#certificate"
                                             class="nav-link @if(session('certificate')) active @endif"
                                             data-toggle="tab">
-                                            <i class="icon-certificate"></i>
+                                            <i class="icon-bookmark"></i>
                                             Sertifikat
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#serti" class="nav-link @if(session('serti')) active @endif"
+                                            data-toggle="tab">
+                                            <i class="icon-certificate"></i>
+                                            Sertifikat Kompetensi
                                         </a>
                                     </li>
                                 </ul>
@@ -136,6 +143,12 @@
                     <div class="tab-pane fade  @if(session('certificate')) active show @endif" id="certificate">
 
                         <x-certificate :certificate="$data->id" route="pelaku.certificate.store" />
+
+                    </div>
+
+                    <div class="tab-pane fade  @if(session('serti')) active show @endif" id="serti">
+
+                        <x-serti :serti="$data->id" />
 
                     </div>
 
@@ -196,6 +209,21 @@
         ]
     });
 
+    var table = $('.serti').DataTable({
+        processing: true,
+        serverSide: true,
+        responsive: true,
+        ajax: "{{ route('serti.list', $data->id) }}",
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
+            { data: 'tahun', name: 'tahun', },
+            { data: 'lembaga_penguji', name: 'lembaga_penguji' },
+            { data: 'nomor_registrasi', name: 'nomor_registrasi' },
+            { data: 'nomor_bnsp', name: 'nomor_bnsp' },
+            { data: 'action', className: "text-center", orderable: false, searchable: false },
+        ]
+    });
+
     var table = $('.tabelku').DataTable({
         processing: true,
         serverSide: true,
@@ -215,8 +243,8 @@
         ajax: "{{ route('certificate.list', $data->id) }}",
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'tanggal', name: 'tanggal'},
-            { data: 'jenis_sertifikat.code_nm', name: 'jenisSertifikat.code_nm'},
+            { data: 'tanggal', name: 'tanggal' },
+            { data: 'jenis_sertifikat.code_nm', name: 'jenisSertifikat.code_nm' },
             { data: 'nama', name: 'nama', },
             { data: 'lembaga', name: 'lembaga', },
             { data: 'action', className: "text-center" },

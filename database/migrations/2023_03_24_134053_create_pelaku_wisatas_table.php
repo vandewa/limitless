@@ -33,6 +33,9 @@ return new class extends Migration
             $table->string('nomor_hp')->nullable();
             $table->integer('jml_tenaga')->nullable();
             $table->string('npwp')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('nib')->nullable();
+            $table->date('tgl_nib')->nullable();
             $table->timestamps();
         });
     }

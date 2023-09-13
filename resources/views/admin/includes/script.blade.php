@@ -73,6 +73,86 @@
     });
 </script>
 <script>
+    $(document).on('click', '.delete-data-table-pelatihan', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                        $('.pelatihan').DataTable().ajax.reload();
+                        // if (typeof table2) {
+                        //     table2.ajax.reload();
+                        // }
+                    }
+                })
+            }
+        })
+    });
+</script>
+<script>
+    $(document).on('click', '.delete-data-table-serti', function (a) {
+        a.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                a.preventDefault();
+                var url = $(this).attr('href');
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'delete',
+                    success: function () {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                        $('.serti').DataTable().ajax.reload();
+                        // if (typeof table2) {
+                        //     table2.ajax.reload();
+                        // }
+                    }
+                })
+            }
+        })
+    });
+</script>
+<script>
     $(document).on('click', '.delete-data-table-pajak', function (a) {
         a.preventDefault();
         Swal.fire({
@@ -289,6 +369,30 @@
         )
     }
     @if (session('pajak'))
+        sweetAlert4();
+    @endif
+</script>
+<script type="text/javascript">
+    function sweetAlert5() {
+        Swal.fire(
+            'Good job!',
+            'Berhasil menambahkan data pajak.',
+            'success'
+        )
+    }
+    @if (session('pelatihan'))
+        sweetAlert4();
+    @endif
+</script>
+<script type="text/javascript">
+    function sweetAlert5() {
+        Swal.fire(
+            'Good job!',
+            'Berhasil menambahkan data pajak.',
+            'success'
+        )
+    }
+    @if (session('serti'))
         sweetAlert4();
     @endif
 </script>

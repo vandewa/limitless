@@ -32,8 +32,6 @@ class UsparValidation extends FormRequest
             'tenaga_l' => 'required',
             'tenaga_p' => 'required',
             'izin_dimiliki' => 'required',
-            'jml_kamar' => 'required',
-            'asosiasi' => 'required'
         ];
     }
 }

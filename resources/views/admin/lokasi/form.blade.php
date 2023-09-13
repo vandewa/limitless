@@ -137,6 +137,29 @@
         </div>
     </div>
 
+    <div class="form-group row">
+        <div class="col-6">
+            <div class="form-group mb-3 mb-md-2">
+                <label class="d-block">Latitude</label>
+                {!! Form::text('lat', null, ['class' => 'form-control',
+                'placeholder' => 'Alamat TikTok']) !!}
+            </div>
+        </div>
+        <div class="col-6">
+            <label class="d-block">Longitude</label>
+            {!! Form::text('long', null, ['class' => 'form-control',
+            'placeholder' => 'Alamat Youtube']) !!}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-6">
+            <label class="d-block">NPWP</label>
+            {!! Form::text('npwp', null, ['class' => 'form-control',
+            'placeholder' => 'Nomor NPWP']) !!}
+        </div>
+    </div>
+
 </fieldset>
 
 <div class="d-flex justify-content-between align-items-center">

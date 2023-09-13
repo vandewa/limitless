@@ -80,8 +80,8 @@
         responsive: true,
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className: "text-left" },
-            { data: 'nama_pemilik', name: 'nama_pemilik', },
             { data: 'nama_usaha', name: 'jenis_usaha', },
+            { data: 'nama_pemilik', name: 'nama_pemilik', },
             { data: 'action', className: "text-center" },
         ]
     });

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('nama_desa')->nullable();
             $table->string('website')->nullable();
             $table->string('tahun_dibentuk')->nullable();
+            $table->string('npwp')->nullable();
             $table->integer('jumlah_pemandu')->nullable();
             $table->integer('jumlah_pemandu_bersertifikat')->nullable();
             $table->integer('jumlah_toilet')->nullable();

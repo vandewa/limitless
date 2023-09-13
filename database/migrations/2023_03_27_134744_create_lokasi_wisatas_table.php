@@ -35,6 +35,9 @@ return new class extends Migration
             $table->string('ig')->nullable();
             $table->string('tiktok')->nullable();
             $table->string('youtube')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
+            $table->string('npwp')->nullable();
             $table->timestamps();
         });
     }

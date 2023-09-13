@@ -22,8 +22,8 @@
                     <div class="col-6">
                         <label class="col-form-label col-lg-6">NIK</label>
                         <div class="col-lg-10">
-                            {!! Form::number('nik', $data['nik'], ['class' => 'form-control', 'placeholder' => 'Masukkan
-                            NIK', 'readonly' => true]) !!}
+                            {!! Form::number('nik', $data['nik'], ['class' => 'form-control',
+                            'placeholder' => 'Masukkan NIK', 'readonly' => true]) !!}
                         </div>
                     </div>
                 </div>

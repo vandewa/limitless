@@ -28,7 +28,7 @@ class ComCodeSeeder extends Seeder
             ['code_cd' => 'LOKASI_WISATA_TP_02', 'code_nm' => 'Homestay', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
             ['code_cd' => 'LOKASI_WISATA_TP_03', 'code_nm' => 'Basecamp', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
             ['code_cd' => 'LOKASI_WISATA_TP_04', 'code_nm' => 'Objek Wisata', 'code_group' => 'LOKASI_WISATA_TP', 'code_value' => ''],
-            ['code_cd' => 'JENIS_ORGANISASI_01', 'code_nm' => 'Seni Budaya', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
+            // ['code_cd' => 'JENIS_ORGANISASI_01', 'code_nm' => 'Seni Budaya', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
             ['code_cd' => 'JENIS_ORGANISASI_02', 'code_nm' => 'Mitrawisata', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
             ['code_cd' => 'JENIS_ORGANISASI_03', 'code_nm' => 'Lembaga Ekraf', 'code_group' => 'JENIS_ORGANISASI', 'code_value' => ''],
             ['code_cd' => 'JENIS_DESA_WISATA_01', 'code_nm' => 'Alam', 'code_group' => 'JENIS_DESA_WISATA', 'code_value' => ''],

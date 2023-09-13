@@ -158,6 +158,21 @@
                                                 <td> : </td>
                                                 <td>{{ $data->youtube }}</td>
                                             </tr>
+                                            <tr>
+                                                <td>Latitude</td>
+                                                <td> : </td>
+                                                <td>{{ $data->lat }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Longitude</td>
+                                                <td> : </td>
+                                                <td>{{ $data->long }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NPWP</td>
+                                                <td> : </td>
+                                                <td>{{ $data->npwp }}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

@@ -51,11 +51,6 @@
     </div>
     <div class="form-group row">
         <div class="col-lg-6">
-            <label>Jumlah Kamar</label>
-            {!! Form::number('jml_kamar', null, ['class' => 'form-control',
-            'placeholder' => 'Jumlah Kamar']) !!}
-        </div>
-        <div class="col-lg-6">
             <label>Asosiasi</label>
             {!! Form::text('asosiasi', null, ['class' => 'form-control',
             'placeholder' => 'Contoh (PHRI)']) !!}

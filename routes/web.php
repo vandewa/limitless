@@ -23,6 +23,7 @@ use App\Http\Controllers\DesaWisataController;
 use App\Http\Controllers\KunjunganLokasiWisataController;
 use App\Http\Controllers\LokasiWisataController;
 use App\Http\Controllers\OrganisasiController;
+use App\Http\Controllers\SertiController;
 use App\Http\Controllers\UsparController;
 
 /*
@@ -54,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('omzet', OmzetController::class);
         Route::resource('pajak', PajakController::class);
         Route::resource('pelatihan', PelatihanController::class);
+        Route::resource('serti', SertiController::class);
         Route::resource('lokasi', LokasiWisataController::class);
         Route::resource('organisasi', OrganisasiController::class);
         Route::resource('uspar', UsparController::class);
@@ -72,6 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/omzet/list', [OmzetController::class, 'omzet'])->name('omzet.list');
     Route::get('/pajak/list', [PajakController::class, 'pajak'])->name('pajak.list');
     Route::get('/pelatihan/list', [PelatihanController::class, 'pelatihan'])->name('pelatihan.list');
+    Route::get('/serti/list/{id}', [SertiController::class, 'serti'])->name('serti.list');
     Route::get('/certificate/list/{id}', [CertificateController::class, 'certificate'])->name('certificate.list');
     Route::get('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'index'])->name('kunjungan-wisata.index');
     Route::get('kunjungan-wisata/create', [KunjunganLokasiWisataController::class, 'create'])->name('kunjungan-wisata.create');

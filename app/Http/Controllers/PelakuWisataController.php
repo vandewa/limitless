@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MasterDataUsahaPariwisata;
 use Carbon\Carbon;
 use App\Models\Subsektor;
 use App\Models\PelakuWisata;
 use Illuminate\Http\Request;
-use App\Models\SubsektorEkraf;
 use App\Models\SubsektorPelakuWisata;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -55,7 +55,7 @@ class PelakuWisataController extends Controller
         $submenu = "List Pelaku Wisata Perorangan";
         $subsubmenu = "Tambah Pelaku Wisata Perorangan";
         $title = "Tambah Data Pelaku Wisata Perorangan";
-        $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
+        $uspar = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'asc')->pluck('jenis_usaha', 'id');
 
         if ($request->ajax()) {
             $data = PelakuWisata::orderBy('nama_usaha', 'ASC');
@@ -76,7 +76,7 @@ class PelakuWisataController extends Controller
                 ->make(true);
         }
 
-        return view('admin.pelaku-wisata.create', compact('menu', 'submenu', 'subsubmenu', 'title', 'subsektor'));
+        return view('admin.pelaku-wisata.create', compact('menu', 'submenu', 'subsubmenu', 'title', 'uspar'));
     }
 
     /**
@@ -87,11 +87,12 @@ class PelakuWisataController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->file('logo')){
+        if ($request->file('logo')) {
             $path = $request->file('logo')->storeAs(
-                'public/'.Carbon::now()->isoFormat('MMMM'), date('Ymdhis').'.'.$request->file('logo')->extension()
+                'public/' . Carbon::now()->isoFormat('MMMM'),
+                date('Ymdhis') . '.' . $request->file('logo')->extension()
             );
-        } 
+        }
 
         $ekraf = PelakuWisata::create([
             'nama_pemilik' => $request->nama_pemilik,
@@ -113,18 +114,12 @@ class PelakuWisataController extends Controller
             'jml_tenaga' => $request->jml_tenaga,
             'nib' => $request->nib,
             'tgl_nib' => $request->tgl_nib,
-            'logo' => $path,
+            'logo' => $path ?? '',
         ]);
 
-        $subsektors = $request->subsektor_id;
-
-        if (!empty($subsektors)) {
-            foreach ($subsektors as $subsektor) {
-                $ekraf->subsektorEkraf()->create([
-                    'subsektor_id' => $subsektor,
-                ]);
-            }
-        }
+        $ekraf->subsektorEkraf()->create([
+            'subsektor_id' => $request->subsektor_id,
+        ]);
 
         return redirect(route('pelaku.pelaku-wisata.index'))->with('tambah', 'oke');
     }
@@ -175,13 +170,13 @@ class PelakuWisataController extends Controller
     public function edit($id)
     {
         $data = PelakuWisata::find($id);
-        $subsektornya = SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $id)->get()->pluck('subsektornya.id');
+        $usparnya = SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $id)->get()->pluck('subsektornya.id');
         $menu = "Pelaku Wisata Perorangan";
         $submenu = "List Pelaku Wisata Perorangan";
         $title = "Edit Pelaku Wisata Perorangan";
-        $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
+        $uspar = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'asc')->pluck('jenis_usaha', 'id');
 
-        return view('admin.pelaku-wisata.edit', compact('menu', 'submenu', 'data', 'subsektor', 'title', 'subsektornya'));
+        return view('admin.pelaku-wisata.edit', compact('menu', 'submenu', 'data', 'uspar', 'title', 'usparnya'));
     }
 
     /**
@@ -197,26 +192,22 @@ class PelakuWisataController extends Controller
         $data->update($request->except(['subsektor_id', 'logo']));
         $data->subsektorEkraf()->delete();
 
-        if($request->file('logo')){
+        if ($request->file('logo')) {
             $path = $request->file('logo')->storeAs(
-                'public/'.Carbon::now()->isoFormat('MMMM'), date('Ymdhis').'.'.$request->file('logo')->extension()
+                'public/' . Carbon::now()->isoFormat('MMMM'),
+                date('Ymdhis') . '.' . $request->file('logo')->extension()
             );
-        } 
+        }
 
         PelakuWisata::find($id)->update([
-            'logo' => $path
+            'logo' => $path ?? ''
         ]);
 
-        $subsektors = $request->subsektor_id;
 
-        if (!empty($subsektors)) {
-            foreach ($subsektors as $subsektor) {
-                $data->subsektorEkraf()->create([
-                    'pelaku_wisata_id' => $data->id,
-                    'subsektor_id' => $subsektor,
-                ]);
-            }
-        }
+        $data->subsektorEkraf()->create([
+            'pelaku_wisata_id' => $data->id,
+            'subsektor_id' => $request->subsektor_id,
+        ]);
 
         return redirect(route('pelaku.pelaku-wisata.index'))->with('edit', 'oke');
     }

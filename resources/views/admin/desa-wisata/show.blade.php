@@ -96,129 +96,136 @@
                                             <tr>
                                                 <td>Jenis Desa</td>
                                                 <td> : </td>
-                                                <td>{{ \App\Models\ComCode::where('code_cd', $data->jenis)->pluck('code_nm')->last(); }}</td>
+                                                <td>{{ \App\Models\ComCode::where('code_cd',
+                                                    $data->jenis)->pluck('code_nm')->last(); }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jenis Strata</td>
                                                 <td> : </td>
-                                                <td>{{ \App\Models\ComCode::where('code_cd', $data->strata)->pluck('code_nm')->last(); }}</td>
+                                                <td>{{ \App\Models\ComCode::where('code_cd',
+                                                    $data->strata)->pluck('code_nm')->last(); }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Kecamatan</td>
                                                 <td> : </td>
                                                 <td>{{ $data->kecamatan->region_nm }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Kelurahan</td>
                                                 <td> : </td>
                                                 <td>{{ $data->kelurahan->region_nm }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Nomor Telepon</td>
                                                 <td> : </td>
                                                 <td>{{ $data->telepon }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Alamat Email</td>
                                                 <td> : </td>
                                                 <td>{{ $data->email }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Nama Pengelola</td>
                                                 <td> : </td>
                                                 <td>{{ $data->nama_pengelola }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Nama Desa</td>
                                                 <td> : </td>
                                                 <td>{{ $data->nama_desa }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Website</td>
                                                 <td> : </td>
                                                 <td>{{ $data->website }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Tahun Dibentuk</td>
                                                 <td> : </td>
                                                 <td>{{ $data->tahun_dibentuk }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
+                                                <td>NPWP</td>
+                                                <td> : </td>
+                                                <td>{{ $data->npwp }}</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Jumlah Pemandu</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_pemandu }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jumlah Pemandu Bersertifikat</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_pemandu_bersertifikat }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jumlah Toilet</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_toilet }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jumlah Tempat Ibadah</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_tempat_ibadah }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jumlah Penginapan</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_penginapan }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jumlah Warung Makan</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_warung_makan }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Jumlah Toko Cinderamata</td>
                                                 <td> : </td>
                                                 <td>{{ $data->jumlah_toko_cinderamata }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Luas Area Parkir</td>
                                                 <td> : </td>
                                                 <td>{{ $data->luas_area_parkir }} meter</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Nama Atraksi Wisata</td>
                                                 <td> : </td>
                                                 <td>{{ $data->nama_atraksi_wisata }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Rincian Paket Wisata</td>
                                                 <td> : </td>
                                                 <td>{{ $data->rincian_paket_wisata }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Facebook</td>
                                                 <td> : </td>
                                                 <td>{{ $data->fb }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Instagram</td>
                                                 <td> : </td>
                                                 <td>{{ $data->ig }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>TikTok</td>
                                                 <td> : </td>
                                                 <td>{{ $data->tiktok }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>YouTube</td>
                                                 <td> : </td>
                                                 <td>{{ $data->youtube }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Latitude</td>
                                                 <td> : </td>
                                                 <td>{{ $data->lnd }}</td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td>Longitude</td>
                                                 <td> : </td>
                                                 <td>{{ $data->ltd }}</td>
