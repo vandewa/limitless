@@ -108,7 +108,11 @@ class DataEkrafController extends Controller
             'jml_tenaga_laki' => $request->jml_tenaga_laki,
             'jml_tenaga_perempuan' => $request->jml_tenaga_perempuan,
             'nib' => $request->nib,
-            'npwp' => $request->nib
+            'npwp' => $request->npwp,
+            'ltd' => $request->ltd,
+            'lng' => $request->lng,
+            'tgl_dikeluarkan' => $request->tgl_dikeluarkan,
+            'nama_hki' => $request->nama_hki,
         ]);
 
         $subsektors = $request->subsektor_id;
@@ -174,7 +178,7 @@ class DataEkrafController extends Controller
         $data = Ekraf::find($id);
         $subsektornya = SubsektorEkraf::with('subsektornya')->where('ekraf_id', $id)->get()->pluck('subsektornya.id');
         $menu = "Data Ekraf";
-        $submenu = "List Data Ekraf";
+        $submenu = "Edit Data Ekraf";
         $title = "Edit Data Ekraf";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 

@@ -5,21 +5,22 @@
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
-<script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/touch.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/buttons/spin.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/buttons/ladda.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/ui/moment/moment.min.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/pickers/daterangepicker.js')}}"></script>
-<script src="{{ asset ('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/extensions/jquery_ui/touch.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/buttons/spin.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/buttons/ladda.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/ui/moment/moment.min.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/pickers/daterangepicker.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 <script
-    src="{{ asset ('limitless/global_assets/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js')}}"></script>
+    src="{{ asset('limitless/global_assets/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js') }}">
+</script>
 
-<script src="{{ asset('limitless/layout_1/LTR/default/full/assets/js/app.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/demo_pages/components_buttons.js')}}"></script>
-<script src="{{ asset('limitless/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
+<script src="{{ asset('limitless/layout_1/LTR/default/full/assets/js/app.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/demo_pages/components_buttons.js') }}"></script>
+<script src="{{ asset('limitless/global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 {{--
 <script src="{{ asset('limitless/global_assets/js/demo_pages/datatables_basic.js')}}"></script> --}}
 {{--
@@ -33,7 +34,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    $(document).on('click', '.delete-data-table-certificate', function (a) {
+    $(document).on('click', '.delete-data-table-certificate', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -56,7 +57,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -72,7 +73,7 @@
         })
     });
 
-    $(document).on('click', '.delete-data-table-pelatihan', function (a) {
+    $(document).on('click', '.delete-data-table-pelatihan', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -95,7 +96,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -111,7 +112,7 @@
         })
     });
 
-    $(document).on('click', '.delete-data-table-serti', function (a) {
+    $(document).on('click', '.delete-data-table-serti', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -134,7 +135,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -150,7 +151,7 @@
         })
     });
 
-    $(document).on('click', '.delete-data-table-pajak', function (a) {
+    $(document).on('click', '.delete-data-table-pajak', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -173,7 +174,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -189,7 +190,7 @@
         })
     });
 
-    $(document).on('click', '.delete-data-table-omzet', function (a) {
+    $(document).on('click', '.delete-data-table-omzet', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -212,7 +213,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -228,7 +229,7 @@
         })
     });
 
-    $(document).on('click', '.delete-data-table-produksi', function (a) {
+    $(document).on('click', '.delete-data-table-produksi', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -251,7 +252,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -267,7 +268,7 @@
         })
     });
 
-    $(document).on('click', '.delete-data-table', function (a) {
+    $(document).on('click', '.delete-data-table', function(a) {
         a.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -290,7 +291,7 @@
                 $.ajax({
                     url: url,
                     method: 'delete',
-                    success: function () {
+                    success: function() {
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -359,40 +360,40 @@
         )
     }
     @if (session('pajak'))
-        sweetAlert4();
+        sweetAlert5();
     @endif
 
-    function sweetAlert5() {
+    function sweetAlert6() {
         Swal.fire(
             'Good job!',
-            'Berhasil menambahkan data pajak.',
+            'Berhasil menambahkan data pelatihan.',
             'success'
         )
     }
     @if (session('pelatihan'))
-        sweetAlert4();
+        sweetAlert6();
     @endif
 
-    function sweetAlert5() {
+    function sweetAlert7() {
         Swal.fire(
             'Good job!',
-            'Berhasil menambahkan data pajak.',
+            'Berhasil menambahkan data sertifikat.',
             'success'
         )
     }
     @if (session('serti'))
-        sweetAlert4();
+        sweetAlert7();
     @endif
 
-    function sweetAlert5() {
+    function sweetAlert8() {
         Swal.fire(
             'Good job!',
-            'Berhasil menambahkan data pajak.',
+            'Berhasil menambahkan data sertifikat.',
             'success'
         )
     }
     @if (session('serti2'))
-        sweetAlert4();
+        sweetAlert8();
     @endif
 </script>
 <script>
@@ -410,4 +411,4 @@
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <!-- Laravel Javascript Validation -->
-<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>

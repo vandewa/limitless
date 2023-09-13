@@ -14,4 +14,6 @@ class Uspar extends Model
     {
         return $this->belongsTo(MasterDataUsahaPariwisata::class, 'master_data_usaha_pariwisata_id');
     }
+
+    
 }

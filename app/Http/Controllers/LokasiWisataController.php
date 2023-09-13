@@ -16,8 +16,8 @@ class LokasiWisataController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Data";
-        $submenu = "Destinasi Wisata";
+        $menu = "Destinasi Wisata";
+        $submenu = "";
 
         if ($request->ajax()) {
             $data = LokasiWisata::with('jenislokasinya');
@@ -49,10 +49,10 @@ class LokasiWisataController extends Controller
      */
     public function create()
     {
-        $menu = "Data";
-        $submenu = "Data Lokasi";
+        $menu = "Destinasi Wisata";
+        $submenu = "Tambah Destinasi Wisata";
         $subsubmenu = "Tambah Lokasi";
-        $title = "Tambah Data Lokasi";
+        $title = "";
 
         return view('admin.lokasi.create', compact('menu', 'submenu', 'subsubmenu', 'title'));
     }
@@ -94,10 +94,10 @@ class LokasiWisataController extends Controller
      */
     public function edit($id)
     {
-        $menu = "Data";
-        $submenu = "Data Lokasi";
-        $subsubmenu = "Edit Lokasi";
-        $title = "Edit Data Lokasi";
+        $menu = "Destinasi Wisata";
+        $submenu = "Edit Destinasi Wisata";
+        $subsubmenu = "Edit Destinasi Wisata";
+        $title = "";
         $data = LokasiWisata::where('id', $id)->first();
 
         return view('admin.lokasi.edit', compact('data', 'menu', 'submenu', 'subsubmenu', 'title'));

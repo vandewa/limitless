@@ -13,9 +13,10 @@ class Serti2 extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($serti)
+    public function __construct($serti, $route = "serti.store2")
     {
         $this->devan = $serti;
+        $this->route = $route;
     }
 
     /**

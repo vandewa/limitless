@@ -29,7 +29,8 @@ class SertiController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request()->segment(2));
+        // return $request->all();
+        // dd(request()->segment(2));
         $request->validate([
             'tahun' => 'required',
             'lembaga_penguji' => 'required',
@@ -57,7 +58,7 @@ class SertiController extends Controller
         ]);
 
         Serti::create([
-            'pelaku_wisata_id' => $request->ekraf_id,
+            'pelaku_wisata_id' => $request->pelaku_wisata_id,
             'tahun' => $request->tahun,
             'lembaga_penguji' => $request->lembaga_penguji,
             'nomor_registrasi' => $request->nomor_registrasi,

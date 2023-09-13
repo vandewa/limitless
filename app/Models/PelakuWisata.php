@@ -11,6 +11,15 @@ class PelakuWisata extends Model
 
     protected $guarded = [];
 
+    public function setTglNibAttribute($value)
+    {
+        $this->attributes['tgl_nib'] = date('Y-m-d', strtotime($value));
+    }
+
+    public function getTglNibAttribute($value)
+    {
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
+    }
     public function setTanggalLahirAttribute($value)
     {
         $this->attributes['tanggal_lahir'] = date('Y-m-d', strtotime($value));
@@ -33,7 +42,12 @@ class PelakuWisata extends Model
 
     public function getPreviewImageAttribute()
     {
-        $devan = asset(str_replace('public', 'storage', $this->attributes['logo']))??asset('notfound.jpg');
+        $devan = asset(str_replace('public', 'storage', $this->attributes['logo'])) ?? asset('notfound.jpg');
         return $devan;
     }
+
+    // public usahaPariwisata()
+    // {
+    //     return $this->belongsTo(MasterDataUsahaPariwisata::)
+    // }
 }

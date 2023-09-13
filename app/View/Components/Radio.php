@@ -11,9 +11,12 @@ class Radio extends Component
      *
      * @return void
      */
-    public function __construct(public string $ah)
+
+    public $ah;
+
+    public function __construct($ah)
     {
-        //
+        $this->ah = $ah;
     }
 
     /**

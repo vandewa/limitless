@@ -4,8 +4,7 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">NAMA LENGKAP</label>
             <div class="col-lg-10">
-                {!! Form::text('nama_pemilik', null, ['class' => 'form-control',
-                'placeholder' => 'Masukkan nama pemilik']) !!}
+                {!! Form::text('nama_pemilik', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nama pemilik']) !!}
             </div>
         </div>
         <div class="col-6">
@@ -19,16 +18,16 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">JENIS KELAMIN</label>
             <div class="col-lg-10">
-                {!! Form::select('jenis_kelamin', get_code_group('JENIS_KELAMIN_ST'),null, ['class' => 'form-control
-                select-search'])
-                !!}
+                {!! Form::select('jenis_kelamin', get_code_group('JENIS_KELAMIN_ST'), null, [
+                    'class' => 'form-control
+                                                                                                                select-search',
+                ]) !!}
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">TEMPAT LAHIR</label>
             <div class="col-lg-10">
-                {!! Form::text('tempat_lahir', null, ['class' => 'form-control',
-                'placeholder' => 'Masukkan tempat lahir']) !!}
+                {!! Form::text('tempat_lahir', null, ['class' => 'form-control', 'placeholder' => 'Masukkan tempat lahir']) !!}
             </div>
         </div>
     </div>
@@ -63,12 +62,14 @@
             <label class="col-form-label col-lg-6">KABUPATEN</label>
             <div class="col-lg-10">
 
-                @if(Request::segment(3) == 'create' )
-                {{Form::select('kabupaten', get_kab(), null, ['class' => 'form-control select-search','id' =>
-                'kabupaten'])}}
+                @if (Request::segment(3) == 'create')
+                    {{ Form::select('kabupaten', get_kab(), null, ['class' => 'form-control select-search', 'id' => 'kabupaten']) }}
                 @else
-                {{Form::select('kabupaten', get_kab(), $data->kabupaten, ['class' => 'form-control select-search',
-                'placeholder' => 'Pilih Kabupaten','id' => 'kabupaten'])}}
+                    {{ Form::select('kabupaten', get_kab(), $data->kabupaten, [
+                        'class' => 'form-control select-search',
+                        'placeholder' => 'Pilih Kabupaten',
+                        'id' => 'kabupaten',
+                    ]) }}
                 @endif
             </div>
         </div>
@@ -77,24 +78,38 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">KECAMATAN</label>
             <div class="col-lg-10">
-                @if(Request::segment(3) == 'create' )
-                {{Form::select('kecamatan', get_kec(), null, ['class' => 'form-control select-search', 'placeholder' =>
-                'Pilih Kecamatan', 'id' => 'kecamatan'])}}
+                @if (Request::segment(3) == 'create')
+                    {{ Form::select('kecamatan', get_kec(), null, [
+                        'class' => 'form-control select-search',
+                        'placeholder' => 'Pilih Kecamatan',
+                        'id' => 'kecamatan',
+                    ]) }}
                 @else
-                {{Form::select('kecamatan', get_kec(), $data->kecamatan, ['class' => 'form-control select-search',
-                'placeholder' => 'Pilih Kecamatan','id' => 'kecamatan'])}}
+                    {{ Form::select('kecamatan', get_kec(), $data->kecamatan, [
+                        'class' => 'form-control select-search',
+                        'placeholder' => 'Pilih Kecamatan',
+                        'id' => 'kecamatan',
+                    ]) }}
                 @endif
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">KELURAHAN/DESA</label>
             <div class="col-lg-10">
-                @if(Request::segment(3) == 'create' )
-                {{Form::select('kelurahan', [], null, ['class' => 'form-control select-search', 'placeholder' => 'Pilih
-                Kelurahan', 'id' => 'kelurahan'])}}
+                @if (Request::segment(3) == 'create')
+                    {{ Form::select('kelurahan', [], null, [
+                        'class' => 'form-control select-search',
+                        'placeholder' => 'Pilih
+                                                                                                                                        Kelurahan',
+                        'id' => 'kelurahan',
+                    ]) }}
                 @else
-                {{Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, ['class' => 'form-control
-                select-search', 'placeholder' => 'Pilih Kelurahan', 'id' => 'kelurahan'])}}
+                    {{ Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, [
+                        'class' => 'form-control
+                                                                                                                                        select-search',
+                        'placeholder' => 'Pilih Kelurahan',
+                        'id' => 'kelurahan',
+                    ]) }}
                 @endif
             </div>
         </div>
@@ -103,20 +118,28 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">USAHA PARIWISATA</label>
             <div class="col-lg-10">
-                @if(Request::segment(3) == 'create' )
-                {!! Form::select('subsektor_id', $uspar, null, ['class' => 'form-control
-                select-search', 'placeholder' => 'Pilih Usaha Pariwisata']) !!}
+                @if (Request::segment(3) == 'create')
+                    {!! Form::select('subsektor_id', $uspar, null, [
+                        'class' => 'form-control
+                                                                                                                                        select-search',
+                        'placeholder' => 'Pilih Usaha Pariwisata',
+                    ]) !!}
                 @else
-                {!! Form::select('subsektor_id', $uspar, $usparnya, ['class' => 'form-control
-                select-search', 'placeholder' => 'Pilih Usaha Pariwisata']) !!}
+                    {!! Form::select('subsektor_id', $uspar, $usparnya, [
+                        'class' => 'form-control
+                                                                                                                                        select-search',
+                        'placeholder' => 'Pilih Usaha Pariwisata',
+                    ]) !!}
                 @endif
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">JENIS BARANG/JASA</label>
             <div class="col-lg-10">
-                {!! Form::select('jenis_barang_jasa', get_code_group('BARANG_ST'),null, ['class' => 'form-control
-                select-search']) !!}
+                {!! Form::select('jenis_barang_jasa', get_code_group('BARANG_ST'), null, [
+                    'class' => 'form-control
+                                                                                                                select-search',
+                ]) !!}
             </div>
         </div>
     </div>
@@ -124,16 +147,16 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">NAMA USAHA PARIWISATA</label>
             <div class="col-lg-10">
-                {!! Form::text('nama_usaha', null, ['class' => 'form-control',
-                'placeholder' => 'Masukkan Nama Usaha Pariwisata'])
-                !!}
+                {!! Form::text('nama_usaha', null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Masukkan Nama Usaha Pariwisata',
+                ]) !!}
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">NPWP</label>
             <div class="col-lg-10">
-                {!! Form::text('npwp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan Nomor NPWP'])
-                !!}
+                {!! Form::text('npwp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan Nomor NPWP']) !!}
             </div>
         </div>
     </div>
@@ -141,15 +164,13 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">NIB</label>
             <div class="col-lg-10">
-                {!! Form::text('nib', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nomor NIB'])
-                !!}
+                {!! Form::text('nib', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nomor NIB']) !!}
             </div>
         </div>
         <div class="col-6">
-            <label class="col-form-label col-lg-6">Tanggal NIB</label>
+            <label class="col-form-label col-lg-6">TANGGAL NIB</label>
             <div class="col-lg-10">
-                {!! Form::date('tgl_nib', null, ['class' => 'form-control daterange-single',])
-                !!}
+                {!! Form::text('tgl_nib', null, ['class' => 'form-control daterange-single']) !!}
             </div>
         </div>
     </div>
@@ -157,15 +178,16 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">NOMOR HP</label>
             <div class="col-lg-10">
-                {!! Form::number('nomor_hp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nomor hp'])
-                !!}
+                {!! Form::number('nomor_hp', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nomor hp']) !!}
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">JUMLAH TENAGA LAKI - LAKI</label>
             <div class="col-lg-10">
-                {!! Form::number('tenaga_l', null, ['class' => 'form-control',
-                'placeholder' => 'Jumlah Tenaga Laki - Laki']) !!}
+                {!! Form::number('jml_tenaga_laki', null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Jumlah Tenaga Laki - Laki',
+                ]) !!}
             </div>
         </div>
     </div>
@@ -173,15 +195,16 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">JUMLAH TENAGA PEREMPUAN</label>
             <div class="col-lg-10">
-                {!! Form::number('tenaga_p', null, ['class' => 'form-control',
-                'placeholder' => 'Jumlah Tenaga Perempuan']) !!}
+                {!! Form::number('jml_tenaga_perempuan', null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Jumlah Tenaga Perempuan',
+                ]) !!}
             </div>
         </div>
         <div class="col-6">
             <label class="col-form-label col-lg-6">ASOSIASI</label>
             <div class="col-lg-10">
-                {!! Form::text('asosiasi', null, ['class' => 'form-control',
-                'placeholder' => 'Contoh (PHRI)']) !!}
+                {!! Form::text('asosiasi', null, ['class' => 'form-control', 'placeholder' => 'Contoh (PHRI)']) !!}
             </div>
         </div>
     </div>
@@ -189,23 +212,31 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">IZIN USAHA PARIWISATA</label>
             <div class="col-lg-10">
-                {!! Form::text('izin_dimiliki', null, ['class' => 'form-control',
-                'placeholder' => 'xxx/xxx/xxx']) !!}
+                {!! Form::text('izin_dimiliki', null, ['class' => 'form-control', 'placeholder' => 'xxx/xxx/xxx']) !!}
+            </div>
+        </div>
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">ORGANISASI</label>
+            <div class="col-lg-10">
+                {!! Form::select('organisasi_id', get_organisasi(), null, ['class' => 'form-control select-search']) !!}
             </div>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-6">
-            <label class="col-form-label col-lg-6">ORGANISASI</label>
+            <label class="col-form-label col-lg-6">Latitude</label>
             <div class="col-lg-10">
-                {!! Form::select('organisasi_id', get_organisasi(), null, ['class' => 'form-control select-search'])
-                !!}
+                {{ Form::text('ltd', null, ['class' => 'form-control', 'placeholder' => 'Masukkan Latitude Lokasi']) }}
             </div>
         </div>
-
-        {{-- <div class="col-md-6">
-
-        </div> --}}
+        <div class="col-6">
+            <label class="col-form-label col-lg-6">Longitude</label>
+            <div class="col-lg-10">
+                {{ Form::text('lng', null, ['class' => 'form-control', 'placeholder' => 'Masukkan Longitude Lokasi']) }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
 
         <div class="col-md-6">
             <label class="col-form-label col-lg-6">LOGO USAHA</label>
@@ -213,22 +244,15 @@
                 <input type="file" name="logo" placeholder="Choose image" id="picture" class="form-control mb-3"
                     accept="image/png">
                 @if (Request::segment(4) == 'edit')
-                <img src="{{ $data->preview_image }}" alt="" width="50%;">
+                    <img src="{{ $data->preview_image }}" alt="" width="50%;">
                 @else
-                <img id="preview-image-before-upload" src="{{ asset('noimage.png') }}" alt="preview image"
-                    style="max-height: 250px;">
+                    <img id="preview-image-before-upload" src="{{ asset('noimage.png') }}" alt="preview image"
+                        style="max-height: 250px;">
                 @endif
             </div>
         </div>
-
-
-        {{-- <div class="col-6">
-            <label class="col-form-label col-lg-6">Logo Usaha</label>
-            <div class="col-lg-10">
-                <input type="file" name="logo" accept="image/png, image/gif, image/jpeg" />
-            </div>
-        </div> --}}
     </div>
+
 </fieldset>
 
 <div class="d-flex justify-content-between align-items-center">
@@ -237,39 +261,38 @@
 </div>
 
 @push('after-script')
-<script>
-    $('#kecamatan').change(function () {
-        var kelurahan = $(this).val();
-        $.ajax({
-            type: "GET",
-            url: "{{ route('kelurahan') }}?kelurahan=" + kelurahan,
-            success: function (res) {
-                $("#kelurahan").empty();
-                $("#kelurahan").append('<option value="">Pilih Kelurahan</option>');
-                $.each(res, function (key, value) {
-                    $("#kelurahan").append('<option value="' + key + '">' + value +
-                        '</option>');
-                });
-            }
+    <script>
+        $('#kecamatan').change(function() {
+            var kelurahan = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "{{ route('kelurahan') }}?kelurahan=" + kelurahan,
+                success: function(res) {
+                    $("#kelurahan").empty();
+                    $("#kelurahan").append('<option value="">Pilih Kelurahan</option>');
+                    $.each(res, function(key, value) {
+                        $("#kelurahan").append('<option value="' + key + '">' + value +
+                            '</option>');
+                    });
+                }
+            });
         });
-    });
-</script>
+    </script>
 
-<script type="text/javascript">
-    $(document).ready(function (e) {
-        $('#picture').change(function () {
-            console.log('berubah');
-            let reader = new FileReader();
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#picture').change(function() {
+                console.log('berubah');
+                let reader = new FileReader();
 
-            reader.onload = (e) => {
+                reader.onload = (e) => {
 
-                $('#preview-image-before-upload').attr('src', e.target.result);
-            }
+                    $('#preview-image-before-upload').attr('src', e.target.result);
+                }
 
-            reader.readAsDataURL(this.files[0]);
+                reader.readAsDataURL(this.files[0]);
 
+            });
         });
-    });
-</script>
-
+    </script>
 @endpush

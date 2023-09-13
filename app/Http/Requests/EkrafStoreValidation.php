@@ -43,7 +43,8 @@ class EkrafStoreValidation extends FormRequest
             'nomor_hp' => 'required|numeric',
             'jml_tenaga_laki' => 'required|numeric',
             'jml_tenaga_perempuan' => 'required|numeric',
-            'nib' => 'required'
+            'nib' => 'required',
+            'npwp' => 'required',
         ];
     }
 }

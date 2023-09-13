@@ -19,8 +19,8 @@ class PelakuWisataController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Pariwisata";
-        $submenu = "Ekraf Perorangan";
+        $menu = "Data Pelaku Wisata";
+        $submenu = "";
 
         if ($request->ajax()) {
             $data = PelakuWisata::orderBy('nama_usaha', 'ASC');
@@ -51,10 +51,10 @@ class PelakuWisataController extends Controller
      */
     public function create(Request $request)
     {
-        $menu = "Pelaku Wisata Perorangan";
-        $submenu = "List Pelaku Wisata Perorangan";
-        $subsubmenu = "Tambah Pelaku Wisata Perorangan";
-        $title = "Tambah Data Pelaku Wisata Perorangan";
+        $menu = "Data Pelaku Wisata";
+        $submenu = "";
+        $subsubmenu = "Tambah Data Pelaku Wisata";
+        $title = "Tambah Data Pelaku Wisata";
         $uspar = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'asc')->pluck('jenis_usaha', 'id');
 
         if ($request->ajax()) {
@@ -111,8 +111,13 @@ class PelakuWisataController extends Controller
             'organisasi_id' => $request->organisasi_id,
             'nomor_hp' => $request->nomor_hp,
             'npwp' => $request->npwp,
-            'jml_tenaga' => $request->jml_tenaga,
+            'jml_tenaga_perempuan' => $request->jml_tenaga_perempuan,
+            'jml_tenaga_laki' => $request->jml_tenaga_laki,
+            'asosiasi' => $request->asosiasi,
+            'izin_dimiliki' => $request->izin_dimiliki,
             'nib' => $request->nib,
+            'lng' => $request->lng,
+            'ltd' => $request->ltd,
             'tgl_nib' => $request->tgl_nib,
             'logo' => $path ?? '',
         ]);
@@ -134,9 +139,9 @@ class PelakuWisataController extends Controller
     {
         $data = PelakuWisata::find($id);
         $subsektornya = SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $id)->get()->pluck('subsektornya.id');
-        $menu = "Pelaku Wisata Perorangan";
-        $submenu = "List Pelaku Wisata Perorangan";
-        $title = "Detail Pelaku Wisata Perorangan";
+        $menu = "Pelaku Wisata";
+        $submenu = "Detail Pelaku Wisata";
+        $title = "";
         $subsektor = Subsektor::orderBy('nama_subsektor', 'asc')->pluck('nama_subsektor', 'id');
 
         if ($request->ajax()) {
@@ -171,9 +176,9 @@ class PelakuWisataController extends Controller
     {
         $data = PelakuWisata::find($id);
         $usparnya = SubsektorPelakuWisata::with('subsektornya')->where('pelaku_wisata_id', $id)->get()->pluck('subsektornya.id');
-        $menu = "Pelaku Wisata Perorangan";
-        $submenu = "List Pelaku Wisata Perorangan";
-        $title = "Edit Pelaku Wisata Perorangan";
+        $menu = "Data Pelaku Wisata";
+        $submenu = "Edit Pelaku Wisata";
+        $title = "";
         $uspar = MasterDataUsahaPariwisata::orderBy('jenis_usaha', 'asc')->pluck('jenis_usaha', 'id');
 
         return view('admin.pelaku-wisata.edit', compact('menu', 'submenu', 'data', 'uspar', 'title', 'usparnya'));

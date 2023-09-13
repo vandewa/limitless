@@ -14,4 +14,9 @@ class MasterDataUsahaPariwisata extends Model
     {
         return $this->hasMany(Uspar::class);
     }
+
+    public function usahaPar()
+    {
+        return $this->hasMany(SubsektorPelakuWisata::class, 'pelaku_wisata_id');
+    }
 }

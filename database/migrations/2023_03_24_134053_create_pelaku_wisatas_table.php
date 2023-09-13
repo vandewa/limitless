@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -31,10 +30,13 @@ return new class extends Migration
             $table->string('nama_merek')->nullable();
             $table->string('organisasi_id')->nullable();
             $table->string('nomor_hp')->nullable();
-            $table->integer('jml_tenaga')->nullable();
+            $table->integer('jml_tenaga_laki')->nullable();
+            $table->integer('jml_tenaga_perempuan')->nullable();
             $table->string('npwp')->nullable();
             $table->string('logo')->nullable();
             $table->string('nib')->nullable();
+            $table->string('izin_dimiliki')->nullable();
+            $table->string('asosiasi')->nullable();
             $table->date('tgl_nib')->nullable();
             $table->timestamps();
         });

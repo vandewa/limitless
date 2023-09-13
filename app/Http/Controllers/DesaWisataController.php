@@ -17,8 +17,8 @@ class DesaWisataController extends Controller
      */
     public function index(Request $request)
     {
-        $menu = "Data";
-        $submenu = "Desa Wisata";
+        $menu = "Desa Wisata";
+        $submenu = "";
 
         if ($request->ajax()) {
             $data = DesaWisata::with(['kecamatan', 'kelurahan'])->select("*");
@@ -49,7 +49,10 @@ class DesaWisataController extends Controller
      */
     public function create()
     {
-        return view('admin.desa-wisata.create');
+        $menu = "Desa Wisata";
+        $submenu = "Tambah Desa Wisata";
+
+        return view('admin.desa-wisata.create', compact('menu', 'submenu'));
     }
 
     /**
@@ -73,8 +76,11 @@ class DesaWisataController extends Controller
      */
     public function show($id)
     {
+        $menu = "Desa Wisata";
+        $submenu = "Detail Desa Wisata";
+
         $data = DesaWisata::find($id);
-        return view('admin.desa-wisata.show', compact('data'));
+        return view('admin.desa-wisata.show', compact('data', 'menu', 'submenu'));
     }
 
     /**
@@ -85,8 +91,11 @@ class DesaWisataController extends Controller
      */
     public function edit($id)
     {
+        $menu = "Desa Wisata";
+        $submenu = "Edit Desa Wisata";
+
         $data = DesaWisata::with(['kecamatan', 'kelurahan'])->find($id);
-        return view('admin.desa-wisata.edit', compact('data'));
+        return view('admin.desa-wisata.edit', compact('data', 'submenu', 'menu'));
     }
 
     /**
