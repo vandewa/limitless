@@ -6,9 +6,13 @@ use App\Models\MasterDataUsahaPariwisata;
 use Livewire\Component;
 use Asantibanez\LivewireCharts\Facades\LivewireCharts;
 use App\Models\Subsektor;
+use App\Models\KunjunganLokasiWisata;
+use DB;
 
 class DashboardData extends Component
 {
+
+    public $tahun, $listTahun;
     public $color;
     public $firstRun = true;
     public $showDataLabels = true;
@@ -27,7 +31,7 @@ class DashboardData extends Component
         // Kuning
         "#000000",
         // Hitam
-        "#FFFFFF",
+        "#094b63",
         // Putih
         "#FFA500",
         // Oranye
@@ -50,8 +54,54 @@ class DashboardData extends Component
 
     protected $index = -1;
 
+    public function mount() {
+        $this->listTahun = KunjunganLokasiWisata::select('tahun')->distinct()->get()->toArray();
+    }
+
+    public function tampilkan()  {
+        dd("asd");
+    }
+
     public function render()
     {
+
+
+        // pendapatan
+ // pendapatan
+        $kunjungan = KunjunganLokasiWisata::select(DB::raw("
+        bulan, tahun, sum(kunjungan) as jumlah
+        "));
+
+        if($this->tahun) {
+        $kunjungan->where('tahun', $this->tahun);
+        } else {
+        $kunjungan->where('tahun', date('Y'));
+        }
+
+        $dataKunjungan = $kunjungan->groupBy(DB::Raw("bulan, tahun"))->get();
+
+        $columnChartModel = $dataKunjungan
+        ->reduce(function ($columnChartModel, $data) {
+            $type = $data->bulan." - ".$data->tahun;
+            $value = $data->jumlah;
+            $this->index = $this->index + 1;
+
+            return $columnChartModel->addColumn($type, $value, $this->colors[$this->index]);
+        }, LivewireCharts::columnChartModel()
+            ->setTitle('Akumulasi Jumlah Kunjungan')
+            ->setAnimated($this->firstRun)
+            ->withOnColumnClickEventName('onColumnClick')
+            ->setLegendVisibility(false)
+            ->setDataLabelsEnabled($this->showDataLabels)
+            //->setOpacity(0.25)
+            // ->setColors(['#b01a1b', '#d41b2c', '#ec3c3b', '#f66665'])
+            ->setColumnWidth(90)
+            ->withGrid()
+        );
+        $this->index = -1;
+
+
+
         $subsektor = Subsektor::withCount('ekraf')->get();
         $this->color = $subsektor;
         $pieChartModel = $subsektor
@@ -61,7 +111,7 @@ class DashboardData extends Component
                     $value = $data->ekraf_count;
                     $warna = $data->color;
                     // dd($data->ekraf_count);
-        
+
                     return $pieChartModel->addSlice($type, $value, $warna);
                 }, LivewireCharts::pieChartModel()
                     //->setTitle('Expenses by Type')
@@ -90,7 +140,7 @@ class DashboardData extends Component
                     $this->index = $this->index + 1;
                     // $warna = $data2->color;
                     // $rand = str_pad(dechex(rand(0x000000, 0xFFFFFF)), 6, 0, STR_PAD_LEFT);
-        
+
 
                     return $pieChartModel2->addSlice($type, $value, $this->colors[$this->index]);
                 }, LivewireCharts::pieChartModel()
@@ -110,6 +160,7 @@ class DashboardData extends Component
         $this->index = -1;
 
         return view('livewire.dashboard-data')->with([
+            'columnChartModel' => $columnChartModel,
             'pieChartModel' => $pieChartModel,
             'pieChartModel2' => $pieChartModel2,
             'subsektor' => $subsektor,
