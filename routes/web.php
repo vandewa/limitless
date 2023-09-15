@@ -41,6 +41,8 @@ Auth::routes();
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/list-subsektor/{id}', [FrontController::class, 'listSubsektor'])->name('list.subsektor');
 Route::get('/list-uspar/{id}', [FrontController::class, 'listUspar'])->name('list.uspar');
+Route::get('kunjungan-wisata/create', [KunjunganLokasiWisataController::class, 'create'])->name('kunjungan-wisata.create');
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -78,7 +80,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/serti2/list/{id}', [SertiController::class, 'serti2'])->name('serti2.list');
     Route::get('/certificate/list/{id}', [CertificateController::class, 'certificate'])->name('certificate.list');
     Route::get('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'index'])->name('kunjungan-wisata.index');
-    Route::get('kunjungan-wisata/create', [KunjunganLokasiWisataController::class, 'create'])->name('kunjungan-wisata.create');
     Route::post('kunjungan-wisata', [KunjunganLokasiWisataController::class, 'store'])->name('kunjungan-wisata.store');
     Route::post('serti', [SertiController::class, 'store2'])->name('serti.store2');
 });

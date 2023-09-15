@@ -42,6 +42,7 @@ class KunjunganLokasiWisataController extends Controller
     public function create(Request $request)
     {
         $lokasi = LokasiWisata::find($request->lokasi_id);
+        
         return view('admin.kunjungan-wisata.create', compact('lokasi'));
     }
 
