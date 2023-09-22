@@ -35,7 +35,7 @@
         <div class="col-6">
             <label class="col-form-label col-lg-6">TANGGAL LAHIR</label>
             <div class="col-lg-10">
-                {!! Form::text('tanggal_lahir', null, ['class' => 'form-control daterange-single']) !!}
+                {!! Form::date('tanggal_lahir', null, ['class' => 'form-control']) !!}
             </div>
         </div>
         <div class="col-6">

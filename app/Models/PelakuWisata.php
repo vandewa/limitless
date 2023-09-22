@@ -20,15 +20,15 @@ class PelakuWisata extends Model
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
     }
-    public function setTanggalLahirAttribute($value)
-    {
-        $this->attributes['tanggal_lahir'] = date('Y-m-d', strtotime($value));
-    }
+    // public function setTanggalLahirAttribute($value)
+    // {
+    //     $this->attributes['tanggal_lahir'] = date('Y-m-d', strtotime($value));
+    // }
 
-    public function getTanggalLahirAttribute($value)
-    {
-        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
-    }
+    // public function getTanggalLahirAttribute($value)
+    // {
+    //     return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
+    // }
 
     public function subsektorEkraf()
     {
