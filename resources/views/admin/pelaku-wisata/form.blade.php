@@ -20,7 +20,7 @@
             <div class="col-lg-10">
                 {!! Form::select('jenis_kelamin', get_code_group('JENIS_KELAMIN_ST'), null, [
                     'class' => 'form-control
-                                                                                                                select-search',
+                                                                                                                                select-search',
                 ]) !!}
             </div>
         </div>
@@ -100,13 +100,13 @@
                     {{ Form::select('kelurahan', [], null, [
                         'class' => 'form-control select-search',
                         'placeholder' => 'Pilih
-                                                                                                                                        Kelurahan',
+                                                                                                                                                            Kelurahan',
                         'id' => 'kelurahan',
                     ]) }}
                 @else
                     {{ Form::select('kelurahan', get_kel($data->kecamatan), $data->kelurahan, [
                         'class' => 'form-control
-                                                                                                                                        select-search',
+                                                                                                                                                            select-search',
                         'placeholder' => 'Pilih Kelurahan',
                         'id' => 'kelurahan',
                     ]) }}
@@ -121,13 +121,13 @@
                 @if (Request::segment(3) == 'create')
                     {!! Form::select('subsektor_id', $uspar, null, [
                         'class' => 'form-control
-                                                                                                                                        select-search',
+                                                                                                                                                            select-search',
                         'placeholder' => 'Pilih Usaha Pariwisata',
                     ]) !!}
                 @else
                     {!! Form::select('subsektor_id', $uspar, $usparnya, [
                         'class' => 'form-control
-                                                                                                                                        select-search',
+                                                                                                                                                            select-search',
                         'placeholder' => 'Pilih Usaha Pariwisata',
                     ]) !!}
                 @endif
@@ -138,7 +138,7 @@
             <div class="col-lg-10">
                 {!! Form::select('jenis_barang_jasa', get_code_group('BARANG_ST'), null, [
                     'class' => 'form-control
-                                                                                                                select-search',
+                                                                                                                                select-search',
                 ]) !!}
             </div>
         </div>
@@ -244,7 +244,8 @@
                 <input type="file" name="logo" placeholder="Choose image" id="picture" class="form-control mb-3"
                     accept="image/png">
                 @if (Request::segment(4) == 'edit')
-                    <img src="{{ $data->preview_image }}" alt="" width="50%;">
+                    <img src="{{ route('helper.show-picture', ['path' => $data->logo]) }}" alt=""
+                        width="50%;">
                 @else
                     <img id="preview-image-before-upload" src="{{ asset('noimage.png') }}" alt="preview image"
                         style="max-height: 250px;">

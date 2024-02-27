@@ -89,7 +89,7 @@ class PelakuWisataController extends Controller
     {
         if ($request->file('logo')) {
             $path = $request->file('logo')->storeAs(
-                'public/' . Carbon::now()->isoFormat('MMMM'),
+                'siparekraf/public/' . Carbon::now()->isoFormat('MMMM'),
                 date('Ymdhis') . '.' . $request->file('logo')->extension()
             );
         }
@@ -199,7 +199,7 @@ class PelakuWisataController extends Controller
 
         if ($request->file('logo')) {
             $path = $request->file('logo')->storeAs(
-                'public/' . Carbon::now()->isoFormat('MMMM'),
+                'siparekraf/public/' . Carbon::now()->isoFormat('MMMM'),
                 date('Ymdhis') . '.' . $request->file('logo')->extension()
             );
         }
