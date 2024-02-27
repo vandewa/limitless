@@ -14,4 +14,9 @@ class LokasiWisata extends Model
     {
         return $this->hasOne(ComCode::class, 'code_cd', 'lokasi_wisata_tp');
     }
+
+    public function kunjungannya()
+    {
+        return $this->hasMany(KunjunganLokasiWisata::class);
+    }
 }

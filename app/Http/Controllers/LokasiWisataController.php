@@ -131,6 +131,9 @@ class LokasiWisataController extends Controller
      */
     public function destroy($id)
     {
-        LokasiWisata::destroy($id);
+        $data = LokasiWisata::find($id);
+        $data->kunjungannya()->delete();
+
+        return $data->delete();
     }
 }

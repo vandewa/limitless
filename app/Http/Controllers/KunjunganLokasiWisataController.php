@@ -23,7 +23,7 @@ class KunjunganLokasiWisataController extends Controller
         $lokasi = LokasiWisata::find($request->lokasi_id);
 
         if ($request->ajax()) {
-            $data = KunjunganLokasiWisata::select("*");
+            $data = KunjunganLokasiWisata::where('lokasi_wisata_id', $request->lokasi_id)->select("*");
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('bulan', function ($a) {
@@ -31,6 +31,7 @@ class KunjunganLokasiWisataController extends Controller
                 })
                 ->make(true);
         }
+        
         return view('admin.kunjungan-wisata.index', compact('menu', 'submenu', 'lokasi'));
     }
 
@@ -42,6 +43,7 @@ class KunjunganLokasiWisataController extends Controller
     public function create(Request $request)
     {
         $lokasi = LokasiWisata::find($request->lokasi_id);
+
         return view('admin.kunjungan-wisata.create', compact('lokasi'));
     }
 
